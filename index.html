@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>洪益華的專案與技能分享</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #0056b3;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .skill-bar-container {
+      margin: 15px 0;
+    }
+    .skill-label {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .skill-bar {
+      background: #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 28px;
+      width: 100%;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      padding: 0 12px;
+      font-weight: bold;
+      border-radius: 12px 0 0 12px;
+      white-space: nowrap;
+    }
+    .html { background-color: #d9534f; }
+    .hardware { background-color: #20c997; }
+    .python { background-color: #337ab7; }
+    .powerbi { background-color: #5cb85c; }
+    .github { background-color: #f0ad4e; color: #333; }
+    .excel { background-color: #217346; }
+    .word { background-color: #2a71d0; }
+    .ppt { background-color: #d24726; }
+    .vb { background-color: #6f42c1; }
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .chart-box {
+      width: 320px;
+      height: 320px;
+    }
+    .info-block {
+      margin-bottom: 20px;
+    }
+    .info-block h3 {
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      color: #003366;
+    }
+    .info-list {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .job-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .job-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+    .job-title {
+      font-weight: bold;
+      color: #333;
+    }
+    .job-info {
+      color: #666;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+<h1>洪益華的專案與技能分享</h1>
+
+<section>
+  <h2>📊 專案實作與成果展示</h2>
+  <p>詐騙行為分析專案已公開於 GitHub Pages：  
+    <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer">
+      https://yihua0988.github.io/-2025-7-29-/
+    </a>
+  </p>
+  <p>專案中利用 Power BI 分析了詐騙案件類型分佈、時間趨勢與關聯分析等互動式視覺化報表，並內嵌於專案網站中，方便即時展示與分享。</p>
+</section>
+
+<section>
+  <h2>💡 技能分析與工具應用說明</h2>
+  <p>我在專案中使用多項工具並累積以下技能，依據經驗與應用程度排序如下：</p>
+
+  <div class="skill-bar-container">
+    <div class="skill-label">HTML — 95%</div>
+    <div class="skill-bar"><div class="skill-bar-fill html" style="width: 95%;">95%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">硬體維修能力 — 95%</div>
+    <div class="skill-bar"><div class="skill-bar-fill hardware" style="width: 95%;">95%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">Python — 90%</div>
+    <div class="skill-bar"><div class="skill-bar-fill python" style="width: 90%;">90%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">Power BI — 85%</div>
+    <div class="skill-bar"><div class="skill-bar-fill powerbi" style="width: 85%;">85%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">GitHub — 75%</div>
+    <div class="skill-bar"><div class="skill-bar-fill github" style="width: 75%;">75%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">Excel — 65%</div>
+    <div class="skill-bar"><div class="skill-bar-fill excel" style="width: 65%;">65%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">Word — 60%</div>
+    <div class="skill-bar"><div class="skill-bar-fill word" style="width: 60%;">60%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">PowerPoint — 60%</div>
+    <div class="skill-bar"><div class="skill-bar-fill ppt" style="width: 60%;">60%</div></div>
+  </div>
+  <div class="skill-bar-container">
+    <div class="skill-label">Visual Basic — 40%</div>
+    <div class="skill-bar"><div class="skill-bar-fill vb" style="width: 40%;">40%</div></div>
+  </div>
+
+  <h3>工具與應用說明</h3>
+  <ul>
+    <li><strong>Python</strong>：資料抓取與處理（pandas、selenium、requests）</li>
+    <li><strong>Excel</strong>：資料整理與清洗</li>
+    <li><strong>Power BI</strong>：報表設計與部署</li>
+    <li><strong>GitHub</strong>：版本控制與專案展示</li>
+    <li><strong>HTML</strong>：網站製作與 Power BI 報表嵌入</li>
+    <li><strong>ChatGPT</strong>：文字撰寫與簡報優化</li>
+    <li><strong>PowerPoint</strong>：簡報製作</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📜 具備證照與學經歷</h2>
+
+  <div class="info-block">
+    <h3>🎓 學歷</h3>
+    <ul class="info-list">
+      <li>國立臺中科技大學 假日二專班 應用日文系（畢業）</li>
+      <li>台中高工 微電腦修護科（畢業）</li>
+    </ul>
+  </div>
+
+  <div class="info-block">
+    <h3>🗣 語言能力</h3>
+    <ul class="info-list">
+      <li>日語：JLPT N2（已通過）</li>
+      <li>英語：具基本閱讀與溝通能力</li>
+    </ul>
+  </div>
+
+  <div class="info-block">
+    <h3>🔧 技能與證照</h3>
+    <ul class="info-list">
+      <li>資訊類：乙級電腦硬體裝修技術士、丙級網頁設計技術士</li>
+      <li>電機類：丙級室內配線、防火管理員、乙種職業安全衛生業務主管</li>
+      <li>金融保險類：產險、壽險、外幣與投資型保單銷售人員</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 📊 工作經歷統計移到這裡 -->
+<section>
+  <h2>📊 工作經歷統計（約 8 年）</h2>
+  <div class="chart-container">
+    <div class="chart-box">
+      <h3>產業別分佈</h3>
+      <canvas id="industryChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>工作性質分佈</h3>
+      <canvas id="jobTypeChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🎯 未來發展方向</h2>
+  <p>我計劃進一步進修台中科技大學資訊管理系，結合目前在金融與資訊領域的經驗，發展跨領域的專業能力。希望能將資料分析、系統整合與硬體維修能力應用於金融科技、風險管理等實務工作中，並持續提升自己的技術與邏輯分析能力。</p>
+</section>
+
+<section>
+  <h2>📬 聯絡方式</h2>
+  <p>Email: <a href="mailto:yihua0988@gmail.com">yihua0988@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/yihua0988" target="_blank">https://github.com/yihua0988</a></p>
+</section>
+
+<script>
+  // 圖表 1：產業別
+  new Chart(document.getElementById('industryChart'), {
+    type: 'pie',
+    data: {
+      labels: ['百貨服務業', '飯店業', 'KTV 娛樂', '客服'],
+      datasets: [{
+        data: [49, 9, 14, 10],
+        backgroundColor: ['#5cb85c', '#f0ad4e', '#5bc0de', '#d9534f']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: {
+          callbacks: {
+            label: context => `${context.label}: ${context.parsed} 個月`
+          }
+        }
+      }
+    }
+  });
+
+  // 圖表 2：工作性質
+  new Chart(document.getElementById('jobTypeChart'), {
+    type: 'pie',
+    data: {
+      labels: ['工務機電', '設備維護', '客服'],
+      datasets: [{
+        data: [40, 23, 10],
+        backgroundColor: ['#0275d8', '#20c997', '#f7a35c']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: {
+          callbacks: {
+            label: context => `${context.label}: ${context.parsed} 個月`
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
