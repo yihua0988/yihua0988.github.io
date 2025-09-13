@@ -13,8 +13,6 @@ https://yihua0988.github.io/-2025-7-29-/
 ## 目錄 / Table of Contents
 - [中文介紹](#中文介紹)
 - [English Introduction](#english-introduction)
-- [檔案說明 / Files](#檔案說明--files)
-- [如何預覽 / Preview locally](#如何預覽--preview-locally)
 - [聯絡方式 / Contact]
 
 ---
@@ -124,17 +122,3 @@ Currently studying Applied Japanese; planning to transfer to the **Information M
 - Email: [yihua0988@gmail.com](mailto:yihua0988@gmail.com)  
 - GitHub: https://github.com/yihua0988
 
----
-
-## 檔案說明 / Files
-- `index.html` — 主頁（已包含內嵌 CSS 與 Chart.js CDN）  
-- （如需）`README.md` — 本檔案  
-- 其他靜態資源（若有）：圖片、Power BI 嵌入連結等
-
----
-
-## 如何預覽 / Preview locally
-1. 將專案 clone 到本地：  
-   ```bash
-   git clone https://github.com/yihua0988/your-repo.git
-   cd your-repo
