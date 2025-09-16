@@ -40,6 +40,7 @@ https://yihua0988.github.io/-2025-7-29-/
 - **GitHub**：版本控制與專案展示  
 - **HTML**：網站製作與 Power BI 報表嵌入  
 - **ChatGPT**：文字撰寫與簡報優化
+- **PowerPoint**: 簡報製作
 
 ### 📜 學歷與證照
 **學歷**
@@ -93,6 +94,7 @@ Tools:
 - **GitHub**: Version control and project showcase  
 - **HTML**: Website creation and embedding Power BI reports  
 - **ChatGPT**: Content writing and presentation improvement
+- **PowerPoint**: Presentation Creation
 
 ### 📜 Education & Certifications
 **Education**
