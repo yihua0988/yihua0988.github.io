@@ -39,8 +39,8 @@ https://yihua0988.github.io/-2025-7-29-/
 - **Power BI**：報表設計與部署  
 - **GitHub**：版本控制與專案展示  
 - **HTML**：網站製作與 Power BI 報表嵌入  
-- **Chart.js**：網站內部圖表繪製（產業別、工作性質）  
 - **ChatGPT**：文字撰寫與簡報優化
+- **PowerPoint**: 簡報製作
 
 ### 📜 學歷與證照
 **學歷**
@@ -93,8 +93,8 @@ Tools:
 - **Power BI**: Report design and deployment  
 - **GitHub**: Version control and project showcase  
 - **HTML**: Website creation and embedding Power BI reports  
-- **Chart.js**: Client-side charts for industry & job-type distribution  
 - **ChatGPT**: Content writing and presentation improvement
+- **PowerPoint**: Presentation Creation
 
 ### 📜 Education & Certifications
 **Education**
