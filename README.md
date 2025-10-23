@@ -2,9 +2,9 @@
 
 ---
 
-## 網站 / Demo
-詐騙行為分析專案已公開於 GitHub Pages：  
-https://yihua0988.github.io/-2025-7-29-/
+## 網站 / index
+個人首頁已公開於 GitHub：  
+https://yihua0988.github.io/
 
 此網站為靜態頁面（`index.html`），使用 Chart.js 繪製工作經歷統計圖（產業別、工作性質），並以內嵌樣式與導覽列展示個人技能、學經歷與專案說明。
 
