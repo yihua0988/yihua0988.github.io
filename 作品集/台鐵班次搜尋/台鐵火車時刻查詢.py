@@ -1,3 +1,6 @@
+"""
+利用openpyxl先開啟"台鐵車站代碼.pdf"尋找要出發及抵達的站代碼，再用requests抓取自行輸入的時間區間"自強號"班次及票價(有利用platform可以讓全部作業系統都是用這個程式)
+"""
 import requests
 from bs4 import BeautifulSoup
 import openpyxl

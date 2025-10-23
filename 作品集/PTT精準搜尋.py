@@ -1,3 +1,8 @@
+"""
+用selenium動態轉換頁面等，再用requests抓取搜尋ptt.cc搜尋的目標標題
+"""
+
+
 import logging
 logging.basicConfig(level=logging.INFO)
 from selenium import webdriver

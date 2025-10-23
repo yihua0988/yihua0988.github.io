@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun  6 15:26:15 2025
-@author: student
+利用selenium動態搜尋及requests靜態抓取在yahoo news，複數的關鍵字搜尋想要找的新聞
 """
 
 import requests

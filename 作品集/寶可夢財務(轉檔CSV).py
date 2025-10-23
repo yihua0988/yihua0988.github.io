@@ -1,3 +1,6 @@
+"""
+另用python程式轉化資料為csv
+"""
 import csv
 
 # 假設的匯率 1 USD = 135 JPY

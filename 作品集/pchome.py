@@ -1,3 +1,6 @@
+"""
+利用requests找出在pchome網站上更符合自己需求的商品
+"""
 import requests
 import time
 
