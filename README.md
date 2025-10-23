@@ -2,7 +2,7 @@
 
 ---
 
-## 網站 / index
+## 網站 / Index
 個人首頁已公開於 GitHub：  
 https://yihua0988.github.io/
 
