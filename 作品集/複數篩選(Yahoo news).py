@@ -1,60 +1,88 @@
 # -*- coding: utf-8 -*-
 """
-利用selenium動態搜尋及requests靜態抓取在yahoo news，複數的關鍵字搜尋想要找的新聞
+Yahoo News 搜尋多關鍵字 + 篩選 + 時間抓取
+支援：
+1. 滾動載入 + 點擊「更多新聞」
+2. 分頁抓取
+3. 篩選條件 any/all
+4. 抓取文章發佈時間
 """
 
+import os
 import requests
 from bs4 import BeautifulSoup
 import time
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
 
-def fetch_news(keyword):
-    url = f"https://tw.news.yahoo.com/search?p={keyword}&fr=uh3_news_web"
+# ===== 隱藏所有雜訊輸出 =====
+os.environ['WDM_LOG_LEVEL'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['PYTHONWARNINGS'] = 'ignore'
 
+
+def fetch_news(keyword, max_pages=5):
+    """抓取 Yahoo News 搜尋結果，多頁抓取"""
+    base_url = f"https://tw.news.yahoo.com/search?p={keyword}"
+
+    # ---- Chrome 啟動設定 ----
     options = Options()
-    options.add_argument("--headless")
+    options.add_argument("--headless=new")  # 新版 headless
     options.add_argument("--disable-gpu")
+    options.add_argument("--disable-webgl")  # 避免 WebGL 錯誤
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
+    options.add_argument("--log-level=3")  # 只顯示嚴重錯誤
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])  # 隱藏 DevTools
+    options.add_argument("--disable-logging")
+
     service = Service(executable_path="C:/chromedriver/chromedriver.exe")
 
+    # ---- 建立瀏覽器 ----
     driver = webdriver.Chrome(service=service, options=options)
-    driver.get(url)
+    driver.get(base_url)
     time.sleep(2)
 
-    print("開始模擬滑鼠滾輪向下滾動載入新聞...")
+    print("開始模擬滾動 + 點擊更多新聞...")
 
     action = ActionChains(driver)
-    start_time = time.time()
-    max_wait = 30 
-    last_height = driver.execute_script("return document.body.scrollHeight")
+    all_news = []
 
-    while True:
-        action.scroll_by_amount(0, 300).perform()  
-        time.sleep(0.5)  
+    for page in range(max_pages):
+        last_height = driver.execute_script("return document.body.scrollHeight")
+        scroll_start = time.time()
+        max_wait = 10
 
-        new_height = driver.execute_script("return document.body.scrollHeight")
-
-        if new_height > last_height:
-            last_height = new_height
-            start_time = time.time()  
-        else:
-            if time.time() - start_time > max_wait:
+        while True:
+            action.scroll_by_amount(0, 800).perform()
+            time.sleep(0.5)
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height > last_height:
+                last_height = new_height
+                scroll_start = time.time()
+            elif time.time() - scroll_start > max_wait:
                 break
 
-    print("滾動結束，開始抓取新聞資料...")
+        # 嘗試點擊「更多新聞」
+        try:
+            more_btn = driver.find_element(By.XPATH, '//button[contains(text(),"更多新聞")]')
+            more_btn.click()
+            time.sleep(2)
+        except NoSuchElementException:
+            break
 
+    # 擷取新聞列表
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.quit()
 
-    news_items = soup.find_all("h3", class_="Mb(5px)")
+    news_items = soup.select("li div h3 a")
     results = []
-    for h3 in news_items:
-        a = h3.find("a")
+    for a in news_items:
         if a and a.text.strip():
             title = a.text.strip()
             href = a.get("href", "")
@@ -101,8 +129,8 @@ def main():
         print("你沒有輸入關鍵字，程式結束。")
         return
 
-    print("正在使用 Selenium 開啟新聞搜尋頁，並模擬滑動載入全部結果...")
-    news_list = fetch_news(keyword)
+    print("正在使用 Selenium 開啟新聞搜尋頁，並模擬滾動 + 點擊更多新聞...")
+    news_list = fetch_news(keyword, max_pages=10)
     if not news_list:
         print("找不到任何新聞。")
         return
@@ -125,7 +153,6 @@ def main():
         print("輸入錯誤，請輸入 'any' 或 'all'，或直接按 Enter 使用預設 'any'。")
 
     filtered_news = [n for n in news_list if match_title(n["title"], filter_keywords, mode)]
-
     if not filtered_news:
         print("沒有找到符合條件的新聞。")
         return
