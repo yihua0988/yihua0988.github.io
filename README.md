@@ -1,124 +1,89 @@
-# 洪益華的專案與技能分享 / Project & Skills of Yihua Hong
+# 洪益華 (Saka) | 斜槓五職整合專家 & 數據分析師
+> **Slash Specialist | Financial Consultant | Data Analyst**
+
+[![Personal Website](https://img.shields.io/badge/🌐_Website-Live_Demo-00f2c3?style=for-the-badge&logo=google-chrome&logoColor=black)](https://yihua0988.github.io/)
+[![Email](https://img.shields.io/badge/Gmail-Contact_Me-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yihua0988@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yihua0988)
 
 ---
 
-## 網站 / Index
-個人首頁已公開於 GitHub：  
-https://yihua0988.github.io/
+## 📖 關於我 / About Me
 
-此網站為靜態頁面（`index.html`），使用 Chart.js 繪製工作經歷統計圖（產業別、工作性質），並以內嵌樣式與導覽列展示個人技能、學經歷與專案說明。
+**我是洪益華 (Saka)，一名致力於解決問題的斜槓職人。**
+擁有 8 年以上跨產業實務經驗，目前專注於將 **數據分析技術 (Python/Power BI)** 導入金融與商業流程。同時經營多項實業服務，具備強大的執行力與跨領域整合能力。
 
----
+**I am Hung Yi-Hua (Saka), a problem-solving oriented slash specialist.**
+With over 8 years of cross-industry experience, I specialize in integrating **Data Analytics (Python/Power BI)** into financial and business processes. I also manage multiple practical services, demonstrating strong execution and cross-disciplinary integration skills.
 
-## 目錄 / Table of Contents
-- [中文介紹](#中文介紹)
-- [English Introduction](#english-introduction)
-- [聯絡方式 / Contact]
-
----
-
-## 中文介紹
-
-### 📊 專案實作與成果展示
-專案頁面（GitHub Pages）：  
-https://yihua0988.github.io/-2025-7-29-/
-
-專案中利用 **Power BI** 分析詐騙案件類型、時間趨勢與關聯分析，並將互動式報表嵌入網站；同時使用 Chart.js 在網站中顯示工作經歷（產業別、工作性質）統計視覺化圖表，方便即時展示與分享。
-
-### 💡 技能分析與工具應用
-- HTML — 95%  
-- 硬體維修能力 — 95%  
-- Python — 90%  
-- Power BI — 85%  
-- GitHub — 75%  
-- Excel / Word / PowerPoint / Visual Basic 等工具於專案中配合使用
-
-工具應用：
-- **Python**：資料抓取與處理（pandas、selenium、requests）  
-- **Excel**：資料整理與清洗  
-- **Power BI**：報表設計與部署  
-- **GitHub**：版本控制與專案展示  
-- **HTML**：網站製作與 Power BI 報表嵌入  
-- **ChatGPT**：文字撰寫與簡報優化
-- **PowerPoint**: 簡報製作
-
-### 📜 學歷與證照
-**學歷**
-- 國立臺中科技大學 假日二技班 應用日文系（在學）  
-- 國立臺中科技大學 假日二專班 應用日文科（畢業）  
-- 台中高工 微電腦修護科（資訊科夜間部）（畢業）
-
-**語言**
-- 日語：JLPT N2（已通過）  
-- 英語：具基本閱讀與溝通能力
-
-**證照**
-- 資訊類：乙級電腦硬體裝修技術士、丙級網頁設計技術士、ITS Python  
-- 電機類：丙級室內配線、防火管理員、乙種職業安全衛生業務主管  
-- 金融保險類：產險、壽險、外幣與投資型保單銷售人員
-
-### 📊 工作經歷統計（約 8 年）
-- **產業別**：百貨服務業、飯店業、視聽歌唱業、人才綜合服務事業  
-- **工作性質**：工務機電、設備維護、電話行銷  
-
-（網站中以 Chart.js 呈現：`industryChart`、`jobTypeChart`）
-
-### 🎯 未來發展方向
-目前進修應用日文系，未來規畫轉系至 **資訊管理系**至畢業，結合目前在金融與資訊領域的經驗，在工作中發展跨領域的專業能力；希望能將資料分析、系統整合與硬體維修能力應用於 **金融科技**、**風險管理** 等實務工作中，並持續提升技術與邏輯分析能力。  
-
-### 📬 聯絡方式
-- Email: [yihua0988@gmail.com](mailto:yihua0988@gmail.com)  
-- GitHub: https://github.com/yihua0988
+### 🚀 核心服務與專業 / Core Services
+| 🏠 **居家維修** | 🛡 **金融顧問** | 🖥 **資訊工程** | 🛵 **彈性物流** | 🌐 **網路服務** |
+|:---:|:---:|:---:|:---:|:---:|
+| 水電/硬體裝修 | 產壽險/風險規劃 | MIS/資安維護 | 快速外送服務 | 代練/技術支援 |
 
 ---
 
-## English Introduction
+## 📊 專案展示 / Featured Project
 
-### 📊 Project & Achievements
-The fraud behavior analysis project is published on GitHub Pages:  
-https://yihua0988.github.io/-2025-7-29-/
+### [🛡 近年詐騙防制資料分析 (Fraud Prevention Analysis)](https://yihua0988.github.io/-2025-7-29-/)
+> **Tech Stack:** Python, Power BI, GitHub Pages
 
-The project uses **Power BI** to analyze fraud case types, time trends, and correlations; interactive Power BI reports are embedded into the site. Chart.js is used for simple in-page charts showing work experience statistics (industry distribution and job types).
+利用政府開放資料 (Open Data) 建立的反詐騙數據儀表板。
+* **Python**: 負責資料清洗 (ETL)、網路爬蟲 (Selenium/Requests)。
+* **Power BI**: 建立互動式戰情室，視覺化高風險族群與詐騙手法趨勢。
+* **Web**: 將報表嵌入靜態網頁，提供公眾查詢與防制洞察。
 
-### 💡 Skills & Tools
-- HTML — 95%  
-- Hardware Maintenance — 95%  
-- Python — 90%  
-- Power BI — 85%  
-- GitHub — 75%
+**[👉 點擊查看專案 Live Demo](https://yihua0988.github.io/-2025-7-29-/)**
 
-Tools:
-- **Python**: Data scraping and processing (pandas, selenium, requests)  
-- **Excel**: Data cleaning and organizing  
-- **Power BI**: Report design and deployment  
-- **GitHub**: Version control and project showcase  
-- **HTML**: Website creation and embedding Power BI reports  
-- **ChatGPT**: Content writing and presentation improvement
-- **PowerPoint**: Presentation Creation
+---
 
-### 📜 Education & Certifications
-**Education**
-- National Taichung University of Science and Technology, Weekend College, Applied Japanese (In progress)  
-- National Taichung University of Science and Technology, Weekend College, Applied Japanese (Associate, Graduated)  
-- Taichung Industrial High School, Microcomputer Maintenance (Night program, Graduated)
+## 🛠 技術棧 / Tech Stack & Skills
 
-**Languages**
-- Japanese: JLPT N2 (Passed)  
-- English: Basic reading and communication skills
+### 💻 Programming & Tools
+![Python](https://img.shields.io/badge/Python-90%25-3776AB?style=flat-square&logo=python&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-95%25-E34F26?style=flat-square&logo=html5&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-85%25-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![VBA](https://img.shields.io/badge/Excel_VBA-85%25-217346?style=flat-square&logo=microsoft-excel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-75%25-F05032?style=flat-square&logo=git&logoColor=white)
 
-**Certifications**
-- IT: Computer Hardware Technician (Class B), Web Design Technician (Class C)  
-- Electrical: Indoor Wiring (Class C), Fire Safety Manager, Occupational Safety Supervisor (Class B)  
-- Insurance & Finance: Property, Life, Foreign Currency & Investment-linked policy salesperson
+### 🗣 Languages
+![Mandarin](https://img.shields.io/badge/Chinese-Native-blue?style=flat-square)
+![Japanese](https://img.shields.io/badge/Japanese-JLPT_N2-red?style=flat-square)
+![English](https://img.shields.io/badge/English-Basic-green?style=flat-square)
 
-### 📊 Work Experience Summary (~8 years)
-- **Industries**: Department stores, Hotels, KTV entertainment, Talent service industry  
-- **Job Types**: Electrical & mechanical maintenance, Equipment maintenance, Telemarketing
+---
 
-### 🎯 Future Development
-Currently studying Applied Japanese; planning to transfer to the **Information Management** department and complete the degree. By combining existing experience in finance and IT, I aim to develop cross-disciplinary professional skills in the workplace. I hope to apply data analysis, system integration, and hardware maintenance skills to **fintech**, **risk management**, and related practical fields, while continuously improving technical and logical analysis abilities.
+## 📜 經歷與認證 / Experience & Certifications
 
-### 📬 Contact
-- Email: [yihua0988@gmail.com](mailto:yihua0988@gmail.com)  
-- GitHub: https://github.com/yihua0988
+### 🎓 學歷 / Education
+* **國立臺中科技大學** - 應用日文系 (在學中 / In Progress)
+* **國立臺中科技大學** - 應用日文科 (畢業 / Graduated)
+* **台中高工** - 資訊科 (畢業 / Graduated)
 
+### 🏆 專業證照 / Certifications
+| 類別 (Category) | 證照名稱 (Certifications) |
+|:---|:---|
+| **資訊 (IT)** | 乙級電腦硬體裝修、ITS Python、丙級網頁設計 |
+| **工安 (Safety)** | 防火管理員、乙種職業安全衛生主管、丙級室內配線 |
+| **金融 (Finance)** | 產險、壽險、外幣、投資型保單銷售人員 |
+
+### 💼 工作經歷概要 / Work Experience Summary
+> **Total Experience: ~8 Years**
+
+* **Financial Consultant**: 保險規劃、風險管理、數據流程優化
+* **Service Industry**: 百貨/旅宿業現場管理 (Department Stores / Hotels)
+* **Engineering**: 機電維護、設備檢修 (Electrical & Mechanical Maintenance)
+
+---
+
+## 🎯 未來目標 / Future Goals
+目前進修於國立臺中科技大學，規劃轉系至 **資訊管理系 (Information Management)**。
+目標是結合「金融實務」與「資訊技術」，成為能開發 **FinTech 應用** 與 **風險管理系統** 的跨領域專才。
+
+Currently planning to transfer to the **Department of Information Management**. My goal is to bridge the gap between "Financial Practice" and "IT Technology," becoming a cross-disciplinary expert capable of developing **FinTech applications** and **Risk Management Systems**.
+
+---
+
+<div align="center">
+  <p>Created by Saka Hong | © 2026</p>
+  <a href="mailto:yihua0988@gmail.com">Contact Me</a>
+</div>
