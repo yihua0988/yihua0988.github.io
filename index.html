@@ -6,6 +6,27 @@
   
   <title>洪益華 (Saka) | 斜槓五職整合專家 & 數據分析師</title>
   <meta name="description" content="洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務，並具備 Python/Power BI 數據分析專業。" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "洪益華 (Saka)",
+    "url": "https://yihua0988.github.io/",
+    "image": "https://yihua0988.github.io/profile.jpg", 
+    "jobTitle": ["Financial Consultant", "Data Analyst", "Hardware Technician", "Slash Specialist"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Saka Slash Service"
+    },
+    "description": "洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務，並具備 Python/Power BI 數據分析專業。",
+    "knowsAbout": ["Python", "Power BI", "Data Analysis", "Home Maintenance", "Insurance Planning", "MIS", "HTML"],
+    "sameAs": [
+      "https://github.com/yihua0988",
+      "mailto:yihua0988@gmail.com"
+    ]
+  }
+  </script>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -53,7 +74,7 @@
       background-size: cover;
     }
 
-    /* --- 導覽列 --- */
+    /* --- 導覽列 (手機版自動折行) --- */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       padding: 15px 5%;
@@ -82,6 +103,8 @@
       height: 90vh; display: flex; align-items: center; justify-content: center;
       text-align: center; position: relative; padding-top: 80px;
     }
+    
+    /* 帥氣數據核心動畫 */
     .hero-visual-core {
         width: 220px; height: 220px; margin: 0 auto 50px;
         position: relative; display: flex; justify-content: center; align-items: center;
@@ -168,16 +191,18 @@
     }
     .tech-card:hover::before { opacity: 1; }
 
-    /* --- 斜槓服務區塊 (緊湊版) --- */
+    /* --- 斜槓服務區塊 (緊湊精緻版) --- */
     #slash-services { background: var(--bg-secondary); }
     .slash-header { text-align: center; margin-bottom: 50px; }
     .slash-header h3 { font-size: 2.2rem; color: var(--accent-tertiary); margin-bottom: 15px; }
     .slash-header p { font-size: 1.4rem; color: var(--text-bright); }
 
     .slash-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px; justify-content: center;
     }
+    /* 卡片內距縮小 */
     .slash-grid .tech-card { padding: 25px 20px; }
     .slash-card-content { text-align: center; }
     
@@ -199,7 +224,7 @@
       padding: 6px 15px; font-size: 1.1rem; margin-right: 10px; text-transform: uppercase; letter-spacing: 1px;
     }
 
-    /* --- 技能條 --- */
+    /* --- 技能條 (加強版 12項) --- */
     .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
     .skill-col { flex: 1; min-width: 320px; }
     .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 30px;}
@@ -233,24 +258,20 @@
     .exp-content h3 { margin: 0 0 20px 0; color: var(--text-bright); font-size: 1.6rem; }
     .exp-content p { color: var(--text-muted); margin: 0; font-size: 1.3rem; text-align: justify; line-height: 1.8; }
 
-    /* --- [修改] 證照矩陣 (緊湊版) --- */
+    /* --- 證照矩陣 (緊湊版) --- */
     #credentials { background: var(--bg-secondary); }
     .cert-matrix { 
       display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 卡片寬度縮小 */
-      gap: 15px; /* 間距縮小 */
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 縮小寬度 */
+      gap: 15px; /* 縮小間距 */
     }
     .cert-node {
       background: rgba(74, 144, 226, 0.05); border: 1px solid rgba(74, 144, 226, 0.2);
-      padding: 15px; /* [修改] 內距大幅縮小 (原30px) */
+      padding: 15px; /* 縮小內距 */
       text-align: center; transition: 0.3s; cursor: default; border-radius: 8px;
     }
     .cert-node:hover { background: rgba(74, 144, 226, 0.15); border-color: var(--accent-secondary); box-shadow: 0 0 20px rgba(74, 144, 226, 0.3); }
-    .cert-icon { 
-      font-size: 2.2rem; /* [修改] 圖標縮小 */
-      color: var(--accent-secondary); 
-      margin-bottom: 10px; /* [修改] 下邊距縮小 */
-    }
+    .cert-icon { font-size: 2.2rem; color: var(--accent-secondary); margin-bottom: 10px; }
     .cert-node h4 { font-size: 1.15rem; margin-bottom: 3px; }
     .cert-node p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
 
@@ -305,11 +326,8 @@
       </div>
       
       <h1>
-
         大家好我是洪益華 (SAKA)
-
         <span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span>
-
       </h1>
       
       <p>
@@ -569,6 +587,7 @@
   </footer>
 
   <script>
+    // --- SEO 安全版防禦機制 (爬蟲可讀，人類防禦) ---
     (function() {
       var userAgent = navigator.userAgent.toLowerCase();
       if (userAgent.indexOf('googlebot') !== -1 || 
@@ -593,6 +612,7 @@
       }, 2000);
     })();
 
+    // --- 圖表設定 ---
     Chart.defaults.color = '#b0b0b0'; 
     Chart.defaults.font.size = 14; 
     Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
