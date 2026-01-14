@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,20 +5,25 @@
   <title>洪益華 (Saka) | 斜槓五職整合專家 & 數據分析師</title>
   <meta name="description" content="洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務，並具備 Python/Power BI 數據分析專業。" />
 
+  <meta property="og:title" content="洪益華 (Saka) | 斜槓五職整合專家" />
+  <meta property="og:description" content="點擊查看我的完整服務內容：水電/保險/MIS/外送/網路服務與數據專案作品。" />
+  <meta property="og:image" content="https://yihua0988.github.io/cover.png" />
+  <meta property="og:url" content="https://yihua0988.github.io/" />
+  <meta property="og:type" content="website" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "洪益華 (Saka)",
     "url": "https://yihua0988.github.io/",
-    "image": "https://yihua0988.github.io/profile.jpg", 
+    "image": "https://yihua0988.github.io/cover.jpg", 
     "jobTitle": ["Financial Consultant", "Data Analyst", "Hardware Technician", "Slash Specialist"],
     "worksFor": {
       "@type": "Organization",
       "name": "Saka Slash Service"
     },
-    "description": "洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務，並具備 Python/Power BI 數據分析專業。",
-    "knowsAbout": ["Python", "Power BI", "Data Analysis", "Home Maintenance", "Insurance Planning", "MIS", "HTML"],
+    "description": "洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務。",
     "sameAs": [
       "https://github.com/yihua0988",
       "mailto:yihua0988@gmail.com"
@@ -33,261 +36,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- 核心變數定義 --- */
+    /* ... (原本的 CSS 內容) ... */
     :root {
       --bg-main: #0a0a0a;
       --bg-secondary: #121212;
       --card-bg: rgba(255, 255, 255, 0.05);
-      
-      --accent-primary: #00f2c3;   /* 螢光青 */
-      --accent-secondary: #4a90e2; /* 科技藍 */
-      --accent-tertiary: #f39c12;  /* 暖橘色 */
-      
+      --accent-primary: #00f2c3;
+      --accent-secondary: #4a90e2;
+      --accent-tertiary: #f39c12;
       --text-bright: #ffffff;
       --text-muted: #b0b0b0;
-      
       --glow-shadow: 0 0 20px rgba(0, 242, 195, 0.3);
       --border-glow: 1px solid rgba(0, 242, 195, 0.3);
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', 'Noto Sans TC', sans-serif;
-      margin: 0; padding: 0;
-      background-color: var(--bg-main);
-      color: var(--text-bright);
-      line-height: 1.8;
-      overflow-x: hidden;
-      user-select: none;
-      font-size: 18px;
-    }
+    body { font-family: 'Inter', 'Noto Sans TC', sans-serif; margin: 0; padding: 0; background-color: var(--bg-main); color: var(--text-bright); line-height: 1.8; overflow-x: hidden; user-select: none; font-size: 18px; }
     a { text-decoration: none; color: inherit; transition: 0.3s; }
     ul { list-style: none; padding: 0; margin: 0; }
-
-    /* --- 背景特效 --- */
-    .bg-tech-lines {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-      background: 
-        linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.95)),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 242, 195, 0.03) 2px, rgba(0, 242, 195, 0.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(74, 144, 226, 0.03) 2px, rgba(74, 144, 226, 0.03) 4px);
-      background-size: cover;
-    }
-
-    /* --- 導覽列 (手機版自動折行) --- */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      padding: 15px 5%;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(10, 10, 10, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      box-sizing: border-box;
-      flex-wrap: wrap;
-    }
-    .logo { 
-      font-size: 1.6rem; font-weight: 800; letter-spacing: 1px;
-      background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .bg-tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.95)), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 242, 195, 0.03) 2px, rgba(0, 242, 195, 0.03) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(74, 144, 226, 0.03) 2px, rgba(74, 144, 226, 0.03) 4px); background-size: cover; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; flex-wrap: wrap; }
+    .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .nav-links { display: flex; gap: 30px; }
-    .nav-links a {
-      font-weight: 600; font-size: 1.1rem; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 1px;
-    }
+    .nav-links a { font-weight: 600; font-size: 1.1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
     .nav-links a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-primary); }
-
-    /* --- Hero Section --- */
-    .hero {
-      height: 90vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; position: relative; padding-top: 80px;
-    }
-    
-    /* 帥氣數據核心動畫 */
-    .hero-visual-core {
-        width: 220px; height: 220px; margin: 0 auto 50px;
-        position: relative; display: flex; justify-content: center; align-items: center;
-        perspective: 1200px; transform-style: preserve-3d;
-    }
-    .hero-visual-core::after {
-      content: ''; position: absolute; width: 60%; height: 60%;
-      background: radial-gradient(circle, rgba(0, 242, 195, 0.4) 0%, transparent 70%);
-      filter: blur(20px); animation: pulse-glow 3s infinite ease-in-out;
-    }
+    .hero { height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 80px; }
+    .hero-visual-core { width: 220px; height: 220px; margin: 0 auto 50px; position: relative; display: flex; justify-content: center; align-items: center; perspective: 1200px; transform-style: preserve-3d; }
+    .hero-visual-core::after { content: ''; position: absolute; width: 60%; height: 60%; background: radial-gradient(circle, rgba(0, 242, 195, 0.4) 0%, transparent 70%); filter: blur(20px); animation: pulse-glow 3s infinite ease-in-out; }
     .ring { position: absolute; border-radius: 50%; box-sizing: border-box; }
-    .r1 {
-      width: 100%; height: 100%; border: 2px dashed rgba(0, 242, 195, 0.6);
-      border-top-color: transparent; border-bottom-color: transparent;
-      animation: spin-cw 10s infinite linear; box-shadow: 0 0 15px rgba(0, 242, 195, 0.2);
-    }
+    .r1 { width: 100%; height: 100%; border: 2px dashed rgba(0, 242, 195, 0.6); border-top-color: transparent; border-bottom-color: transparent; animation: spin-cw 10s infinite linear; box-shadow: 0 0 15px rgba(0, 242, 195, 0.2); }
     .r2 { width: 80%; height: 80%; border: 4px dotted rgba(74, 144, 226, 0.7); animation: spin-ccw 7s infinite linear; }
-    .r3 {
-      width: 60%; height: 60%; border: 2px solid rgba(255, 255, 255, 0.1);
-      border-left: 4px solid var(--accent-primary); border-right: 4px solid var(--accent-secondary);
-      animation: spin-cw 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .core-icon { 
-      font-size: 3.5rem; color: #fff; z-index: 5; 
-      animation: float-icon 3s infinite ease-in-out; text-shadow: 0 0 20px var(--accent-primary);
-    }
+    .r3 { width: 60%; height: 60%; border: 2px solid rgba(255, 255, 255, 0.1); border-left: 4px solid var(--accent-primary); border-right: 4px solid var(--accent-secondary); animation: spin-cw 4s infinite cubic-bezier(0.4, 0, 0.2, 1); }
+    .core-icon { font-size: 3.5rem; color: #fff; z-index: 5; animation: float-icon 3s infinite ease-in-out; text-shadow: 0 0 20px var(--accent-primary); }
     @keyframes spin-cw { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @keyframes spin-ccw { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
     @keyframes pulse-glow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
     @keyframes float-icon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-    .hero h1 {
-      font-size: 3.5rem; margin: 0 0 20px; font-weight: 800; letter-spacing: 2px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #fff, var(--accent-primary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;
-    }
-    .hero h1 .en-sub {
-      display: block; font-size: 0.4em; color: var(--text-muted); 
-      letter-spacing: 0; margin-top: 10px; font-weight: 400; -webkit-text-fill-color: var(--text-muted);
-    }
+    .hero h1 { font-size: 3.5rem; margin: 0 0 20px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(90deg, #fff, var(--accent-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+    .hero h1 .en-sub { display: block; font-size: 0.4em; color: var(--text-muted); letter-spacing: 0; margin-top: 10px; font-weight: 400; -webkit-text-fill-color: var(--text-muted); }
     .hero p { font-size: 1.5rem; color: var(--text-muted); max-width: 900px; margin: 0 auto 40px; }
-    .hero p .en-desc {
-      display: block; font-size: 0.7em; color: var(--accent-secondary); 
-      margin-top: 10px; font-weight: 400; opacity: 0.9;
-    }
-    .btn-tech {
-      padding: 14px 40px; border: 2px solid var(--accent-primary); color: var(--accent-primary);
-      font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
-      position: relative; overflow: hidden; transition: 0.4s;
-      background: transparent; cursor: pointer; display: inline-block;
-    }
-    .btn-tech::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 242, 195, 0.4), transparent); transition: 0.4s;
-    }
+    .hero p .en-desc { display: block; font-size: 0.7em; color: var(--accent-secondary); margin-top: 10px; font-weight: 400; opacity: 0.9; }
+    .btn-tech { padding: 14px 40px; border: 2px solid var(--accent-primary); color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem; position: relative; overflow: hidden; transition: 0.4s; background: transparent; cursor: pointer; display: inline-block; }
+    .btn-tech::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0, 242, 195, 0.4), transparent); transition: 0.4s; }
     .btn-tech:hover::before { left: 100%; }
     .btn-tech:hover { background: var(--accent-primary); color: #000; box-shadow: 0 0 30px var(--accent-primary); }
-
-    /* --- 通用標題 --- */
     section { padding: 100px 10%; }
     .section-title { text-align: center; margin-bottom: 70px; }
-    .section-title h2 {
-      font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
-      display: inline-block; position: relative; color: var(--text-bright);
-    }
-    .section-title h2::after {
-      content: ''; width: 100px; height: 4px; background: var(--accent-primary);
-      position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
-      box-shadow: 0 0 10px var(--accent-primary);
-    }
-
-    /* --- 通用科技卡片 --- */
-    .tech-card {
-      background: var(--card-bg); border: var(--border-glow);
-      backdrop-filter: blur(5px); padding: 40px; border-radius: 8px;
-      transition: 0.3s; position: relative; overflow: hidden; height: 100%;
-    }
+    .section-title h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; display: inline-block; position: relative; color: var(--text-bright); }
+    .section-title h2::after { content: ''; width: 100px; height: 4px; background: var(--accent-primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 10px var(--accent-primary); }
+    .tech-card { background: var(--card-bg); border: var(--border-glow); backdrop-filter: blur(5px); padding: 40px; border-radius: 8px; transition: 0.3s; position: relative; overflow: hidden; height: 100%; }
     .tech-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); box-shadow: var(--glow-shadow); }
-    .tech-card::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(0,242,195,0.1) 0%, transparent 70%);
-      opacity: 0; transition: 0.5s; pointer-events: none;
-    }
+    .tech-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,242,195,0.1) 0%, transparent 70%); opacity: 0; transition: 0.5s; pointer-events: none; }
     .tech-card:hover::before { opacity: 1; }
-
-    /* --- 斜槓服務區塊 (緊湊精緻版) --- */
     #slash-services { background: var(--bg-secondary); }
     .slash-header { text-align: center; margin-bottom: 50px; }
     .slash-header h3 { font-size: 2.2rem; color: var(--accent-tertiary); margin-bottom: 15px; }
     .slash-header p { font-size: 1.4rem; color: var(--text-bright); }
-
-    .slash-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px; justify-content: center;
-    }
-    /* 卡片內距縮小 */
+    .slash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; justify-content: center; }
     .slash-grid .tech-card { padding: 25px 20px; }
     .slash-card-content { text-align: center; }
-    
     .slash-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
     .s-home { color: #e74c3c; } .s-insure { color: #f1c40f; } .s-mis { color: #3498db; } .s-delivery { color: #2ecc71; } .s-studio { color: #9b59b6; }
-
     .slash-card-content h4 { font-size: 1.3rem; margin: 10px 0; color: var(--text-bright); }
     .slash-card-content p { color: var(--text-muted); font-size: 1.05rem; margin: 0; line-height: 1.5; }
-
-    /* --- 專案展示 --- */
-    .project-grid { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;
-      justify-content: center;
-    }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; justify-content: center; }
     .project-card-content h3 { font-size: 2rem; color: var(--accent-primary); margin-top: 0; margin-bottom: 20px; }
     .project-card-content p { color: var(--text-muted); font-size: 1.35rem; text-align: justify; line-height: 1.8;}
-    .tags span {
-      background: rgba(0, 242, 195, 0.1); color: var(--accent-primary); border: 1px solid var(--accent-primary);
-      padding: 6px 15px; font-size: 1.1rem; margin-right: 10px; text-transform: uppercase; letter-spacing: 1px;
-    }
-
-    /* --- 技能條 (加強版 12項) --- */
+    .tags span { background: rgba(0, 242, 195, 0.1); color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 6px 15px; font-size: 1.1rem; margin-right: 10px; text-transform: uppercase; letter-spacing: 1px; }
     .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
     .skill-col { flex: 1; min-width: 320px; }
     .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 30px;}
     .skill-item { margin-bottom: 25px; }
     .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--text-bright); font-size: 1.2rem; }
     .progress-bar-bg { width: 100%; height: 22px; background: #222; border-radius: 11px; overflow: hidden; }
-    .progress-bar-fill { 
-      height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); 
-      box-shadow: 0 0 15px var(--accent-primary); border-radius: 11px;
-    }
-
-    /* --- 列表式經歷 --- */
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); box-shadow: 0 0 15px var(--accent-primary); border-radius: 11px; }
     #experience { background: var(--bg-main); }
     .exp-list { max-width: 1100px; margin: 0 auto; }
-    
-    .exp-item {
-      display: flex; background: var(--card-bg);
-      border-left: 5px solid var(--accent-primary);
-      border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
-      margin-bottom: 30px; padding: 40px; border-radius: 0 10px 10px 0;
-      transition: 0.3s; align-items: flex-start;
-    }
+    .exp-item { display: flex; background: var(--card-bg); border-left: 5px solid var(--accent-primary); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 30px; padding: 40px; border-radius: 0 10px 10px 0; transition: 0.3s; align-items: flex-start; }
     .exp-item:hover { background: rgba(255,255,255,0.08); transform: translateX(10px); box-shadow: var(--glow-shadow); }
-    
-    .exp-meta {
-      min-width: 220px; margin-right: 40px; color: var(--accent-secondary);
-      font-family: 'Courier New', monospace; border-right: 1px dashed #333; padding-right: 30px;
-    }
+    .exp-meta { min-width: 220px; margin-right: 40px; color: var(--accent-secondary); font-family: 'Courier New', monospace; border-right: 1px dashed #333; padding-right: 30px; }
     .exp-period { font-size: 1.3rem; font-weight: 700; display: block; margin-bottom: 8px; }
     .exp-role { font-size: 1.1rem; color: var(--text-muted); display: block; }
     .exp-content h3 { margin: 0 0 20px 0; color: var(--text-bright); font-size: 1.6rem; }
     .exp-content p { color: var(--text-muted); margin: 0; font-size: 1.3rem; text-align: justify; line-height: 1.8; }
-
-    /* --- 證照矩陣 (緊湊版) --- */
     #credentials { background: var(--bg-secondary); }
-    .cert-matrix { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 縮小寬度 */
-      gap: 15px; /* 縮小間距 */
-    }
-    .cert-node {
-      background: rgba(74, 144, 226, 0.05); border: 1px solid rgba(74, 144, 226, 0.2);
-      padding: 15px; /* 縮小內距 */
-      text-align: center; transition: 0.3s; cursor: default; border-radius: 8px;
-    }
+    .cert-matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+    .cert-node { background: rgba(74, 144, 226, 0.05); border: 1px solid rgba(74, 144, 226, 0.2); padding: 15px; text-align: center; transition: 0.3s; cursor: default; border-radius: 8px; }
     .cert-node:hover { background: rgba(74, 144, 226, 0.15); border-color: var(--accent-secondary); box-shadow: 0 0 20px rgba(74, 144, 226, 0.3); }
     .cert-icon { font-size: 2.2rem; color: var(--accent-secondary); margin-bottom: 10px; }
     .cert-node h4 { font-size: 1.15rem; margin-bottom: 3px; }
     .cert-node p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-
-    /* --- Footer & RWD --- */
     .chart-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
-    .chart-container { 
-      flex: 1; min-width: 320px; max-width: 500px; 
-      background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
-    }
+    .chart-container { flex: 1; min-width: 320px; max-width: 500px; background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
     .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; }
-
     footer { background: #050505; padding: 60px 0; text-align: center; color: var(--text-muted); border-top: 1px solid #1a1a1a; }
     .footer-social a { color: var(--accent-primary); font-size: 2.2rem; margin: 0 20px; transition:0.3s; }
     .footer-social a:hover { text-shadow: 0 0 15px var(--accent-primary); }
     footer p { font-size: 1.1rem; margin-top: 30px; }
-
     @media (max-width: 768px) {
       nav { justify-content: center; padding: 15px; }
       .logo { width: 100%; text-align: center; margin-bottom: 10px; }
@@ -303,9 +147,7 @@
   </style>
 </head>
 <body>
-
   <div class="bg-tech-lines"></div>
-
   <nav>
     <div class="logo">SAKA.SLASH</div>
     <div class="nav-links">
@@ -315,268 +157,102 @@
       <a href="#experience">職涯軌跡</a>
     </div>
   </nav>
-
   <header class="hero">
     <div>
       <div class="hero-visual-core">
-        <div class="ring r1"></div>
-        <div class="ring r2"></div>
-        <div class="ring r3"></div>
-        <i class="fas fa-bolt core-icon"></i>
+        <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><i class="fas fa-bolt core-icon"></i>
       </div>
-      
-      <h1>
-        大家好我是洪益華 (SAKA)
-        <span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span>
-      </h1>
-      
-      <p>
-        斜槓五職整合專家｜居家維修・金融顧問・資訊工程・彈性物流・網路服務
-        <span class="en-desc">
-          Slash Specialist | Home Maintenance · Financial Consultant · IT Engineering · Flexible Logistics · Online Services
-        </span>
-      </p>
-      
-      <div style="margin-top: 40px;">
-        <a href="#slash-services" class="btn-tech">
-          瀏覽服務內容 / Explore Services
-        </a>
-      </div>
+      <h1>大家好我是洪益華 (SAKA)<span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span></h1>
+      <p>斜槓五職整合專家｜居家維修・金融顧問・資訊工程・彈性物流・網路服務<span class="en-desc">Slash Specialist | Home Maintenance · Financial Consultant · IT Engineering · Flexible Logistics · Online Services</span></p>
+      <div style="margin-top: 40px;"><a href="#slash-services" class="btn-tech">瀏覽服務內容 / Explore Services</a></div>
     </div>
   </header>
-
   <section id="slash-services">
     <div class="slash-header">
       <h3>📌 多元職能整合服務｜生活與商務解決方案</h3>
       <p>歡迎加我聊聊，為你解決生活與工作的大小事 ✅</p>
     </div>
-    
     <div class="slash-grid">
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-wrench slash-icon s-home"></i>
-          <h4>🏠 水電維修</h4>
-          <p>專注居家維修，快速解決各種故障問題。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-shield-alt slash-icon s-insure"></i>
-          <h4>🛡 產壽險顧問</h4>
-          <p>產險、壽險全方位服務，主打醫療及意外險保障。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-network-wired slash-icon s-mis"></i>
-          <h4>🖥 MIS 工程</h4>
-          <p>企業系統開發與維護，並負責資安管理。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-motorcycle slash-icon s-delivery"></i>
-          <h4>🛵 外送服務</h4>
-          <p>快速、可靠，彈性接單支援各大平台。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-gamepad slash-icon s-studio"></i>
-          <h4>🌐 網路工作室</h4>
-          <p>代練服務＋遊戲幣等資源販售＋遠端技術支援。</p>
-        </div>
-      </div>
+      <div class="tech-card"><div class="slash-card-content"><i class="fas fa-wrench slash-icon s-home"></i><h4>🏠 水電維修</h4><p>專注居家維修，快速解決各種故障問題。</p></div></div>
+      <div class="tech-card"><div class="slash-card-content"><i class="fas fa-shield-alt slash-icon s-insure"></i><h4>🛡 產壽險顧問</h4><p>產險、壽險全方位服務，主打醫療及意外險保障。</p></div></div>
+      <div class="tech-card"><div class="slash-card-content"><i class="fas fa-network-wired slash-icon s-mis"></i><h4>🖥 MIS 工程</h4><p>企業系統開發與維護，並負責資安管理。</p></div></div>
+      <div class="tech-card"><div class="slash-card-content"><i class="fas fa-motorcycle slash-icon s-delivery"></i><h4>🛵 外送服務</h4><p>快速、可靠，彈性接單支援各大平台。</p></div></div>
+      <div class="tech-card"><div class="slash-card-content"><i class="fas fa-gamepad slash-icon s-studio"></i><h4>🌐 網路工作室</h4><p>代練服務＋遊戲幣等資源販售＋遠端技術支援。</p></div></div>
     </div>
   </section>
-
   <section id="projects">
-    <div class="section-title">
-      <h2>DATA PROJECTS // 數據專案實作</h2>
-    </div>
+    <div class="section-title"><h2>DATA PROJECTS // 數據專案實作</h2></div>
     <div class="project-grid">
       <div class="tech-card">
         <div class="project-card-content">
           <i class="fas fa-shield-virus" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 25px;"></i>
           <h3>近年詐騙防制資料分析</h3>
           <p>針對近年詐騙案件類型進行深度數據挖掘。利用 Python 清洗 165 公開資料，並透過 Power BI 建立動態戰情室，視覺化高風險族群與手法趨勢，提供具體的防制洞察。</p>
-          <div class="tags" style="margin-top: 25px;">
-            <span>Python ETL</span>
-            <span>Power BI</span>
-            <span>Data Viz</span>
-          </div>
-          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
-            LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
-          </a>
+          <div class="tags" style="margin-top: 25px;"><span>Python ETL</span><span>Power BI</span><span>Data Viz</span></div>
+          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">LAUNCH DEMO <i class="fas fa-external-link-alt"></i></a>
         </div>
       </div>
     </div>
   </section>
-
   <section id="skills" style="background: var(--bg-secondary);">
-    <div class="section-title">
-      <h2>SKILLS // 核心能力矩陣</h2>
-    </div>
+    <div class="section-title"><h2>SKILLS // 核心能力矩陣</h2></div>
     <div class="skill-container">
       <div class="skill-col">
         <h3><i class="fas fa-code"></i> 資訊技術與開發</h3>
-        <div class="skill-item">
-          <div class="skill-info"><span>Python 技術</span><span>90%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>HTML 技術</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>SQL / 資料庫管理</span><span>75%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>MIS 系統與資安維護</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Excel VBA 自動化</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Git / GitHub 版控</span><span>75%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div>
-        </div>
+        <div class="skill-item"><div class="skill-info"><span>Python 技術</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>HTML 技術</span><span>95%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>SQL / 資料庫管理</span><span>75%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>MIS 系統與資安維護</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Excel VBA 自動化</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Git / GitHub 版控</span><span>75%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div></div>
       </div>
-      
       <div class="skill-col">
         <h3><i class="fas fa-tools"></i> 實務與領域專業</h3>
-        <div class="skill-item">
-          <div class="skill-info"><span>硬體維修與水電工程</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>金融保險與風險規劃</span><span>90%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Power BI 商業智慧</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>日語溝通 (JLPT N2)</span><span>80%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>客戶溝通與危機處理</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>專案協調與管理</span><span>80%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
-        </div>
+        <div class="skill-item"><div class="skill-info"><span>硬體維修與水電工程</span><span>95%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>金融保險與風險規劃</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Power BI 商業智慧</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>日語溝通 (JLPT N2)</span><span>80%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>客戶溝通與危機處理</span><span>95%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>專案協調與管理</span><span>80%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div></div>
       </div>
     </div>
   </section>
-
   <section id="experience">
-    <div class="section-title">
-      <h2>CAREER LOG // 職涯歷程</h2>
-    </div>
-    
+    <div class="section-title"><h2>CAREER LOG // 職涯歷程</h2></div>
     <div class="chart-row">
-      <div class="chart-container">
-        <h4 style="text-align:center; color:var(--accent-secondary);">產業經驗分佈</h4>
-        <canvas id="industryChart"></canvas>
-      </div>
-      <div class="chart-container">
-        <h4 style="text-align:center; color:var(--accent-secondary);">職能性質佔比</h4>
-        <canvas id="jobTypeChart"></canvas>
-      </div>
+      <div class="chart-container"><h4 style="text-align:center; color:var(--accent-secondary);">產業經驗分佈</h4><canvas id="industryChart"></canvas></div>
+      <div class="chart-container"><h4 style="text-align:center; color:var(--accent-secondary);">職能性質佔比</h4><canvas id="jobTypeChart"></canvas></div>
     </div>
-
     <div class="exp-list">
       <div class="exp-item">
-        <div class="exp-meta">
-          <span class="exp-period">近期 - 至今</span>
-          <span class="exp-role">斜槓整合 & 數據應用</span>
-        </div>
-        <div class="exp-content">
-          <h3>多職能整合與金融數據化轉型</h3>
-          <p>目前同時經營多項斜槓事業，包含居家水電維修、MIS 系統支援及網路服務工作室。在金融本業上，專注於保險規劃與風險管理，並主動將 Python 與數據分析思維導入流程，提升作業效率。近期致力於結合實務經驗與數據技術，投入反詐騙領域研究。</p>
-        </div>
+        <div class="exp-meta"><span class="exp-period">近期 - 至今</span><span class="exp-role">斜槓整合 & 數據應用</span></div>
+        <div class="exp-content"><h3>多職能整合與金融數據化轉型</h3><p>目前同時經營多項斜槓事業，包含居家水電維修、MIS 系統支援及網路服務工作室。在金融本業上，專注於保險規劃與風險管理，並主動將 Python 與數據分析思維導入流程，提升作業效率。近期致力於結合實務經驗與數據技術，投入反詐騙領域研究。</p></div>
       </div>
-
       <div class="exp-item">
-        <div class="exp-meta">
-          <span class="exp-period">在學進修</span>
-          <span class="exp-role">國立臺中科技大學</span>
-        </div>
-        <div class="exp-content">
-          <h3>跨領域整合：從日文到資管</h3>
-          <p>原就讀應用日文系，已取得 JLPT N2 檢定。察覺金融科技潛力後，轉系至資訊管理系。目標是整合語言能力、金融經驗與資訊技術，成為跨領域專才。</p>
-        </div>
+        <div class="exp-meta"><span class="exp-period">在學進修</span><span class="exp-role">國立臺中科技大學</span></div>
+        <div class="exp-content"><h3>跨領域整合：從日文到資管</h3><p>原就讀應用日文系，已取得 JLPT N2 檢定。察覺金融科技潛力後，轉系至資訊管理系。目標是整合語言能力、金融經驗與資訊技術，成為跨領域專才。</p></div>
       </div>
-
       <div class="exp-item">
-        <div class="exp-meta">
-          <span class="exp-period">過去經歷</span>
-          <span class="exp-role">百貨/旅宿服務業</span>
-        </div>
-        <div class="exp-content">
-          <h3>服務業現場管理與溝通</h3>
-          <p>長期服務於第一線高壓環境，累積紮實的客戶服務與危機處理能力，培養出卓越的溝通協調技巧。</p>
-        </div>
+        <div class="exp-meta"><span class="exp-period">過去經歷</span><span class="exp-role">百貨/旅宿服務業</span></div>
+        <div class="exp-content"><h3>服務業現場管理與溝通</h3><p>長期服務於第一線高壓環境，累積紮實的客戶服務與危機處理能力，培養出卓越的溝通協調技巧。</p></div>
       </div>
-
       <div class="exp-item">
-        <div class="exp-meta">
-          <span class="exp-period">早期基礎</span>
-          <span class="exp-role">台中高工 資訊科</span>
-        </div>
-        <div class="exp-content">
-          <h3>工程邏輯與硬體維修</h3>
-          <p>於技職體系打下穩固工程基礎。精通電腦硬體、電路焊接與室內配線，並取得多張技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p>
-        </div>
+        <div class="exp-meta"><span class="exp-period">早期基礎</span><span class="exp-role">台中高工 資訊科</span></div>
+        <div class="exp-content"><h3>工程邏輯與硬體維修</h3><p>於技職體系打下穩固工程基礎。精通電腦硬體、電路焊接與室內配線，並取得多張技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p></div>
       </div>
     </div>
   </section>
-
   <section id="credentials">
-    <div class="section-title">
-      <h2>CREDENTIALS // 專業認證矩陣</h2>
-    </div>
+    <div class="section-title"><h2>CREDENTIALS // 專業認證矩陣</h2></div>
     <div class="cert-matrix">
-      <div class="cert-node">
-        <i class="fas fa-fire-extinguisher cert-icon" style="color:#e74c3c;"></i>
-        <h4>防火管理員</h4>
-        <p>消防安全認證</p>
-      </div>
-      <div class="cert-node">
-        <i class="fas fa-hard-hat cert-icon" style="color:#e74c3c;"></i>
-        <h4>乙種職安衛主管</h4>
-        <p>職業安全衛生</p>
-      </div>
-      <div class="cert-node">
-        <i class="fas fa-microchip cert-icon" style="color:#3498db;"></i>
-        <h4>乙級電腦硬體裝修</h4>
-        <p>國家技術士</p>
-      </div>
-      <div class="cert-node">
-        <i class="fab fa-python cert-icon" style="color:#3498db;"></i>
-        <h4>ITS Python</h4>
-        <p>程式設計認證</p>
-      </div>
-      <div class="cert-node">
-        <i class="fas fa-file-invoice-dollar cert-icon" style="color:#f1c40f;"></i>
-        <h4>金融證照群</h4>
-        <p>產/壽/外幣/投資型</p>
-      </div>
-      <div class="cert-node">
-        <i class="fas fa-language cert-icon" style="color:#9b59b6;"></i>
-        <h4>JLPT N2</h4>
-        <p>日本語能力試驗</p>
-      </div>
+      <div class="cert-node"><i class="fas fa-fire-extinguisher cert-icon" style="color:#e74c3c;"></i><h4>防火管理員</h4><p>消防安全認證</p></div>
+      <div class="cert-node"><i class="fas fa-hard-hat cert-icon" style="color:#e74c3c;"></i><h4>乙種職安衛主管</h4><p>職業安全衛生</p></div>
+      <div class="cert-node"><i class="fas fa-microchip cert-icon" style="color:#3498db;"></i><h4>乙級電腦硬體裝修</h4><p>國家技術士</p></div>
+      <div class="cert-node"><i class="fab fa-python cert-icon" style="color:#3498db;"></i><h4>ITS Python</h4><p>程式設計認證</p></div>
+      <div class="cert-node"><i class="fas fa-file-invoice-dollar cert-icon" style="color:#f1c40f;"></i><h4>金融證照群</h4><p>產/壽/外幣/投資型</p></div>
+      <div class="cert-node"><i class="fas fa-language cert-icon" style="color:#9b59b6;"></i><h4>JLPT N2</h4><p>日本語能力試驗</p></div>
     </div>
   </section>
-
   <footer>
     <div class="logo" style="margin-bottom: 20px; font-size:2rem;">SAKA.SLASH</div>
     <div class="footer-social">
@@ -585,73 +261,11 @@
     </div>
     <p style="margin-top:30px;">&copy; 2026 洪益華版權所有</p>
   </footer>
-
   <script>
-    // --- SEO 安全版防禦機制 (爬蟲可讀，人類防禦) ---
-    (function() {
-      var userAgent = navigator.userAgent.toLowerCase();
-      if (userAgent.indexOf('googlebot') !== -1 || 
-          userAgent.indexOf('bingbot') !== -1 || 
-          userAgent.indexOf('baiduspider') !== -1 ||
-          userAgent.indexOf('yandex') !== -1) {
-        return;
-      }
-
-      document.addEventListener('contextmenu', function(event) { event.preventDefault(); });
-      document.onkeydown = function(e) {
-        if (e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67) || e.keyCode == 85))) {
-          redirectToGoogle(); return false;
-        }
-      };
-      function redirectToGoogle() { window.location.href = "https://www.google.com"; }
-      setInterval(function() {
-        var before = new Date().getTime();
-        debugger; 
-        var after = new Date().getTime();
-        if (after - before > 100) { redirectToGoogle(); }
-      }, 2000);
-    })();
-
-    // --- 圖表設定 ---
-    Chart.defaults.color = '#b0b0b0'; 
-    Chart.defaults.font.size = 14; 
-    Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
-
-    new Chart(document.getElementById('industryChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['百貨服務業', '飯店業', '視廳歌唱業', '人才綜合服務'],
-        datasets: [{
-          data: [49, 9, 14, 10],
-          backgroundColor: ['#4a90e2', '#00f2c3', '#9b59b6', '#34495e'],
-          borderWidth: 0,
-          hoverOffset: 10
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom', labels: { padding: 20 } } },
-        cutout: '70%'
-      }
-    });
-
-    new Chart(document.getElementById('jobTypeChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['工務機電', '設備維護', '電話行銷'],
-        datasets: [{
-          data: [40, 23, 10],
-          backgroundColor: ['#00f2c3', '#2ecc71', '#e67e22'],
-          borderWidth: 0,
-          hoverOffset: 10
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom', labels: { padding: 20 } } },
-        cutout: '70%'
-      }
-    });
+    (function(){var userAgent=navigator.userAgent.toLowerCase();if(userAgent.indexOf('googlebot')!==-1||userAgent.indexOf('bingbot')!==-1||userAgent.indexOf('baiduspider')!==-1||userAgent.indexOf('yandex')!==-1){return;}document.addEventListener('contextmenu',function(event){event.preventDefault();});document.onkeydown=function(e){if(e.keyCode==123||(e.ctrlKey&&(e.shiftKey&&(e.keyCode==73||e.keyCode==74||e.keyCode==67)||e.keyCode==85))){redirectToGoogle();return false;}};function redirectToGoogle(){window.location.href="https://www.google.com";}setInterval(function(){var before=new Date().getTime();debugger;var after=new Date().getTime();if(after-before>100){redirectToGoogle();}},2000);})();
+    Chart.defaults.color='#b0b0b0';Chart.defaults.font.size=14;Chart.defaults.borderColor='rgba(255,255,255,0.1)';
+    new Chart(document.getElementById('industryChart'),{type:'doughnut',data:{labels:['百貨服務業','飯店業','視廳歌唱業','人才綜合服務'],datasets:[{data:[49,9,14,10],backgroundColor:['#4a90e2','#00f2c3','#9b59b6','#34495e'],borderWidth:0,hoverOffset:10}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:20}}},cutout:'70%'}});
+    new Chart(document.getElementById('jobTypeChart'),{type:'doughnut',data:{labels:['工務機電','設備維護','電話行銷'],datasets:[{data:[40,23,10],backgroundColor:['#00f2c3','#2ecc71','#e67e22'],borderWidth:0,hoverOffset:10}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:20}}},cutout:'70%'}});
   </script>
 </body>
 </html>
