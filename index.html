@@ -595,6 +595,11 @@
   </footer>
 
   <script>
+  // --- [新增] 強制重新整理時回到頂端，忽略網址錨點 ---
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
     // --- SEO 安全版防禦機制 ---
     (function() {
       var userAgent = navigator.userAgent.toLowerCase();
