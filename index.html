@@ -38,21 +38,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- 核心變數定義 --- */
+    /* --- [修改 1] 淺色系核心變數定義 --- */
     :root {
-      --bg-main: #0a0a0a;
-      --bg-secondary: #121212;
-      --card-bg: rgba(255, 255, 255, 0.05);
+      --bg-main: #f4f7f6;        /* 柔和的淺灰背景 */
+      --bg-secondary: #ffffff;   /* 純白區塊背景 */
+      --card-bg: #ffffff;        /* 卡片白底 */
       
-      --accent-primary: #00f2c3;   /* 螢光青 */
-      --accent-secondary: #4a90e2; /* 科技藍 */
-      --accent-tertiary: #f39c12;  /* 暖橘色 */
+      --accent-primary: #007bff;   /* 專業藍 */
+      --accent-secondary: #20c997; /* 清新綠 */
+      --accent-tertiary: #fd7e14;  /* 活力橘 */
       
-      --text-bright: #ffffff;
-      --text-muted: #b0b0b0;
+      --text-bright: #333333;    /* 深色標題字 */
+      --text-muted: #666666;     /* 灰色內文 */
       
-      --glow-shadow: 0 0 20px rgba(0, 242, 195, 0.3);
-      --border-glow: 1px solid rgba(0, 242, 195, 0.3);
+      --glow-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* 柔和陰影 */
+      --border-glow: 1px solid #e9ecef; /* 淺灰邊框 */
     }
 
     html { scroll-behavior: smooth; }
@@ -69,45 +69,43 @@
     a { text-decoration: none; color: inherit; transition: 0.3s; }
     ul { list-style: none; padding: 0; margin: 0; }
 
-    /* --- 背景特效 --- */
+    /* --- [修改] 背景特效 (淺色優雅版) --- */
     .bg-tech-lines {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
       background: 
-        linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.95)),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 242, 195, 0.03) 2px, rgba(0, 242, 195, 0.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(74, 144, 226, 0.03) 2px, rgba(74, 144, 226, 0.03) 4px);
-      background-size: cover;
+        linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 淺藍漸層 */
+      opacity: 0.6;
     }
 
-    /* --- 導覽列 --- */
+    /* --- [修改] 導覽列 (白底深字) --- */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       padding: 15px 5%;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(10, 10, 10, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
       box-sizing: border-box;
       flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .logo { 
-      font-size: 1.6rem; font-weight: 800; letter-spacing: 1px;
-      background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;
+      color: var(--accent-primary);
     }
     .nav-links { display: flex; gap: 30px; }
     .nav-links a {
       font-weight: 600; font-size: 1.1rem; color: var(--text-muted);
       text-transform: uppercase; letter-spacing: 1px;
     }
-    .nav-links a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-primary); }
+    .nav-links a:hover { color: var(--accent-primary); }
 
     /* --- Hero Section --- */
     .hero {
       height: 90vh; display: flex; align-items: center; justify-content: center;
       text-align: center; position: relative; padding-top: 80px;
     }
+    /* 動畫核心改為配合淺色底 */
     .hero-visual-core {
         width: 220px; height: 220px; margin: 0 auto 50px;
         position: relative; display: flex; justify-content: center; align-items: center;
@@ -115,24 +113,24 @@
     }
     .hero-visual-core::after {
       content: ''; position: absolute; width: 60%; height: 60%;
-      background: radial-gradient(circle, rgba(0, 242, 195, 0.4) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.2) 0%, transparent 70%);
       filter: blur(20px); animation: pulse-glow 3s infinite ease-in-out;
     }
     .ring { position: absolute; border-radius: 50%; box-sizing: border-box; }
     .r1 {
-      width: 100%; height: 100%; border: 2px dashed rgba(0, 242, 195, 0.6);
+      width: 100%; height: 100%; border: 2px dashed rgba(0, 123, 255, 0.4);
       border-top-color: transparent; border-bottom-color: transparent;
-      animation: spin-cw 10s infinite linear; box-shadow: 0 0 15px rgba(0, 242, 195, 0.2);
+      animation: spin-cw 10s infinite linear;
     }
-    .r2 { width: 80%; height: 80%; border: 4px dotted rgba(74, 144, 226, 0.7); animation: spin-ccw 7s infinite linear; }
+    .r2 { width: 80%; height: 80%; border: 4px dotted rgba(32, 201, 151, 0.5); animation: spin-ccw 7s infinite linear; }
     .r3 {
-      width: 60%; height: 60%; border: 2px solid rgba(255, 255, 255, 0.1);
+      width: 60%; height: 60%; border: 2px solid rgba(0,0,0,0.05);
       border-left: 4px solid var(--accent-primary); border-right: 4px solid var(--accent-secondary);
       animation: spin-cw 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
     }
     .core-icon { 
-      font-size: 3.5rem; color: #fff; z-index: 5; 
-      animation: float-icon 3s infinite ease-in-out; text-shadow: 0 0 20px var(--accent-primary);
+      font-size: 3.5rem; color: var(--accent-primary); z-index: 5; 
+      animation: float-icon 3s infinite ease-in-out;
     }
     @keyframes spin-cw { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @keyframes spin-ccw { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
@@ -142,30 +140,25 @@
     .hero h1 {
       font-size: 3.5rem; margin: 0 0 20px; font-weight: 800; letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #fff, var(--accent-primary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;
+      color: var(--text-bright);
+      line-height: 1.2;
     }
     .hero h1 .en-sub {
       display: block; font-size: 0.4em; color: var(--text-muted); 
-      letter-spacing: 0; margin-top: 10px; font-weight: 400; -webkit-text-fill-color: var(--text-muted);
+      letter-spacing: 0; margin-top: 10px; font-weight: 400;
     }
     .hero p { font-size: 1.5rem; color: var(--text-muted); max-width: 900px; margin: 0 auto 40px; }
     .hero p .en-desc {
       display: block; font-size: 0.7em; color: var(--accent-secondary); 
-      margin-top: 10px; font-weight: 400; opacity: 0.9;
+      margin-top: 10px; font-weight: 600; opacity: 1;
     }
     .btn-tech {
       padding: 14px 40px; border: 2px solid var(--accent-primary); color: var(--accent-primary);
       font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
       position: relative; overflow: hidden; transition: 0.4s;
-      background: transparent; cursor: pointer; display: inline-block;
+      background: transparent; cursor: pointer; display: inline-block; border-radius: 50px;
     }
-    .btn-tech::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 242, 195, 0.4), transparent); transition: 0.4s;
-    }
-    .btn-tech:hover::before { left: 100%; }
-    .btn-tech:hover { background: var(--accent-primary); color: #000; box-shadow: 0 0 30px var(--accent-primary); }
+    .btn-tech:hover { background: var(--accent-primary); color: #fff; box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); }
 
     /* --- 通用標題 --- */
     section { padding: 100px 10%; }
@@ -177,23 +170,18 @@
     .section-title h2::after {
       content: ''; width: 100px; height: 4px; background: var(--accent-primary);
       position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
-      box-shadow: 0 0 10px var(--accent-primary);
+      border-radius: 2px;
     }
 
-    /* --- 通用科技卡片 --- */
+    /* --- 通用卡片 (淺色系優化) --- */
     .tech-card {
       background: var(--card-bg); border: var(--border-glow);
-      backdrop-filter: blur(5px); padding: 40px; border-radius: 8px;
+      padding: 40px; border-radius: 12px;
       transition: 0.3s; position: relative; overflow: hidden; height: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* 輕微陰影 */
     }
     .tech-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); box-shadow: var(--glow-shadow); }
-    .tech-card::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(0,242,195,0.1) 0%, transparent 70%);
-      opacity: 0; transition: 0.5s; pointer-events: none;
-    }
-    .tech-card:hover::before { opacity: 1; }
-
+    
     /* --- 斜槓服務區塊 --- */
     #slash-services { background: var(--bg-secondary); }
     .slash-header { text-align: center; margin-bottom: 50px; }
@@ -209,9 +197,9 @@
     .slash-card-content { text-align: center; }
     
     .slash-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
-    .s-home { color: #e74c3c; } .s-insure { color: #f1c40f; } .s-mis { color: #3498db; } .s-delivery { color: #2ecc71; } .s-studio { color: #9b59b6; }
+    .s-home { color: #e74c3c; } .s-insure { color: #f1c40f; } .s-mis { color: #007bff; } .s-delivery { color: #20c997; } .s-studio { color: #6f42c1; }
 
-    .slash-card-content h4 { font-size: 1.3rem; margin: 10px 0; color: var(--text-bright); }
+    .slash-card-content h4 { font-size: 1.3rem; margin: 10px 0; color: var(--text-bright); font-weight: 700;}
     .slash-card-content p { color: var(--text-muted); font-size: 1.05rem; margin: 0; line-height: 1.5; }
 
     /* --- 專案展示 --- */
@@ -222,27 +210,27 @@
     .project-card-content h3 { font-size: 2rem; color: var(--accent-primary); margin-top: 0; margin-bottom: 20px; }
     .project-card-content p { color: var(--text-muted); font-size: 1.35rem; text-align: justify; line-height: 1.8;}
     
-    /* [重要修正] 手機版標籤自動換行 + 手機字體調整 */
+    /* 標籤樣式 */
     .tags {
-      display: flex; flex-wrap: wrap; /* 允許換行 */
+      display: flex; flex-wrap: wrap; 
       justify-content: center; gap: 10px; margin-top: 25px;
     }
     .tags span {
-      background: rgba(0, 242, 195, 0.1); color: var(--accent-primary); border: 1px solid var(--accent-primary);
+      background: rgba(0, 123, 255, 0.1); color: var(--accent-primary); border: 1px solid var(--accent-primary);
       padding: 6px 12px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;
-      white-space: nowrap; margin-bottom: 5px;
+      white-space: nowrap; margin-bottom: 5px; border-radius: 4px;
     }
 
     /* --- 技能條 --- */
     .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
     .skill-col { flex: 1; min-width: 320px; }
-    .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 30px;}
+    .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 30px;}
     .skill-item { margin-bottom: 25px; }
     .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--text-bright); font-size: 1.2rem; }
-    .progress-bar-bg { width: 100%; height: 22px; background: #222; border-radius: 11px; overflow: hidden; }
+    .progress-bar-bg { width: 100%; height: 22px; background: #e9ecef; border-radius: 11px; overflow: hidden; }
     .progress-bar-fill { 
       height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); 
-      box-shadow: 0 0 15px var(--accent-primary); border-radius: 11px;
+      box-shadow: none; border-radius: 11px;
     }
 
     /* --- 列表式經歷 --- */
@@ -252,48 +240,50 @@
     .exp-item {
       display: flex; background: var(--card-bg);
       border-left: 5px solid var(--accent-primary);
-      border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;
       margin-bottom: 30px; padding: 40px; border-radius: 0 10px 10px 0;
       transition: 0.3s; align-items: flex-start;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
     }
-    .exp-item:hover { background: rgba(255,255,255,0.08); transform: translateX(10px); box-shadow: var(--glow-shadow); }
+    .exp-item:hover { transform: translateX(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
     
     .exp-meta {
-      min-width: 220px; margin-right: 40px; color: var(--accent-secondary);
-      font-family: 'Courier New', monospace; border-right: 1px dashed #333; padding-right: 30px;
+      min-width: 220px; margin-right: 40px; color: var(--accent-primary);
+      font-family: 'Courier New', monospace; border-right: 2px solid #eee; padding-right: 30px;
     }
     .exp-period { font-size: 1.3rem; font-weight: 700; display: block; margin-bottom: 8px; }
     .exp-role { font-size: 1.1rem; color: var(--text-muted); display: block; }
     .exp-content h3 { margin: 0 0 20px 0; color: var(--text-bright); font-size: 1.6rem; }
     .exp-content p { color: var(--text-muted); margin: 0; font-size: 1.3rem; text-align: justify; line-height: 1.8; }
 
-    /* --- 證照矩陣 --- */
+    /* --- 證照矩陣 (加入兩個新證照) --- */
     #credentials { background: var(--bg-secondary); }
     .cert-matrix { 
       display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-      gap: 15px; 
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+      gap: 20px; 
     }
     .cert-node {
-      background: rgba(74, 144, 226, 0.05); border: 1px solid rgba(74, 144, 226, 0.2);
-      padding: 15px; text-align: center; transition: 0.3s; cursor: default; border-radius: 8px;
+      background: #f8f9fa; border: 1px solid #e9ecef;
+      padding: 20px; text-align: center; transition: 0.3s; cursor: default; border-radius: 12px;
     }
-    .cert-node:hover { background: rgba(74, 144, 226, 0.15); border-color: var(--accent-secondary); box-shadow: 0 0 20px rgba(74, 144, 226, 0.3); }
-    .cert-icon { font-size: 2.2rem; color: var(--accent-secondary); margin-bottom: 10px; }
-    .cert-node h4 { font-size: 1.15rem; margin-bottom: 3px; }
-    .cert-node p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
+    .cert-node:hover { background: #fff; border-color: var(--accent-primary); box-shadow: 0 10px 20px rgba(0,0,0,0.08); transform: translateY(-5px);}
+    .cert-icon { font-size: 2.5rem; color: var(--accent-secondary); margin-bottom: 15px; }
+    .cert-node h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--text-bright); font-weight: 700;}
+    .cert-node p { font-size: 1rem; color: var(--text-muted); margin: 0; }
 
     /* --- Footer & RWD --- */
     .chart-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
     .chart-container { 
       flex: 1; min-width: 320px; max-width: 500px; 
-      background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
+      background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #eee;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; }
+    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-bright) !important; }
 
-    footer { background: #050505; padding: 60px 0; text-align: center; color: var(--text-muted); border-top: 1px solid #1a1a1a; }
-    .footer-social a { color: var(--accent-primary); font-size: 2.2rem; margin: 0 20px; transition:0.3s; }
-    .footer-social a:hover { text-shadow: 0 0 15px var(--accent-primary); }
+    footer { background: #343a40; padding: 60px 0; text-align: center; color: #adb5bd; border-top: none; }
+    .footer-social a { color: #fff; font-size: 2.2rem; margin: 0 20px; transition:0.3s; }
+    .footer-social a:hover { color: var(--accent-primary); }
     footer p { font-size: 1.1rem; margin-top: 30px; }
 
     @media (max-width: 768px) {
@@ -305,8 +295,7 @@
       .hero p { font-size: 1.1rem; padding: 0 10px; }
       .hero-visual-core { width: 160px; height: 160px; }
       .exp-item { flex-direction: column; }
-      .exp-meta { border-right: none; border-bottom: 1px dashed #333; padding-right: 0; padding-bottom: 20px; margin-right: 0; margin-bottom: 20px; width: 100%; }
-      /* [新增] 手機版標籤字體縮小 */
+      .exp-meta { border-right: none; border-bottom: 2px solid #eee; padding-right: 0; padding-bottom: 20px; margin-right: 0; margin-bottom: 20px; width: 100%; }
       .tags span { font-size: 0.9rem; padding: 4px 10px; }
       section { padding: 60px 5%; }
     }
@@ -317,9 +306,9 @@
   <div class="bg-tech-lines"></div>
 
   <nav>
-    <div class="logo">SAKA.SLASH</div>
+    <div class="logo">洪益華個人技能分享</div>
     <div class="nav-links">
-      <a href="#slash-services">斜槓服務</a>
+      <a href="#slash-services">專長技能</a>
       <a href="#projects">數據專案</a>
       <a href="#skills">核心技能</a>
       <a href="#experience">職涯軌跡</a>
@@ -358,7 +347,6 @@
   <section id="slash-services">
     <div class="slash-header">
       <h3>📌 多元職能整合服務｜生活與商務解決方案</h3>
-      <p>歡迎加我聊聊，為你解決生活與工作的大小事 ✅</p>
     </div>
     
     <div class="slash-grid">
@@ -366,14 +354,14 @@
         <div class="slash-card-content">
           <i class="fas fa-wrench slash-icon s-home"></i>
           <h4>🏠 水電維修</h4>
-          <p>專注居家維修，快速解決各種故障問題。</p>
+          <p>專注居家維修，快速解決各種水電故障問題。</p>
         </div>
       </div>
       <div class="tech-card">
         <div class="slash-card-content">
           <i class="fas fa-shield-alt slash-icon s-insure"></i>
           <h4>🛡 產壽險顧問</h4>
-          <p>產險、壽險全方位服務，主打醫療及意外險保障。</p>
+          <p>產險、壽險全方位服務，主打各式產險及醫療保障。</p>
         </div>
       </div>
       <div class="tech-card">
@@ -402,7 +390,7 @@
 
   <section id="projects">
     <div class="section-title">
-      <h2>DATA PROJECTS // 數據專案實作</h2>
+      <h2>數據專案實作<br>DATA PROJECTS</h2>
     </div>
     <div class="project-grid">
       <div class="tech-card">
@@ -416,7 +404,7 @@
             <span>Data Viz</span>
           </div>
           <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
-            LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
+            專案網站連結//LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       </div>
@@ -425,7 +413,7 @@
 
   <section id="skills" style="background: var(--bg-secondary);">
     <div class="section-title">
-      <h2>SKILLS // 核心能力矩陣</h2>
+      <h2>核心能力矩陣<br>SKILLS</h2>
     </div>
     <div class="skill-container">
       <div class="skill-col">
@@ -488,16 +476,16 @@
 
   <section id="experience">
     <div class="section-title">
-      <h2>CAREER LOG // 職涯歷程</h2>
+      <h2>職涯歷程<br>CAREER LOG</h2>
     </div>
     
     <div class="chart-row">
       <div class="chart-container">
-        <h4 style="text-align:center; color:var(--accent-secondary);">產業經驗分佈</h4>
+        <h4 style="text-align:center;">產業經驗分佈</h4>
         <canvas id="industryChart"></canvas>
       </div>
       <div class="chart-container">
-        <h4 style="text-align:center; color:var(--accent-secondary);">職能性質佔比</h4>
+        <h4 style="text-align:center;">職能性質佔比</h4>
         <canvas id="jobTypeChart"></canvas>
       </div>
     </div>
@@ -543,7 +531,7 @@
         </div>
         <div class="exp-content">
           <h3>工程邏輯與硬體維修</h3>
-          <p>於技職體系打下穩固工程基礎。精通電腦硬體、電路焊接與室內配線，並取得多張技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p>
+          <p>於技職體系打下穩固工程基礎。精通電腦硬體、電路焊接與網頁設計，並取得多張技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p>
         </div>
       </div>
     </div>
@@ -551,36 +539,46 @@
 
   <section id="credentials">
     <div class="section-title">
-      <h2>CREDENTIALS // 專業認證矩陣</h2>
+      <h2>專業認證矩陣<br>CREDENTIALS</h2>
     </div>
     <div class="cert-matrix">
       <div class="cert-node">
-        <i class="fas fa-fire-extinguisher cert-icon" style="color:#e74c3c;"></i>
+        <i class="fas fa-fire-extinguisher cert-icon" style="color:var(--accent-tertiary);"></i>
         <h4>防火管理員</h4>
         <p>消防安全認證</p>
       </div>
       <div class="cert-node">
-        <i class="fas fa-hard-hat cert-icon" style="color:#e74c3c;"></i>
+        <i class="fas fa-hard-hat cert-icon" style="color:var(--accent-tertiary);"></i>
         <h4>乙種職安衛主管</h4>
         <p>職業安全衛生</p>
       </div>
       <div class="cert-node">
-        <i class="fas fa-microchip cert-icon" style="color:#3498db;"></i>
+        <i class="fas fa-microchip cert-icon" style="color:var(--accent-primary);"></i>
         <h4>乙級電腦硬體裝修</h4>
         <p>國家技術士</p>
       </div>
       <div class="cert-node">
-        <i class="fab fa-python cert-icon" style="color:#3498db;"></i>
+        <i class="fas fa-code cert-icon" style="color:var(--accent-primary);"></i>
+        <h4>丙級網頁設計</h4>
+        <p>國家技術士</p>
+      </div>
+      <div class="cert-node">
+        <i class="fas fa-bolt cert-icon" style="color:var(--accent-tertiary);"></i>
+        <h4>丙級室內配線</h4>
+        <p>國家技術士</p>
+      </div>
+      <div class="cert-node">
+        <i class="fab fa-python cert-icon" style="color:var(--accent-secondary);"></i>
         <h4>ITS Python</h4>
         <p>程式設計認證</p>
       </div>
       <div class="cert-node">
-        <i class="fas fa-file-invoice-dollar cert-icon" style="color:#f1c40f;"></i>
+        <i class="fas fa-file-invoice-dollar cert-icon" style="color:#ffc107;"></i>
         <h4>金融證照群</h4>
         <p>產/壽/外幣/投資型</p>
       </div>
       <div class="cert-node">
-        <i class="fas fa-language cert-icon" style="color:#9b59b6;"></i>
+        <i class="fas fa-language cert-icon" style="color:#6f42c1;"></i>
         <h4>JLPT N2</h4>
         <p>日本語能力試驗</p>
       </div>
@@ -588,7 +586,7 @@
   </section>
 
   <footer>
-    <div class="logo" style="margin-bottom: 20px; font-size:2rem;">SAKA.SLASH</div>
+    <div class="logo" style="margin-bottom: 20px; font-size:1.5rem; color:#fff;">洪益華個人技能分享</div>
     <div class="footer-social">
       <a href="mailto:yihua0988@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/yihua0988" target="_blank"><i class="fab fa-github"></i></a>
@@ -627,10 +625,10 @@
       }, 3000);
     })();
 
-    // --- 圖表設定 ---
-    Chart.defaults.color = '#b0b0b0'; 
+    // --- 圖表設定 (淺色系適配) ---
+    Chart.defaults.color = '#333'; // 文字改為深色
     Chart.defaults.font.size = 14; 
-    Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+    Chart.defaults.borderColor = 'rgba(0,0,0,0.1)'; // 邊框改為淺灰
 
     new Chart(document.getElementById('industryChart'), {
       type: 'doughnut',
@@ -638,8 +636,10 @@
         labels: ['百貨服務業', '飯店業', '視廳歌唱業', '人才綜合服務'],
         datasets: [{
           data: [49, 9, 14, 10],
-          backgroundColor: ['#4a90e2', '#00f2c3', '#9b59b6', '#34495e'],
-          borderWidth: 0,
+          // 使用更飽和的顏色來搭配淺色底
+          backgroundColor: ['#007bff', '#20c997', '#fd7e14', '#6c757d'],
+          borderWidth: 2,
+          borderColor: '#ffffff',
           hoverOffset: 10
         }]
       },
@@ -656,8 +656,9 @@
         labels: ['工務機電', '設備維護', '電話行銷'],
         datasets: [{
           data: [40, 23, 10],
-          backgroundColor: ['#00f2c3', '#2ecc71', '#e67e22'],
-          borderWidth: 0,
+          backgroundColor: ['#0d6efd', '#198754', '#ffc107'],
+          borderWidth: 2,
+          borderColor: '#ffffff',
           hoverOffset: 10
         }]
       },
