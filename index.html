@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- 淺色系核心變數定義 --- */
+    /* --- 核心變數定義 --- */
     :root {
       --bg-main: #f4f7f6;        
       --bg-secondary: #ffffff;   
@@ -63,7 +63,6 @@
       color: var(--text-bright);
       line-height: 1.8;
       overflow-x: hidden;
-      user-select: none; /* 全站禁止選取文字 */
       font-size: 18px;
     }
     a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -96,13 +95,19 @@
     .nav-links a {
       font-weight: 600; font-size: 1.1rem; color: var(--text-muted);
       text-transform: uppercase; letter-spacing: 1px;
+      position: relative;
     }
     .nav-links a:hover { color: var(--accent-primary); }
+    .nav-links a::after {
+        content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+        background-color: var(--accent-primary); transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
 
     /* --- Hero Section --- */
     .hero {
-      height: 90vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; position: relative; padding-top: 80px;
+      min-height: 90vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; padding-top: 100px; padding-bottom: 50px;
     }
     .hero-visual-core {
         width: 220px; height: 220px; margin: 0 auto 50px;
@@ -148,6 +153,9 @@
       display: block; font-size: 0.7em; color: var(--accent-secondary); 
       margin-top: 10px; font-weight: 600; opacity: 1;
     }
+    
+    .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+
     .btn-tech {
       padding: 14px 40px; border: 2px solid var(--accent-primary); color: var(--accent-primary);
       font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
@@ -155,6 +163,13 @@
       background: transparent; cursor: pointer; display: inline-block; border-radius: 50px;
     }
     .btn-tech:hover { background: var(--accent-primary); color: #fff; box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); }
+
+    .btn-tech-filled {
+        background: var(--accent-primary); color: #fff; border: 2px solid var(--accent-primary);
+    }
+    .btn-tech-filled:hover {
+        background: #0056b3; border-color: #0056b3;
+    }
 
     section { padding: 100px 10%; }
     .section-title { text-align: center; margin-bottom: 70px; }
@@ -172,6 +187,7 @@
       background: var(--card-bg); border: var(--border-glow);
       padding: 40px; border-radius: 12px;
       transition: 0.3s; position: relative; overflow: hidden; height: 100%;
+      box-sizing: border-box;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     .tech-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); box-shadow: var(--glow-shadow); }
@@ -254,29 +270,66 @@
 
     .chart-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
     .chart-container { 
-      flex: 1; min-width: 320px; max-width: 500px; 
+      flex: 1; min-width: 320px; max-width: 500px; height: 400px; /* 設定固定高度避免手機版壓扁 */
       background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #eee;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative;
     }
-    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-bright) !important; }
+    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-bright) !important; text-align: center; }
 
     footer { background: #343a40; padding: 60px 0; text-align: center; color: #adb5bd; border-top: none; }
     .footer-social a { color: #fff; font-size: 2.2rem; margin: 0 20px; transition:0.3s; }
     .footer-social a:hover { color: var(--accent-primary); }
     footer p { font-size: 1.1rem; margin-top: 30px; }
 
+    /* Toast Notification Style */
+    #toast-notification {
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 50px;
+        padding: 16px;
+        position: fixed;
+        z-index: 2000;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        opacity: 0;
+        transition: opacity 0.5s, bottom 0.5s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    #toast-notification.show {
+        visibility: visible;
+        opacity: 1;
+        bottom: 50px;
+    }
+
     @media (max-width: 768px) {
-      nav { justify-content: center; padding: 15px; }
-      .logo { width: 100%; text-align: center; margin-bottom: 10px; }
+      nav { justify-content: center; padding: 15px; flex-direction: column; gap: 10px; }
+      .logo { width: 100%; text-align: center; margin-bottom: 5px; font-size: 1.3rem; }
       .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 15px; }
-      .nav-links a { margin: 5px; font-size: 0.95rem; }
+      .nav-links a { 
+        font-size: 0.9rem; padding: 5px 10px; background: #f8f9fa; border-radius: 5px;
+      }
+      .nav-links a::after { display: none; } /* 手機版移除下底線動畫 */
+      
       .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1.1rem; padding: 0 10px; }
+      .hero p { font-size: 1.1rem; padding: 0 10px; text-align: left; }
       .hero-visual-core { width: 160px; height: 160px; }
+      
       .exp-item { flex-direction: column; }
       .exp-meta { border-right: none; border-bottom: 2px solid #eee; padding-right: 0; padding-bottom: 20px; margin-right: 0; margin-bottom: 20px; width: 100%; }
       .tags span { font-size: 0.9rem; padding: 4px 10px; }
       section { padding: 60px 5%; }
+      
+      /* 手機版文字對齊修正 */
+      .project-card-content p, .exp-content p { text-align: left; }
+      
+      .chart-container { height: 300px; padding: 20px; }
+      .btn-tech { padding: 12px 30px; font-size: 1rem; width: 100%; box-sizing: border-box;}
+      .btn-group { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 40px auto 0; }
     }
   </style>
 </head>
@@ -309,15 +362,18 @@
       </h1>
       
       <p>
-        斜槓五職整合專家｜居家維修・金融顧問・資訊工程・彈性物流・網路服務
+        跨領域整合專家｜資訊工程・金融顧問・數據分析・生活服務
         <span class="en-desc">
-          Slash Specialist | Home Maintenance · Financial Consultant · IT Engineering · Flexible Logistics · Online Services
+          Cross-Domain Integration Expert | IT Engineering · Financial Consultant · Data Analysis · Lifestyle Services
         </span>
       </p>
       
-      <div style="margin-top: 40px;">
+      <div class="btn-group">
         <a href="#slash-services" class="btn-tech">
-          瀏覽服務內容 / Explore Services
+          瀏覽服務內容
+        </a>
+        <a href="mailto:yihua0988@gmail.com" class="btn-tech btn-tech-filled">
+          直接聯繫我
         </a>
       </div>
     </div>
@@ -361,7 +417,7 @@
         <div class="slash-card-content">
           <i class="fas fa-gamepad slash-icon s-studio"></i>
           <h4>🌐 網路工作室</h4>
-          <p>代練服務＋遊戲幣等資源販售＋遠端技術支援。</p>
+          <p>資訊整合、虛擬資源買賣(非虛擬貨幣)與遠端技術支援。</p>
         </div>
       </div>
     </div>
@@ -382,8 +438,8 @@
             <span>Power BI</span>
             <span>Data Viz</span>
           </div>
-          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
-            專案網站連結//LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
+          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
+            專案網站連結 // LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       </div>
@@ -460,12 +516,16 @@
     
     <div class="chart-row">
       <div class="chart-container">
-        <h4 style="text-align:center;">產業經驗分佈</h4>
-        <canvas id="industryChart"></canvas>
+        <h4>產業經驗分佈</h4>
+        <div style="position: relative; height: 100%; width: 100%;">
+            <canvas id="industryChart"></canvas>
+        </div>
       </div>
       <div class="chart-container">
-        <h4 style="text-align:center;">職能性質佔比</h4>
-        <canvas id="jobTypeChart"></canvas>
+        <h4>職能性質佔比</h4>
+        <div style="position: relative; height: 100%; width: 100%;">
+            <canvas id="jobTypeChart"></canvas>
+        </div>
       </div>
     </div>
 
@@ -476,8 +536,8 @@
           <span class="exp-role">斜槓整合 & 數據應用</span>
         </div>
         <div class="exp-content">
-          <h3>多職能整合與金融數據化轉型</h3>
-          <p>目前同時經營多項斜槓事業，包含居家水電維修、MIS 系統支援及網路服務工作室。在金融本業上，專注於保險規劃與風險管理，並主動將 Python 與數據分析思維導入流程，提升作業效率。近期致力於結合實務經驗與數據技術，投入反詐騙領域研究。</p>
+          <h3>跨領域技術整合與金融轉型</h3>
+          <p>將 MIS 工程邏輯融合金融專業。近期深耕反詐騙議題，運用 Python 執行資料抓取與清洗 (ETL)，結合 Power BI 進行視覺化分析，並以網頁技術呈現，建構具體的風險防制策略。</p>
         </div>
       </div>
 
@@ -573,22 +633,27 @@
         <span style="background: rgba(255,255,255,0.2); color: #fff; font-size: 0.8rem; padding: 2px 6px; border-radius: 4px;">點擊複製</span>
       </div>
       <br>
-      <a href="https://github.com/yihua0988" target="_blank" style="color:#fff; font-size: 2.2rem;">
+      <a href="https://github.com/yihua0988" target="_blank" rel="noopener noreferrer" style="color:#fff; font-size: 2.2rem;">
         <i class="fab fa-github"></i>
       </a>
     </div>
     <p style="margin-top:30px;">&copy; 2026 洪益華版權所有</p>
   </footer>
 
+  <div id="toast-notification">Email 已複製到剪貼簿！</div>
+
   <script>
-    // --- [新增] Email 複製功能 ---
+    // --- [優化] Email 複製功能 (Toast 提示) ---
     function copyEmail() {
       const email = "yihua0988@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
-        alert("Email 已複製到剪貼簿：\n" + email);
+        const toast = document.getElementById("toast-notification");
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
         console.error('複製失敗', err);
-        alert("複製失敗，請手動選取複製");
+        // 如果瀏覽器不支援 clipboard API，提供 fallback
+        prompt("請手動複製 Email:", email);
       });
     }
 
@@ -605,40 +670,19 @@
       }, 10);
     });
 
-    // --- SEO 安全版防禦機制 ---
-    (function() {
-      var userAgent = navigator.userAgent.toLowerCase();
-      if (userAgent.indexOf('googlebot') !== -1 || 
-          userAgent.indexOf('bingbot') !== -1 || 
-          userAgent.indexOf('baiduspider') !== -1 ||
-          userAgent.indexOf('yandex') !== -1 ||
-          userAgent.indexOf('facebookexternalhit') !== -1 || 
-          userAgent.indexOf('line') !== -1 || 
-          userAgent.indexOf('twitterbot') !== -1 || 
-          userAgent.indexOf('slack') !== -1) {
-        return;
-      }
-
-      document.addEventListener('contextmenu', function(event) { event.preventDefault(); });
-      document.onkeydown = function(e) {
-        if (e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67) || e.keyCode == 85))) {
-          redirectToGoogle(); return false;
-        }
-      };
-      function redirectToGoogle() { window.location.href = "https://www.google.com"; }
-      
-      setInterval(function() {
-        var before = new Date().getTime();
-        debugger; 
-        var after = new Date().getTime();
-        if (after - before > 200) { redirectToGoogle(); }
-      }, 3000);
-    })();
-
-    // --- 圖表設定 (淺色系適配) ---
+    // --- 圖表設定 (淺色系適配 + RWD 優化) ---
     Chart.defaults.color = '#333'; 
     Chart.defaults.font.size = 14; 
     Chart.defaults.borderColor = 'rgba(0,0,0,0.1)'; 
+
+    const commonOptions = {
+      responsive: true,
+      maintainAspectRatio: false, // 關鍵：允許圖表依據容器高度調整，避免手機版壓扁
+      plugins: { 
+        legend: { position: 'bottom', labels: { padding: 20 } } 
+      },
+      cutout: '70%'
+    };
 
     new Chart(document.getElementById('industryChart'), {
       type: 'doughnut',
@@ -652,11 +696,7 @@
           hoverOffset: 10
         }]
       },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom', labels: { padding: 20 } } },
-        cutout: '70%'
-      }
+      options: commonOptions
     });
 
     new Chart(document.getElementById('jobTypeChart'), {
@@ -671,11 +711,7 @@
           hoverOffset: 10
         }]
       },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom', labels: { padding: 20 } } },
-        cutout: '70%'
-      }
+      options: commonOptions
     });
   </script>
 </body>
