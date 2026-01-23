@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <title>洪益華 (Saka) | 個人作品集 & 職涯履歷</title>
+  <title>洪益華(Saka)個人作品集&職涯履歷</title>
   <meta name="description" content="洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務，並具備 Python/Power BI 數據分析專業。" />
 
   <meta property="og:title" content="洪益華 (Saka) | 個人作品集 & 職涯履歷" />
@@ -13,26 +13,6 @@
   <meta property="og:url" content="https://yihua0988.github.io/" />
   <meta property="og:type" content="website" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "洪益華 (Saka)",
-    "url": "https://yihua0988.github.io/",
-    "image": "https://yihua0988.github.io/cover.png", 
-    "jobTitle": ["Financial Consultant", "Data Analyst", "Hardware Technician", "Slash Specialist"],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Saka Slash Service"
-    },
-    "description": "洪益華(Saka)的個人網站。提供水電維修、保險顧問、MIS工程、外送與網路工作室等斜槓整合服務。",
-    "sameAs": [
-      "https://github.com/yihua0988",
-      "mailto:yihua0988@gmail.com"
-    ]
-  }
-  </script>
-  
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -44,12 +24,12 @@
       --bg-secondary: #ffffff;   
       --card-bg: #ffffff;        
       
-      --accent-primary: #007bff;   
+      --accent-primary: #007bff;    
       --accent-secondary: #20c997; 
-      --accent-tertiary: #fd7e14;  
+      --accent-tertiary: #fd7e14;   
       
-      --text-bright: #333333;    
-      --text-muted: #666666;     
+      --text-bright: #333333;     
+      --text-muted: #666666;      
       
       --glow-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
       --border-glow: 1px solid #e9ecef; 
@@ -226,16 +206,14 @@
       white-space: nowrap; margin-bottom: 5px; border-radius: 4px;
     }
 
+    /* 技能與圖表區塊優化：避免手機破版 */
     .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
-    .skill-col { flex: 1; min-width: 320px; }
+    .skill-col { flex: 1; min-width: 300px; } /* 修正：320px 改為 300px 避免小螢幕破版 */
     .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 30px;}
     .skill-item { margin-bottom: 25px; }
     .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--text-bright); font-size: 1.2rem; }
-    .progress-bar-bg { width: 100%; height: 22px; background: #e9ecef; border-radius: 11px; overflow: hidden; }
-    .progress-bar-fill { 
-      height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); 
-      box-shadow: none; border-radius: 11px;
-    }
+    
+    #skills { background: var(--bg-secondary); } /* 確保技能區塊有正確的背景色 */
 
     #experience { background: var(--bg-main); }
     .exp-list { max-width: 1100px; margin: 0 auto; }
@@ -270,7 +248,7 @@
 
     .chart-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
     .chart-container { 
-      flex: 1; min-width: 320px; max-width: 500px; height: 400px; /* 設定固定高度避免手機版壓扁 */
+      flex: 1; min-width: 300px; max-width: 500px; height: 400px; /* 修正：320px 改為 300px */
       background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #eee;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative;
     }
@@ -357,16 +335,16 @@
       </div>
       
       <h1>
-        大家好我是洪益華 (SAKA)
-        <span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span>
+        大家好我是洪益華(SAKA)
+        <span class="en-sub">Hello,I'm Hung Yi-Hua(Saka)</span>
       </h1>
       
-      <p>
-        跨領域整合專家｜資訊工程・金融顧問・數據分析・生活服務
-        <span class="en-desc">
-          Cross-Domain Integration Expert | IT Engineering · Financial Consultant · Data Analysis · Lifestyle Services
-        </span>
-      </p>
+		<p>
+			跨領域資訊整合｜MIS系統維運・數據視覺化・網頁前端技術
+			<span class="en-desc">
+			Cross-Domain IT Integration|MIS Operations·Data Visualization·Front-End Technology
+			</span>
+		</p>
       
       <div class="btn-group">
         <a href="#slash-services" class="btn-tech">
@@ -379,48 +357,45 @@
     </div>
   </header>
 
-  <section id="slash-services">
+  <section id="slash-services" style="background: #f8f9fa;">
     <div class="slash-header">
-      <h3>📌 多元職能整合服務｜生活與商務解決方案</h3>
+      <h3>📌 跨域職能整合｜從硬體到軟實力</h3>
+      <p style="color:#666; margin-top:10px;">將多領域實務經驗，轉化為IT維運與專案執行的養分</p>
     </div>
     
     <div class="slash-grid">
       <div class="tech-card">
         <div class="slash-card-content">
-          <i class="fas fa-wrench slash-icon s-home"></i>
-          <h4>🏠 水電維修</h4>
-          <p>專注居家維修，快速解決各種水電故障問題。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
-          <i class="fas fa-shield-alt slash-icon s-insure"></i>
-          <h4>🛡 產壽險顧問</h4>
-          <p>產險、壽險全方位服務，主打各式產險及醫療保障。</p>
-        </div>
-      </div>
-      <div class="tech-card">
-        <div class="slash-card-content">
           <i class="fas fa-network-wired slash-icon s-mis"></i>
-          <h4>🖥 MIS 工程</h4>
-          <p>企業系統開發與維護，並負責資安管理。</p>
+          <h4>🖥MIS系統維運</h4>
+          <p>企業系統開發與維護、資安管理，確保資訊服務不中斷。</p>
         </div>
       </div>
+
       <div class="tech-card">
         <div class="slash-card-content">
-          <i class="fas fa-motorcycle slash-icon s-delivery"></i>
-          <h4>🛵 外送服務</h4>
-          <p>快速、可靠，彈性接單支援各大平台。</p>
+          <i class="fas fa-tools slash-icon s-home"></i> <h4>🔌機房與弱電工程</h4>
+          <p>具備<strong>乙級硬體裝修</strong>與<strong>室內配線</strong>證照，能處理機房電力、網路佈線與硬體故障排除。</p>
         </div>
       </div>
+
       <div class="tech-card">
         <div class="slash-card-content">
-          <i class="fas fa-gamepad slash-icon s-studio"></i>
-          <h4>🌐 網路工作室</h4>
-          <p>資訊整合、虛擬資源買賣(非虛擬貨幣)與遠端技術支援。</p>
+          <i class="fas fa-file-contract slash-icon s-insure"></i>
+          <h4>⚖️條款邏輯與風險定義</h4>
+          <p>運用保險從業期間訓練的嚴謹邏輯，擅長拆解複雜合約條款與定義風險邊界，這與程式開發中的邏輯除錯(Debug)高度相似。</p>
         </div>
       </div>
-    </div>
+
+      <div class="tech-card">
+        <div class="slash-card-content">
+          <i class="fas fa-laptop-code slash-icon s-studio"></i>
+          <h4>🌐數位營運與技術支援</h4>
+          <p>豐富的遠端技術支援經驗，並熟悉虛擬資產交易與電商邏輯。</p>
+        </div>
+      </div>
+      
+      </div>
   </section>
 
   <section id="projects">
@@ -430,85 +405,110 @@
     <div class="project-grid">
       <div class="tech-card">
         <div class="project-card-content">
-          <i class="fas fa-shield-virus" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 25px;"></i>
-          <h3>近年詐騙防制資料分析</h3>
-          <p>針對近年詐騙案件類型進行深度數據挖掘。利用 Python 清洗 165 公開資料，並透過 Power BI 建立動態戰情室，視覺化高風險族群與手法趨勢，提供具體的防制洞察。</p>
+          <i class="fas fa-user-shield" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 25px;"></i>
+          
+          <h3>詐騙防制數據視覺化平台</h3>
+          
+          <p>運用Python(Pandas)針對Opendata開放資料進行ETL清洗，並建置Power BI動態戰情室。前端使用 <strong>HTML/CSS開發響應式網頁(RWD)</strong> 介面串接儀表板，提供使用者流暢的風險分析體驗。</p>
+          
           <div class="tags" style="margin-top: 25px;">
             <span>Python ETL</span>
             <span>Power BI</span>
-            <span>Data Viz</span>
+            <span>HTML/CSS</span>
           </div>
+          
           <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
-            專案網站連結 // LAUNCH DEMO <i class="fas fa-external-link-alt"></i>
+            專案網站連結(LAUNCH DEMO)<i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills" style="background: var(--bg-secondary);">
+  <section id="skills">
     <div class="section-title">
       <h2>核心能力矩陣<br>SKILLS</h2>
     </div>
     <div class="skill-container">
       <div class="skill-col">
-        <h3><i class="fas fa-code"></i> 資訊技術與開發</h3>
+        <h3><i class="fas fa-code"></i>資訊技術與數據</h3>
+        
         <div class="skill-item">
-          <div class="skill-info"><span>Python 技術</span><span>90%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">Python爬蟲與資料處理</span>
+            <span style="font-size:1.15rem; color:#666;">擅長Web Scraping/具備ETL清洗經驗</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>HTML 技術</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">網頁前端技術</span>
+            <span style="font-size:1.15rem; color:#666;">HTML/CSS/RWD響應式設計</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>SQL / 資料庫管理</span><span>75%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">Power BI商業智慧</span>
+            <span style="font-size:1.15rem; color:#666;">動態戰情室建置/數據視覺化</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>MIS 系統與資安維護</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">SQL/資料庫</span>
+            <span style="font-size:1.15rem; color:#666;">基礎資料庫管理與查詢</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>Excel VBA 自動化</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Git / GitHub 版控</span><span>75%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">Excel VBA/Git</span>
+            <span style="font-size:1.15rem; color:#666;">行政流程自動化/版本控制</span>
+          </div>
         </div>
       </div>
       
       <div class="skill-col">
-        <h3><i class="fas fa-tools"></i> 實務與領域專業</h3>
+        <h3><i class="fas fa-server"></i>MIS維運與軟實力</h3>
+        
         <div class="skill-item">
-          <div class="skill-info"><span>硬體維修與水電工程</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">硬體裝修與故障排除</span>
+            <span style="font-size:1.15rem; color:#666;">乙級電腦硬體裝修證照/系統重灌</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>金融保險與風險規劃</span><span>90%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">機電與弱電維護</span>
+            <span style="font-size:1.15rem; color:#666;">辦公室網路佈線/基礎設施巡檢(PM)</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>Power BI 商業智慧</span><span>85%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:85%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">資安與工安管理</span>
+            <span style="font-size:1.15rem; color:#666;">防火管理員/基礎資安設定</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>日語溝通 (JLPT N2)</span><span>80%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">技術故障排查</span>
+            <span style="font-size:1.15rem; color:#666;">善於分析錯誤日誌(Log)/鎖定問題核心</span>
+          </div>
         </div>
+
         <div class="skill-item">
-          <div class="skill-info"><span>客戶溝通與危機處理</span><span>95%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>專案協調與管理</span><span>80%</span></div>
-          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
+          <div class="skill-info">
+            <span style="font-weight:700; font-size:1.4rem;">日文技術資訊檢索</span>
+            <span style="font-size:1.15rem; color:#666;">JLPT N2/善於查找原廠技術解法</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
   <section id="experience">
     <div class="section-title">
       <h2>職涯歷程<br>CAREER LOG</h2>
@@ -532,45 +532,45 @@
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-meta">
-          <span class="exp-period">近期 - 至今</span>
-          <span class="exp-role">斜槓整合 & 數據應用</span>
+          <span class="exp-period">2025-至今</span>
+          <span class="exp-role">金融顧問&獨立開發者</span>
         </div>
         <div class="exp-content">
-          <h3>跨領域技術整合與金融轉型</h3>
-          <p>將 MIS 工程邏輯融合金融專業。近期深耕反詐騙議題，運用 Python 執行資料抓取與清洗 (ETL)，結合 Power BI 進行視覺化分析，並以網頁技術呈現，建構具體的風險防制策略。</p>
+          <h3>溝通協調與數據實作</h3>
+          <p>擔任金融顧問期間，磨練出將複雜條款轉化為易懂語言的溝通能力，並具備精準的需求分析技巧。同時利用業餘時間，運用Python(ETL)與Power BI設計「詐騙防制數據分析網站」，展現全端開發與數據視覺化實力。</p>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <span class="exp-period">在學進修</span>
-          <span class="exp-role">國立臺中科技大學</span>
+          <span class="exp-period">2017 - 2025</span>
+          <span class="exp-role">飯店/百貨業(工務機電)</span>
         </div>
         <div class="exp-content">
-          <h3>跨領域整合：從日文到資管</h3>
-          <p>原就讀應用日文系，已取得 JLPT N2 檢定。察覺金融科技潛力後，轉系至資訊管理系。目標是整合語言能力、金融經驗與資訊技術，成為跨領域專才。</p>
+          <h3>機電維護與危機處理</h3>
+          <p>負責館內水電、弱電系統與消防設備的巡檢與保養(PM)。具備在高壓環境下迅速排除設備故障（如跳電、管線異常）的危機處理能力，並持有防火管理員與乙種職安衛主管證照，熟悉廠商監督與跨部門協調。</p>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <span class="exp-period">過去經歷</span>
-          <span class="exp-role">百貨/旅宿服務業</span>
+          <span class="exp-period">學歷背景</span>
+          <span class="exp-role">國立臺中科技大學-資管系</span>
         </div>
         <div class="exp-content">
-          <h3>服務業現場管理與溝通</h3>
-          <p>長期服務於第一線高壓環境，累積紮實的客戶服務與危機處理能力，培養出卓越的溝通協調技巧。</p>
+          <h3>專業回歸與跨域整合</h3>
+          <p>延續台中高工時期的工程背景，在拓展日文語言能力（JLPT N2）後，決定回歸資訊本業深耕。致力於結合「技術邏輯」與「語言優勢」，成為具備多元觀點的資訊專才。</p>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
           <span class="exp-period">早期基礎</span>
-          <span class="exp-role">台中高工 資訊科</span>
+          <span class="exp-role">台中高工-資訊科</span>
         </div>
         <div class="exp-content">
           <h3>工程邏輯與硬體維修</h3>
-          <p>於技職體系打下穩固工程基礎。精通電腦硬體、電路焊接與網頁設計，並取得多張技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p>
+          <p>於技職體系打下穩固工程基礎。精通電腦硬體裝修、電路焊接與基礎網頁設計，之後並取得多張國家技術士證照，奠定嚴謹的邏輯思維與問題排查能力。</p>
         </div>
       </div>
     </div>
@@ -637,10 +637,10 @@
         <i class="fab fa-github"></i>
       </a>
     </div>
-    <p style="margin-top:30px;">&copy; 2026 洪益華版權所有</p>
+    <p style="margin-top:30px;">&copy;2026洪益華版權所有</p>
   </footer>
 
-  <div id="toast-notification">Email 已複製到剪貼簿！</div>
+  <div id="toast-notification">Email已複製到剪貼簿！</div>
 
   <script>
     // --- [優化] Email 複製功能 (Toast 提示) ---
@@ -652,7 +652,6 @@
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
         console.error('複製失敗', err);
-        // 如果瀏覽器不支援 clipboard API，提供 fallback
         prompt("請手動複製 Email:", email);
       });
     }
@@ -677,7 +676,7 @@
 
     const commonOptions = {
       responsive: true,
-      maintainAspectRatio: false, // 關鍵：允許圖表依據容器高度調整，避免手機版壓扁
+      maintainAspectRatio: false, 
       plugins: { 
         legend: { position: 'bottom', labels: { padding: 20 } } 
       },
