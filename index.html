@@ -712,5 +712,37 @@
       options: commonOptions
     });
   </script>
+  <script>
+	(function() {
+        const styleSys = "color: #fd7e14; font-size: 12px; font-weight: bold; background: #222; padding: 2px 6px; border-radius: 3px;";
+        const stylePass = "color: #20c997; font-size: 13px; font-weight: bold;";
+        const styleTitle = "color: #007bff; font-size: 26px; font-weight: 900; text-shadow: 2px 2px 0px #b3d4fc; margin-top: 10px; margin-bottom: 10px;";
+        const styleBody = "color: #495057; font-size: 14px; line-height: 1.8; font-family: 'Courier New', monospace;";
+        const styleBtn = "background: #007bff; color: white; padding: 5px 10px; border-radius: 5px; font-size: 14px; font-weight: bold; line-height: 2.5;";
+        const styleHighlight = "color: #e74c3c; font-weight: bold; background: #fdf5f6; padding: 2px 4px; border-radius: 3px;";
+
+        console.log("%c[系統日誌] 偵測到進階開發者開啟 F12...", styleSys);
+        console.log("%c✔ 基礎設施與機房弱電狀態... OK", stylePass);
+        console.log("%c✔ MIS 系統維運模組... 運作正常", stylePass);
+        console.log("%c✔ Python 爬蟲與數據清洗引擎... 啟動完畢", stylePass);
+        console.log("%c✔ 網頁前端 RWD 渲染... 載入成功", stylePass);
+        console.log("--------------------------------------------------");
+
+        console.log("%c(☞ﾟヮﾟ)☞ 恭喜你觸發了隱藏關卡！", styleTitle);
+
+        console.log(
+            "%c看來你對我的原始碼很有興趣！\n" +
+            "我不只會寫 Code，更是那個具備 %c5年維修經驗%c、能在機房拉線也能在後台抓 Bug 的實戰派。\n" +
+            "從硬體除錯到軟體開發，我的技能樹正在持續點滿中。\n" +
+            "順帶一提，遇到日文的原廠技術文件我也能直接生啃 (JLPT N2 認證)！", 
+            styleBody, styleHighlight, styleBody
+        );
+
+        console.log("\n%c💡 如果貴團隊剛好缺一位邏輯嚴密、自帶 Debug 體質的熱血工程師，歡迎發送組隊邀請！", styleBody);
+        
+        console.log("%c✉️ 發送組隊邀請 (Email): yihua0988@gmail.com", styleBtn);
+        console.log("%c⚔️ 偷看我的裝備庫 (GitHub): https://github.com/yihua0988", styleBtn);
+    })();
+  </script>
 </body>
 </html>
