@@ -60,7 +60,7 @@
 
     /* --- 導覽列 --- */
     nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
+      position: stick; top: 0; width: 100%; z-index: 1000;
       padding: 15px 5%;
       display: flex; justify-content: space-between; align-items: center;
       background: rgba(255, 255, 255, 0.95);
@@ -312,6 +312,24 @@
       .btn-tech { padding: 12px 30px; font-size: 1rem; width: 100%; box-sizing: border-box;}
       .btn-group { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 40px auto 0; }
     }
+	@media print {
+  /* 1. 直接讓導覽列在列印時消失，絕對不可能再擋住內容 */
+  nav {
+    display: none !important;
+  }
+
+  /* 2. 預防 Hero 區塊的 100vh 在列印時變成巨大空白 */
+  /* 💡請將下方的 body 或 hero 換成你包住「直接拆裝我」那個區塊的標籤、ID 或 Class */
+  body {
+    padding-top: 0 !important; /* 移除為了固定導覽列而留的頂部空間 */
+  }
+  
+  .hero-section { /* 假設你的主視覺區塊叫 .hero-section */
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 0 !important;
+  }
+}
   </style>
 </head>
 <body>
