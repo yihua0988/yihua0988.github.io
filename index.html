@@ -2,16 +2,14 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
   <title>洪益華(Saka)｜資深IT系學生&全端開發作品集</title>
 
   <meta name="description" content="洪益華(Saka)的個人網站。現就讀僑光科大資訊科技系，擁有7年職場歷練，專注於MIS系統維運、Python資料分析與前端網頁開發。" />
 
   <meta property="og:title" content="洪益華(Saka)個人作品集&職涯履歷" />
-  
   <meta property="og:description" content="7年職場歷練xIT本科系學生。點擊查看：MIS系統維運/Python爬蟲/詐騙防制數據平台專案。" />
-  
   <meta property="og:image" content="https://yihua0988.github.io/cover.png" />
   <meta property="og:url" content="https://yihua0988.github.io/" />
   <meta property="og:type" content="website" />
@@ -62,7 +60,8 @@
     nav {
       position: stick; top: 0; width: 100%; z-index: 1000;
       padding: 15px 5%;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: center; /* 改為置中對齊 */
+      align-items: center;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -74,18 +73,6 @@
       font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;
       color: var(--accent-primary);
     }
-    .nav-links { display: flex; gap: 30px; }
-    .nav-links a {
-      font-weight: 600; font-size: 1.1rem; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 1px;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--accent-primary); }
-    .nav-links a::after {
-        content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
-        background-color: var(--accent-primary); transition: width 0.3s;
-    }
-    .nav-links a:hover::after { width: 100%; }
 
     /* --- Hero Section --- */
     .hero {
@@ -193,10 +180,13 @@
     .slash-card-content p { color: var(--text-muted); font-size: 1.05rem; margin: 0; line-height: 1.5; }
 
     .project-grid { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+      gap: 40px;
       justify-content: center;
     }
-    .project-card-content h3 { font-size: 2rem; color: var(--accent-primary); margin-top: 0; margin-bottom: 20px; }
+    .project-card-content .card-icon { font-size: 3rem; margin-bottom: 25px; }
+    .project-card-content h3 { font-size: 2rem; margin-top: 0; margin-bottom: 20px; }
     .project-card-content p { color: var(--text-muted); font-size: 1.35rem; text-align: justify; line-height: 1.8;}
     
     .tags {
@@ -204,19 +194,18 @@
       justify-content: center; gap: 10px; margin-top: 25px;
     }
     .tags span {
-      background: rgba(0, 123, 255, 0.1); color: var(--accent-primary); border: 1px solid var(--accent-primary);
+      background: rgba(0, 123, 255, 0.1); border: 1px solid transparent;
       padding: 6px 12px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;
-      white-space: nowrap; margin-bottom: 5px; border-radius: 4px;
+      white-space: nowrap; border-radius: 4px; font-weight: 600;
     }
 
-    /* 技能與圖表區塊優化：避免手機破版 */
     .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
-    .skill-col { flex: 1; min-width: 300px; } /* 修正：320px 改為 300px 避免小螢幕破版 */
+    .skill-col { flex: 1; min-width: 300px; } 
     .skill-col h3 { font-size: 1.8rem; color: var(--accent-secondary); border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 30px;}
     .skill-item { margin-bottom: 25px; }
     .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--text-bright); font-size: 1.2rem; }
     
-    #skills { background: var(--bg-secondary); } /* 確保技能區塊有正確的背景色 */
+    #skills { background: var(--bg-secondary); } 
 
     #experience { background: var(--bg-main); }
     .exp-list { max-width: 1100px; margin: 0 auto; }
@@ -251,18 +240,18 @@
 
     .chart-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
     .chart-container { 
-      flex: 1; min-width: 300px; max-width: 500px; height: 400px; /* 修正：320px 改為 300px */
+      flex: 1; min-width: 300px; max-width: 500px; height: 400px; 
       background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #eee;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative;
+      display: flex; flex-direction: column; 
     }
-    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-bright) !important; text-align: center; }
+    .chart-container h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-bright) !important; text-align: center; flex-shrink: 0;}
 
     footer { background: #343a40; padding: 60px 0; text-align: center; color: #adb5bd; border-top: none; }
     .footer-social a { color: #fff; font-size: 2.2rem; margin: 0 20px; transition:0.3s; }
     .footer-social a:hover { color: var(--accent-primary); }
     footer p { font-size: 1.1rem; margin-top: 30px; }
 
-    /* Toast Notification Style */
     #toast-notification {
         visibility: hidden;
         min-width: 250px;
@@ -289,47 +278,69 @@
 
     @media (max-width: 768px) {
       nav { justify-content: center; padding: 15px; flex-direction: column; gap: 10px; }
-      .logo { width: 100%; text-align: center; margin-bottom: 5px; font-size: 1.3rem; }
-      .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 15px; }
-      .nav-links a { 
-        font-size: 0.9rem; padding: 5px 10px; background: #f8f9fa; border-radius: 5px;
-      }
-      .nav-links a::after { display: none; } /* 手機版移除下底線動畫 */
+      .logo { width: 100%; text-align: center; font-size: 1.3rem; margin: 0;}
       
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; padding: 0 10px; text-align: left; }
       .hero-visual-core { width: 160px; height: 160px; }
       
-      .exp-item { flex-direction: column; }
-      .exp-meta { border-right: none; border-bottom: 2px solid #eee; padding-right: 0; padding-bottom: 20px; margin-right: 0; margin-bottom: 20px; width: 100%; }
-      .tags span { font-size: 0.9rem; padding: 4px 10px; }
-      section { padding: 60px 5%; }
+      section { padding: 50px 5%; }
       
-      /* 手機版文字對齊修正 */
-      .project-card-content p, .exp-content p { text-align: left; }
+      .section-title { margin-bottom: 40px; }
+      .section-title h2 { font-size: 1.7rem !important; line-height: 1.4; letter-spacing: 1px; }
+
+      .slash-grid, .cert-matrix { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px; 
+      }
+      .slash-grid .tech-card, .cert-node { 
+        padding: 15px 10px !important; 
+        border-radius: 8px;
+      }
+      .slash-icon, .cert-icon { 
+        font-size: 1.8rem !important; 
+        margin-bottom: 8px !important; 
+      }
+      .slash-card-content h4, .cert-node h4 { 
+        font-size: 0.95rem !important; 
+        margin-bottom: 3px !important;
+      }
+      .slash-card-content p, .cert-node p { 
+        font-size: 0.75rem !important; 
+        line-height: 1.4; 
+      }
+
+      .project-grid { grid-template-columns: 1fr !important; gap: 20px; }
+      .project-grid .tech-card { padding: 20px !important; min-width: 0 !important; width: 100%; border-radius: 10px; }
+      .project-card-content .card-icon { font-size: 2.2rem !important; margin-bottom: 12px !important; }
+      .project-card-content h3 { font-size: 1.3rem !important; margin-bottom: 10px !important; line-height: 1.3; word-break: break-all; }
+      .project-card-content p, .exp-content p { text-align: justify; font-size: 0.95rem !important; line-height: 1.5 !important; margin-bottom: 15px !important; }
+      .tags { margin-top: 10px !important; gap: 6px !important; justify-content: flex-start !important; }
+      .tags span { font-size: 0.75rem !important; padding: 3px 8px !important; }
+      .project-card-content a { font-size: 0.95rem !important; margin-top: 15px !important; display: inline-block !important; }
+
+      .exp-item { flex-direction: column; padding: 20px !important; }
+      .exp-meta { border-right: none; border-bottom: 2px solid #eee; padding-right: 0; padding-bottom: 15px; margin-right: 0; margin-bottom: 15px; width: 100%; }
+      .exp-content h3 { font-size: 1.3rem !important; margin-bottom: 10px !important;}
       
-      .chart-container { height: 300px; padding: 20px; }
+      .chart-row { gap: 20px; }
+      .chart-container { 
+        height: 260px; 
+        padding: 15px; 
+        width: 100%; 
+        min-width: 0;
+      }
+      .chart-container h4 { font-size: 1.1rem; margin-bottom: 10px; }
+
       .btn-tech { padding: 12px 30px; font-size: 1rem; width: 100%; box-sizing: border-box;}
       .btn-group { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 40px auto 0; }
     }
-	@media print {
-  /* 1. 直接讓導覽列在列印時消失，絕對不可能再擋住內容 */
-  nav {
-    display: none !important;
-  }
-
-  /* 2. 預防 Hero 區塊的 100vh 在列印時變成巨大空白 */
-  /* 💡請將下方的 body 或 hero 換成你包住「直接拆裝我」那個區塊的標籤、ID 或 Class */
-  body {
-    padding-top: 0 !important; /* 移除為了固定導覽列而留的頂部空間 */
-  }
-  
-  .hero-section { /* 假設你的主視覺區塊叫 .hero-section */
-    height: auto !important;
-    min-height: 0 !important;
-    margin-top: 0 !important;
-  }
-}
+    
+    @media print {
+      nav { display: none !important; }
+      body { padding-top: 0 !important; }
+      .hero-section { height: auto !important; min-height: 0 !important; margin-top: 0 !important; }
+    }
   </style>
 </head>
 <body>
@@ -338,12 +349,6 @@
 
   <nav>
     <div class="logo">洪益華個人技能分享</div>
-    <div class="nav-links">
-      <a href="#slash-services">專長技能</a>
-      <a href="#projects">數據專案</a>
-      <a href="#skills">核心技能</a>
-      <a href="#experience">職涯軌跡</a>
-    </div>
   </nav>
 
   <header class="hero">
@@ -421,28 +426,50 @@
 
   <section id="projects">
     <div class="section-title">
-      <h2>數據專案實作<br>DATA PROJECTS</h2>
+      <h2>實作專案與技術分析<br>PROJECTS & ANALYSIS</h2>
     </div>
     <div class="project-grid">
+      
       <div class="tech-card">
         <div class="project-card-content">
-          <i class="fas fa-user-shield" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 25px;"></i>
+          <i class="fas fa-user-shield card-icon" style="color: var(--accent-primary);"></i>
           
-          <h3>詐騙防制數據視覺化平台</h3>
+          <h3 style="color: var(--accent-primary);">詐騙防制數據視覺化平台</h3>
           
           <p>運用Python(Pandas)針對Opendata開放資料進行ETL清洗，並建置Power BI動態戰情室。前端使用 <strong>HTML/CSS開發響應式網頁(RWD)</strong> 介面串接儀表板，提供使用者流暢的風險分析體驗。</p>
           
-          <div class="tags" style="margin-top: 25px;">
-            <span>Python ETL</span>
-            <span>Power BI</span>
-            <span>HTML/CSS</span>
+          <div class="tags">
+            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Python ETL</span>
+            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Power BI</span>
+            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">HTML/CSS</span>
           </div>
           
-          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:30px; color:var(--accent-primary); font-weight:700; font-size: 1.2rem;">
-            專案網站連結(LAUNCH DEMO)<i class="fas fa-external-link-alt"></i>
+          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary); font-weight:700;">
+            專案網站連結 (LAUNCH DEMO) <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       </div>
+
+      <div class="tech-card">
+        <div class="project-card-content">
+          <i class="fas fa-hard-hat card-icon" style="color: var(--accent-secondary);"></i>
+          
+          <h3 style="color: var(--accent-secondary);">技術分析報告：智慧工地系統</h3>
+          
+          <p>針對第 21 屆育秀盃銅獎作品「未來建築：智慧工地的安全革命」進行深度技術解析。探討其 <strong>邊緣運算 (YOLO)、AI 影像辨識、MQTT 通訊協定</strong> 及硬體整合邏輯，並使用 HTML/CSS/JS 開發具備 RWD 響應式的互動網頁簡報。</p>
+          
+          <div class="tags">
+            <span style="border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(32, 201, 151, 0.1);">架構分析</span>
+            <span style="border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(32, 201, 151, 0.1);">IoT 整合</span>
+            <span style="border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(32, 201, 151, 0.1);">Web PPT開發</span>
+          </div>
+          
+          <a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary); font-weight:700;">
+            查看技術簡報 (VIEW PRESENTATION) <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -538,13 +565,13 @@
     <div class="chart-row">
       <div class="chart-container">
         <h4>產業經驗分佈</h4>
-        <div style="position: relative; height: 100%; width: 100%;">
+        <div style="flex-grow: 1; position: relative; min-height: 0;">
             <canvas id="industryChart"></canvas>
         </div>
       </div>
       <div class="chart-container">
         <h4>職能性質佔比</h4>
-        <div style="position: relative; height: 100%; width: 100%;">
+        <div style="flex-grow: 1; position: relative; min-height: 0;">
             <canvas id="jobTypeChart"></canvas>
         </div>
       </div>
