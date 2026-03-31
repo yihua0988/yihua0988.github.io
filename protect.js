@@ -8,7 +8,6 @@
         'telegrambot', 'discordbot', 'pinterest'
     ];
     
-    // 如果是爬蟲，直接結束函式，不執行後面的防護
     for (var i = 0; i < allowedBots.length; i++) {
         if (userAgent.indexOf(allowedBots[i]) !== -1) {
             return;
@@ -16,45 +15,24 @@
     }
 
     // --- 2. 行為攔截 ---
-    
-    // 跳轉函式 (你可以隨時在這裡修改跳轉目標)
     function redirectToGoogle() {
-        // 為了避免誤判導致無限迴圈，可以加個判斷
         if (window.location.hostname !== "www.google.com") {
             window.location.href = "https://www.google.com";
         }
     }
 
-    // [新增] 動態注入 CSS，徹底禁止滑鼠反白選取文字
-    var style = document.createElement('style');
-    style.innerHTML = `
-        * {
-            -webkit-user-select: none !important; /* Chrome, Safari, Opera */
-            -moz-user-select: none !important;    /* Firefox */
-            -ms-user-select: none !important;     /* IE/Edge */
-            user-select: none !important;         /* 現代瀏覽器標準 */
-        }
-    `;
-    document.head.appendChild(style);
+    // 【已移除】：動態注入 user-select: none 的 CSS (讓滑鼠可以反白文字)
+    // 【已移除】：禁止 selectstart, copy, cut, paste 的事件攔截 (讓右鍵複製或快捷鍵複製生效)
 
-    // [新增] 禁止選取、拖曳、複製、剪下、貼上
-    var preventEvents = ['selectstart', 'dragstart', 'copy', 'cut', 'paste'];
-    preventEvents.forEach(function(eventName) {
-        document.addEventListener(eventName, function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }, true);
-    });
-
-    // 禁止右鍵選單
+    // 禁止右鍵選單 (這項保留，防止直接右鍵另存圖片或檢視原始碼。使用者仍可用 Ctrl+C 複製)
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
-        e.stopPropagation(); // 強化攔截
+        e.stopPropagation(); 
     }, true);
 
-    // 禁止鍵盤快捷鍵 (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C複製)
+    // 禁止鍵盤快捷鍵 (保留 F12, Ctrl+U, Ctrl+S，但【開放 Ctrl+C / Ctrl+X】)
     document.addEventListener('keydown', function(e) {
-        // F12
+        // 阻擋 F12
         if (e.keyCode == 123) {
             e.preventDefault();
             redirectToGoogle();
@@ -63,34 +41,33 @@
         
         // Ctrl 組合鍵檢查
         if (e.ctrlKey) {
-            // Shift 組合鍵 (I, J, C)
+            // Shift 組合鍵 (阻擋 I, J, 開發者工具)
             if (e.shiftKey) {
-                if (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67) { // I, J, C
+                // 這裡拿掉了 67(C)，只擋 73(I), 74(J)
+                if (e.keyCode == 73 || e.keyCode == 74) { 
                     e.preventDefault();
                     redirectToGoogle();
                     return false;
                 }
             }
-            // 單純 Ctrl 組合鍵 (U=原始碼, S=存檔, C=複製, X=剪下)
-            if (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 88) { 
+            // 單純 Ctrl 組合鍵 (阻擋 U=原始碼, S=存檔)
+            // 這裡拿掉了 67(C) 和 88(X)，讓複製剪下可以正常運作
+            if (e.keyCode == 85 || e.keyCode == 83) {  
                 e.preventDefault();
-                // 這裡按下 Ctrl+C 只是阻擋，不一定每次都要跳轉，但如果要嚴格一點也可以觸發 redirectToGoogle()
-                // 如果不要因為按 Ctrl+C 就跳轉，把 redirectToGoogle() 註解掉即可
-                // redirectToGoogle(); 
+                redirectToGoogle();
                 return false;
             }
         }
     }, true);
 
-    // --- 3. 進階偵測：Debugger 時間差攻擊 ---
-    // 當使用者硬開開發者工具時，瀏覽器會因為 debugger 指令暫停，產生時間差
+    // --- 3. 進階偵測：Debugger 時間差攻擊 (保留) ---
     setInterval(function() {
         var start = new Date().getTime();
-        debugger; // 如果 DevTools 開啟，會卡在這裡
+        debugger; 
         var end = new Date().getTime();
-        if (end - start > 100) { // 門檻值 (毫秒)
+        if (end - start > 100) { 
             redirectToGoogle();
         }
-    }, 2000); // 每 2 秒檢查一次
+    }, 2000); 
 
 })();
