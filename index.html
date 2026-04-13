@@ -60,7 +60,7 @@
     nav {
       position: stick; top: 0; width: 100%; z-index: 1000;
       padding: 15px 5%;
-      display: flex; justify-content: center; /* 改為置中對齊 */
+      display: flex; justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -276,6 +276,33 @@
         bottom: 50px;
     }
 
+    /* --- 新增：懸浮複製網址按鈕樣式 --- */
+    .fab-copy-url {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        background: var(--accent-primary);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    }
+    .fab-copy-url:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+        background: #0056b3;
+    }
+
     @media (max-width: 768px) {
       nav { justify-content: center; padding: 15px; flex-direction: column; gap: 10px; }
       .logo { width: 100%; text-align: center; font-size: 1.3rem; margin: 0;}
@@ -334,16 +361,25 @@
 
       .btn-tech { padding: 12px 30px; font-size: 1rem; width: 100%; box-sizing: border-box;}
       .btn-group { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 40px auto 0; }
+      
+      /* 新增：手機版懸浮按鈕微調 */
+      .fab-copy-url {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
     }
     
     @media print {
       nav { display: none !important; }
       body { padding-top: 0 !important; }
       .hero-section { height: auto !important; min-height: 0 !important; margin-top: 0 !important; }
+      .fab-copy-url { display: none !important; } /* 列印時隱藏懸浮按鈕 */
     }
   </style>
 </head>
-<script src="protect.js"></script>	
+<script src="protect.js"></script>  
 <body>
 
   <div class="bg-tech-lines"></div>
@@ -366,20 +402,20 @@
         <span class="en-sub">Hello,I'm Hung Yi-Hua(Saka)</span>
       </h1>
       
-		<p>
-		僑光科大資訊科技系(日間部)｜7年職場歷練・Python開發・MIS維運
-		<span class="en-desc">
-		IT Major Student at OCU|7 Years Professional Exp·Python Dev·MIS Operations
-		</span>
+        <p>
+        僑光科大資訊科技系(日間部)｜7年職場歷練・Python開發・MIS維運
+        <span class="en-desc">
+        IT Major Student at OCU|7 Years Professional Exp·Python Dev·MIS Operations
+        </span>
         </p>
       
       <div class="btn-group">
         <a href="#slash-services" class="btn-tech">
           瀏覽服務內容
         </a>
-        <a href="mailto:yihua0988@gmail.com" class="btn-tech btn-tech-filled">
-          直接聯繫我
-        </a>
+        <a href="mailto:yihua0988@gmail.com" class="btn-tech btn-tech-filled" onclick="contactMe()">
+		  直接聯繫我
+		</a>
       </div>
     </div>
   </header>
@@ -687,17 +723,51 @@
 
   <div id="toast-notification">Email已複製到剪貼簿！</div>
 
+  <button class="fab-copy-url" onclick="copyMyUrl()">
+    <i class="fas fa-copy"></i> 複製網址
+  </button>
+
   <script>
-    // --- [優化] Email 複製功能 (Toast 提示) ---
+    // --- [優化] Email 複製功能 (Toast 提示動態文字) ---
     function copyEmail() {
       const email = "yihua0988@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
         const toast = document.getElementById("toast-notification");
+        toast.innerText = "Email 已複製到剪貼簿！"; 
         toast.className = "show";
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
         console.error('複製失敗', err);
         prompt("請手動複製 Email:", email);
+      });
+    }
+
+    // --- 首頁大按鈕專用：複製 Email + 提示正在呼叫信箱 ---
+    function contactMe() {
+      const email = "yihua0988@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById("toast-notification");
+        toast.innerText = "✉️ Email已複製！正在呼叫信箱 App..."; 
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      }).catch(err => {
+        console.error('複製失敗', err);
+      });
+    }
+
+    // --- 新增：複製當前網頁網址功能 ---
+    function copyMyUrl() {
+      // 取得目前的網址
+      const myUrl = window.location.href; 
+      
+      navigator.clipboard.writeText(myUrl).then(() => {
+        const toast = document.getElementById("toast-notification");
+        toast.innerText = "✅ 網址已複製！"; // 設定專屬文字
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      }).catch(err => {
+        console.error('複製失敗', err);
+        prompt("請手動複製網址:", myUrl);
       });
     }
 
@@ -759,7 +829,7 @@
     });
   </script>
   <script>
-	(function() {
+    (function() {
         const styleSys = "color: #fd7e14; font-size: 12px; font-weight: bold; background: #222; padding: 2px 6px; border-radius: 3px;";
         const stylePass = "color: #20c997; font-size: 13px; font-weight: bold;";
         const styleTitle = "color: #007bff; font-size: 26px; font-weight: 900; text-shadow: 2px 2px 0px #b3d4fc; margin-top: 10px; margin-bottom: 10px;";
