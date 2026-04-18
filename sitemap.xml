@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml-stylesheet type="text/xsl" href="https://yihua0988.github.io/sitemap.xsl"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    
    <url>
       <loc>https://yihua0988.github.io/</loc>
-      <lastmod>2026-03-31</lastmod>
+      <lastmod>2026-04-18T20:00:00+08:00</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
+      <image:image>
+         <image:loc>https://yihua0988.github.io/cover.png</image:loc>
+         <image:title>洪益華 (Saka)｜Python 軟體工程師・MIS 網管工程師履歷</image:title>
+         <image:caption>擁有 7 年實戰經驗的全端與維運技術專家，專精自動化爬蟲與伺服器架設</image:caption>
+      </image:image>
    </url>
 
    <url>
-      <loc>https://yihua0988.github.io/1150402point/</loc>
-      <lastmod>2026-03-31</lastmod>
+      <loc>https://yihua0988.github.io/python-anti-fraud-data-platform/</loc>
+      <lastmod>2026-04-18T20:00:00+08:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://yihua0988.github.io/cover.png</image:loc>
+         <image:title>Python 防詐騙數據平台專案與架構設計</image:title>
+         <image:caption>使用 Python 進行資料分析與數據視覺化的防詐騙平台專案</image:caption>
+      </image:image>
    </url>
 
    <url>
-      <loc>https://yihua0988.github.io/-2025-7-29-/</loc>
-      <lastmod>2026-01-16</lastmod>
+      <loc>https://yihua0988.github.io/mis-system-automation-operations/</loc>
+      <lastmod>2026-04-18T20:00:00+08:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://yihua0988.github.io/cover.png</image:loc>
+         <image:title>MIS 伺服器維運與自動化部署專案</image:title>
+         <image:caption>涵蓋網路架構、資訊安全與系統自動化維運的實戰演練</image:caption>
+      </image:image>
    </url>
 
 </urlset>
