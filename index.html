@@ -434,8 +434,9 @@
       .fab-copy-url { display: none !important; } /* 列印時隱藏懸浮按鈕 */
     }
   </style>
+  <script src="protect.js"></script>  
 </head>
-<script src="protect.js"></script>  
+
 <body>
 
   <div class="bg-tech-lines"></div>
@@ -783,7 +784,7 @@
     <i class="fas fa-copy"></i> 複製網址
   </button>
 
-  <script>
+<script>
     // --- [優化] Email 複製功能 (Toast 提示動態文字) ---
     function copyEmail() {
       const email = "yihua0988@gmail.com";
@@ -813,12 +814,10 @@
 
     // --- 新增：複製當前網頁網址功能 ---
     function copyMyUrl() {
-      // 取得目前的網址
       const myUrl = window.location.href; 
-      
       navigator.clipboard.writeText(myUrl).then(() => {
         const toast = document.getElementById("toast-notification");
-        toast.innerText = "✅ 網址已複製！"; // 設定專屬文字
+        toast.innerText = "✅ 網址已複製！"; 
         toast.className = "show";
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
@@ -840,51 +839,58 @@
       }, 10);
     });
 
-    // --- 圖表設定 (淺色系適配 + RWD 優化) ---
-    Chart.defaults.color = '#333'; 
-    Chart.defaults.font.size = 14; 
-    Chart.defaults.borderColor = 'rgba(0,0,0,0.1)'; 
+    // ==========================================
+    // 💡 修正區塊：確保 Chart.js 載入後才執行圖表渲染
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- 圖表設定 (淺色系適配 + RWD 優化) ---
+        Chart.defaults.color = '#333'; 
+        Chart.defaults.font.size = 14; 
+        Chart.defaults.borderColor = 'rgba(0,0,0,0.1)'; 
 
-    const commonOptions = {
-      responsive: true,
-      maintainAspectRatio: false, 
-      plugins: { 
-        legend: { position: 'bottom', labels: { padding: 20 } } 
-      },
-      cutout: '70%'
-    };
+        const commonOptions = {
+          responsive: true,
+          maintainAspectRatio: false, 
+          plugins: { 
+            legend: { position: 'bottom', labels: { padding: 20 } } 
+          },
+          cutout: '70%'
+        };
 
-    new Chart(document.getElementById('industryChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['百貨服務業', '飯店業', '視廳歌唱業', '人才綜合服務'],
-        datasets: [{
-          data: [49, 9, 14, 10],
-          backgroundColor: ['#007bff', '#20c997', '#fd7e14', '#6c757d'],
-          borderWidth: 2,
-          borderColor: '#ffffff',
-          hoverOffset: 10
-        }]
-      },
-      options: commonOptions
-    });
+        new Chart(document.getElementById('industryChart'), {
+          type: 'doughnut',
+          data: {
+            labels: ['百貨服務業', '飯店業', '視廳歌唱業', '人才綜合服務'],
+            datasets: [{
+              data: [49, 9, 14, 10],
+              backgroundColor: ['#007bff', '#20c997', '#fd7e14', '#6c757d'],
+              borderWidth: 2,
+              borderColor: '#ffffff',
+              hoverOffset: 10
+            }]
+          },
+          options: commonOptions
+        });
 
-    new Chart(document.getElementById('jobTypeChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['工務機電', '設備維護', '電話行銷'],
-        datasets: [{
-          data: [40, 23, 10],
-          backgroundColor: ['#0d6efd', '#198754', '#ffc107'],
-          borderWidth: 2,
-          borderColor: '#ffffff',
-          hoverOffset: 10
-        }]
-      },
-      options: commonOptions
+        new Chart(document.getElementById('jobTypeChart'), {
+          type: 'doughnut',
+          data: {
+            labels: ['工務機電', '設備維護', '電話行銷'],
+            datasets: [{
+              data: [40, 23, 10],
+              backgroundColor: ['#0d6efd', '#198754', '#ffc107'],
+              borderWidth: 2,
+              borderColor: '#ffffff',
+              hoverOffset: 10
+            }]
+          },
+          options: commonOptions
+        });
     });
   </script>
+
   <script>
+    // F12 彩蛋腳本保持不變
     (function() {
         const styleSys = "color: #fd7e14; font-size: 12px; font-weight: bold; background: #222; padding: 2px 6px; border-radius: 3px;";
         const stylePass = "color: #20c997; font-size: 13px; font-weight: bold;";
