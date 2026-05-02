@@ -1,8 +1,8 @@
-# 📱 互動式個人簡介 App
+# 📱 互動式問答App
 
 這是我用 MIT App Inventor 2 開發的一個小專案。主要是想把單調的個人履歷，變成帶有「強制懲罰機制」的問答闖關遊戲！
 
-### 📥 取得 App
+### 📥 取得App
 👉 **[點此前往下載 APK 安裝檔 (Android 專用)](https://github.com/yihua0988/yihua0988.github.io/raw/refs/heads/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk/Icebreaker.apk)**
 > 💡 **安裝小提醒：** 點擊進入 GitHub 資料夾後，點選裡面的 `.apk` 檔案，再按下右側的下載按鈕 (Download raw file) 即可下載安裝。
 
