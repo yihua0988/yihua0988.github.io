@@ -120,7 +120,7 @@
 		fill: none;
 	}
 
-	/* 電流動畫 */
+	/* 電流動畫 (🚀 效能優化版：啟用 GPU 硬體加速) */
 	.current-flows path {
 		fill: none;
 		stroke-linecap: round;
@@ -130,6 +130,13 @@
 		animation-name: flowCurrent;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
+
+		/* ⚡ 核心優化 1：提前告知瀏覽器優化這個屬性，大幅降低點陣化 (Rasterization) 延遲 */
+		will-change: stroke-dashoffset;
+
+		/* ⚡ 核心優化 2：強迫手機瀏覽器將電流線路獨立為獨立 GPU 圖層，防止捲動時觸發全網頁重繪 (Repaint) */
+		transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
 	}
 
 	/* 每條電流設定 */
