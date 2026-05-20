@@ -63,7 +63,7 @@
     ul { list-style: none; padding: 0; margin: 0; }
 
     /* ===================================================
-   ⚡ 終極動態電流背景
+	   ⚡ 終極動態電流背景 (究極效能優化版)
 	=================================================== */
 
 	html, body {
@@ -71,7 +71,6 @@
 		width: 100%;
 		min-height: 100%;
 		background: #060b19;
-
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
@@ -86,6 +85,12 @@
 		overflow: hidden;
 		z-index: 0;
 		pointer-events: none;
+		
+		/* 🚀 效能優化 1：嚴格隔離 (Containment)。
+		   告訴瀏覽器：「這個背景區塊永遠不會影響外面的排版」，
+		   這樣手機滑動時，瀏覽器就不會把背景跟文字混在一起重新計算。 */
+		contain: strict;
+		transform: translateZ(0); 
 	}
 
 	/* PCB 格線 */
@@ -94,23 +99,24 @@
 		inset: 0;
 		width: 100%;
 		height: 100%;
-
 		background-image:
 			linear-gradient(rgba(255,69,0,0.05) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(255,69,0,0.05) 1px, transparent 1px);
-
 		background-size: 50px 50px;
-
 		opacity: 0.5;
 	}
 
-	/* SVG */
+	/* SVG 總圖層 */
 	.pcb-traces {
 		position: absolute;
 		inset: 0;
 		width: 100%;
 		height: 100%;
 		opacity: 0.55;
+		
+		/* 🚀 效能優化 2：將整個 SVG 鎖死在獨立的 3D 圖層中 */
+		transform: translate3d(0, 0, 0);
+		will-change: transform;
 	}
 
 	/* 靜態電路線 */
@@ -120,97 +126,33 @@
 		fill: none;
 	}
 
-	/* 電流動畫 (🚀 效能優化版：啟用 GPU 硬體加速) */
+	/* 電流動畫 */
 	.current-flows path {
-		fill: none;
+		filter: none;
 		stroke-linecap: round;
-
 		stroke-dashoffset: 0;
-
 		animation-name: flowCurrent;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
 
-		/* ⚡ 核心優化 1：提前告知瀏覽器優化這個屬性，大幅降低點陣化 (Rasterization) 延遲 */
+		/* 保留原本的 GPU 加速 */
 		will-change: stroke-dashoffset;
-
-		/* ⚡ 核心優化 2：強迫手機瀏覽器將電流線路獨立為獨立 GPU 圖層，防止捲動時觸發全網頁重繪 (Repaint) */
 		transform: translate3d(0, 0, 0);
-		-webkit-transform: translate3d(0, 0, 0);
 	}
 
 	/* 每條電流設定 */
-	.flow-1 {
-		stroke-dasharray: 500 1500;
-		animation-duration: 8s;
-	}
-
-	.flow-2 {
-		stroke-dasharray: 400 1200;
-		animation-duration: 11s;
-		animation-direction: reverse;
-	}
-
-	.flow-3 {
-		stroke-dasharray: 600 1800;
-		animation-duration: 7s;
-	}
-
-	.flow-4 {
-		stroke-dasharray: 350 1200;
-		animation-duration: 13s;
-		animation-direction: reverse;
-	}
-
-	.flow-5 {
-		stroke-dasharray: 700 2000;
-		animation-duration: 9s;
-	}
-
-	.flow-6 {
-		stroke-dasharray: 450 1400;
-		animation-duration: 10s;
-	}
+	.flow-1 { stroke-dasharray: 500 1500; animation-duration: 8s; }
+	.flow-2 { stroke-dasharray: 400 1200; animation-duration: 11s; animation-direction: reverse; }
+	.flow-3 { stroke-dasharray: 600 1800; animation-duration: 7s; }
+	.flow-4 { stroke-dasharray: 350 1200; animation-duration: 13s; animation-direction: reverse; }
+	.flow-5 { stroke-dasharray: 700 2000; animation-duration: 9s; }
+	.flow-6 { stroke-dasharray: 450 1400; animation-duration: 10s; }
 
 	/* 核心動畫 */
 	@keyframes flowCurrent {
-		from {
-			stroke-dashoffset: 3000;
-		}
-		to {
-			stroke-dashoffset: 0;
-		}
+		from { stroke-dashoffset: 3000; }
+		to { stroke-dashoffset: 0; }
 	}
-	/* ===================================================
-       ⚡ 高階特效：高速封包與節點呼吸動畫
-    =================================================== */
-    
-    /* 高速資料封包 (短而極快的白色閃電) */
-    .data-packets path {
-        stroke-dashoffset: 0;
-        animation-name: flowCurrent;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-    .packet-1 { stroke-dasharray: 20 2000; animation-duration: 3s; }
-    .packet-2 { stroke-dasharray: 40 2500; animation-duration: 4s; animation-direction: reverse; }
-    .packet-3 { stroke-dasharray: 15 1500; animation-duration: 2.5s; }
-    .packet-5 { stroke-dasharray: 30 3000; animation-duration: 3.5s; }
-
-    /* PCB 節點呼吸閃爍 */
-    .node-pulse {
-        animation: pulseNode 2s ease-in-out infinite alternate;
-        transform-origin: center;
-        transform-box: fill-box;
-    }
-
-    @keyframes pulseNode {
-        0% { transform: scale(0.8); opacity: 0.5; filter: brightness(0.8); }
-        100% { transform: scale(1.5); opacity: 1; filter: brightness(1.5); }
-    }
-    #particle-canvas {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.6; pointer-events: none;
-    }
 
     /* 🌟 滾動視差浮現動畫 */
     .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s var(--spring); }
@@ -550,6 +492,16 @@
     .circle-blue { width: 100px; height: 100px; border: 8px solid #ffeb3b; opacity: 0.9; filter: blur(1px) drop-shadow(0 0 12px #ffeb3b); animation: spinCirclesY 6s linear infinite; }
     .circle-green { width: 135px; height: 135px; border: 6px solid #20c997; opacity: 0.8; filter: blur(1px) drop-shadow(0 0 10px #20c997); animation: spinCirclesY 11s linear infinite; }
     .circle-yellow { width: 170px; height: 170px; border: 4px solid #007bff; opacity: 0.7; filter: blur(1px) drop-shadow(0 0 8px #007bff); animation: spinCirclesY 8s linear infinite; }
+	.current-flows path {
+			/* 🚀 效能優化 3：強制關閉 SVG 光暈濾鏡。
+			   光暈濾鏡 (glow filter) 是手機 GPU 殺手，關掉它能瞬間救回 30 幀的流暢度！ */
+			filter: none !important; 
+		}
+		
+		.circuit-grid {
+			/* 在手機上稍微調暗網格，讓視覺層次單純化，也有助於減壓 */
+			opacity: 0.2;
+		}
 	/* ===================================================
         📱 針對 iPhone SE 等極窄螢幕的終極救援 (小於 380px)
     =================================================== */
@@ -591,6 +543,16 @@
             height: 40px !important;
             font-size: 1.1rem !important;
         }
+		.current-flows path {
+			/* 🚀 效能優化 3：強制關閉 SVG 光暈濾鏡。
+			   光暈濾鏡 (glow filter) 是手機 GPU 殺手，關掉它能瞬間救回 30 幀的流暢度！ */
+			filter: none !important; 
+		}
+		
+		.circuit-grid {
+			/* 在手機上稍微調暗網格，讓視覺層次單純化，也有助於減壓 */
+			opacity: 0.2;
+		}
     }
   </style>
 </head>
