@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ebf0f5">
+    
+    <title>洪益華(Saka)軟體開發與MIS維運作品集｜Python、HTML 7年實戰履歷</title>
+    <meta name="description" content="尋找具備即戰力的軟體開發實習生？我是洪益華，擁有7年工作經驗。專精Python、HTML網頁開發。精選專案涵蓋：詐騙防制數據平台、智慧工地系統技術分析報告以及互動式問答App開發。點擊查看完整實戰履歷！"/>
+    <meta name="keywords" content="洪益華,Saka,軟體開發,實習生,7年工作經驗,Python,HTML,MIS,韌體維護,硬體維護,詐騙防制數據專案,智慧工地系統,互動式問答App,全端開發,系統維運" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <link rel="canonical" href="https://yihua0988.github.io/">
+    
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="洪益華(Saka)｜軟體開發✕MIS維運：7年實戰經驗履歷"/>
+    <meta property="og:description" content="尋找軟體開發實習生？專精 Python與HTML具備7年工作經驗。收錄防詐騙數據平台、智慧工地系統與互動式問答App等精選專案。" />
+    <meta property="og:image" content="https://yihua0988.github.io/cover.png" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://yihua0988.github.io/" />
+    <meta property="og:site_name" content="洪益華 (Saka) 個人作品集">
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://yihua0988.github.io/#person",
+        "name": "洪益華",
+        "alternateName": "Saka Hung",
+        "jobTitle": "軟體開發實習生 / MIS 維運工程師",
+        "knowsAbout": ["Python", "HTML", "軟體開發", "MIS 韌體硬體維護", "詐騙防制數據分析", "App 開發"],
+        "url": "https://yihua0988.github.io/",
+        "image": "https://yihua0988.github.io/cover.png",
+        "sameAs": ["https://github.com/yihua0988"]
+      }
+    ]
+    </script>
+    
+    <link rel="stylesheet" href="css/all.min.css">
+    <script src="jquery-4.0.0.min.js"></script>
+    <script src="protect.js"></script>  
+
+  <style>
+    /* 🌟 本地端可變字型 */
+    @font-face {
+        font-family: 'Noto Sans TC';
+        src: url('fonts/NotoSansTC-VF.woff2') format('woff2'); 
+        font-weight: 100 900;
+        font-display: swap;
+    }
+
+    /* --- 極致 3D 新擬物風變數 --- */
+    :root {
+      --bg-main: #ebf0f5;        
+      --card-bg: #ebf0f5;        
+      --accent-primary: #007bff;    
+      --accent-secondary: #20c997; 
+      --accent-tertiary: #fd7e14;   
+      --text-bright: #2d3748;     
+      --text-muted: #718096;      
+      
+      /* 🔥 升級版 3D 實體光影 */
+      --shadow-out: 12px 12px 24px rgba(166, 180, 200, 0.7), -12px -12px 24px rgba(255, 255, 255, 1);
+      --shadow-hover: 18px 18px 36px rgba(166, 180, 200, 0.8), -18px -18px 36px rgba(255, 255, 255, 1);
+      --shadow-in: inset 6px 6px 12px rgba(166, 180, 200, 0.7), inset -6px -6px 12px rgba(255, 255, 255, 1);
+      
+      --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0; padding: 0;
+      background-color: var(--bg-main);
+      color: var(--text-bright);
+      line-height: 1.8; overflow-x: hidden; font-size: 18px;
+    }
+    a { text-decoration: none; color: inherit; transition: 0.4s var(--spring); }
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    /* 🌟 動態粒子背景 */
+    #particle-canvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.35; pointer-events: none;
+    }
+
+    /* 🌟 滾動視差浮現動畫 */
+    .reveal { opacity: 0; transform: translateY(50px); transition: 0.8s var(--spring); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; } .delay-300 { transition-delay: 0.3s; }
+
+    /* ===================================================
+       🌟 影片橫幅 (完美修復跑版問題)
+    =================================================== */
+    .hero-container {
+        position: relative; width: 100%; 
+        min-height: 100vh; /* 滿版螢幕高度 */
+        display: flex; justify-content: center; align-items: center; /* 使用 Flex 置中，永不跑版 */
+        overflow: hidden; background: #000; padding: 20px; box-sizing: border-box;
+    }
+    .hero-video {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        object-fit: cover; z-index: 0; opacity: 0.85;
+    }
+    .hero-overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5)); z-index: 1;
+    }
+
+    .intro-section {
+        position: relative; z-index: 2; width: 100%; max-width: 800px;
+        
+        /* 📍 1. 降低白色底色：從 0.65 改成 0.2 (只留 20% 的白色，越低越透明) */
+        background: rgba(255, 255, 255, 0.55); 
+        
+        /* 📍 2. 降低毛玻璃模糊度：從 15px 降到 4px (讓背後的影片清晰透出來) */
+        backdrop-filter: blur(6px) saturate(120%); 
+        -webkit-backdrop-filter: blur(6px) saturate(120%);
+        
+        border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), inset 2px 2px 10px rgba(255,255,255,0.7);
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        text-align: center; padding: 60px 40px; box-sizing: border-box;
+    }
+    .intro-section h1 {
+      font-size: clamp(2rem, 3.5vw, 3.5rem); margin: 0 0 10px; font-weight: 900; letter-spacing: 2px;
+      color: var(--text-bright); line-height: 1.2; text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
+    }
+    .intro-section h1 .en-sub { display: block; font-size: 0.35em; color: var(--text-muted); letter-spacing: 2px; margin-top: 10px; font-weight: 800; text-shadow: none;}
+    .intro-section p { font-size: clamp(1.1rem, 1.3vw, 1.3rem); color: var(--text-bright); font-weight: 800; max-width: 90%; margin: 0 auto 30px; line-height: 1.8; }
+    .intro-section p .en-desc { display: block; font-size: 0.8em; color: var(--accent-primary); margin-top: 10px; font-weight: 900; }
+    
+    .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 15px; }
+    .btn-tech {
+      padding: 15px 40px; border-radius: 50px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem;
+      background: var(--card-bg); color: var(--accent-primary); border: none;
+      box-shadow: var(--shadow-out); transition: 0.4s var(--spring);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn-tech:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); color: var(--accent-primary); }
+    .btn-tech:active { transform: translateY(2px); box-shadow: var(--shadow-in); }
+    
+    .btn-tech-filled { background: var(--accent-primary); color: #fff; box-shadow: 6px 6px 15px rgba(0,123,255,0.3), -6px -6px 15px rgba(255,255,255,0.8); }
+    .btn-tech-filled:hover { background: #0056b3; color: #fff; box-shadow: 8px 8px 20px rgba(0,123,255,0.4), -8px -8px 20px rgba(255,255,255,0.9); }
+    .btn-tech-filled:active { box-shadow: inset 4px 4px 10px rgba(0,0,0,0.3); }
+    /* ===================================================
+       🌟 置頂與懸浮按鈕 (修復變色龍隱形問題)
+    =================================================== */
+    .btn-back-to-top, .fab-copy-url {
+        position: fixed; bottom: 30px; 
+        background: var(--accent-primary); color: white;
+        border: none; cursor: pointer; z-index: 9999; transition: 0.4s var(--spring);
+        /* 📍 光影縮小：調低擴散範圍 (20px -> 12px) 與透明度 (0.4 -> 0.25) */
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    }
+    .btn-back-to-top { left: 30px; width: 65px; height: 65px; border-radius: 50%; font-size: 1.6rem; display: flex; justify-content: center; align-items: center;}
+    
+    .fab-copy-url { right: 30px; padding: 0 25px; height: 55px; border-radius: 50px; font-size: 0.95rem; 
+        /* 📍 字變細：從 800 (特粗) 改為 500 (中等)，看起來更俐落 */
+        font-weight: 500; 
+        display: flex; align-items: center; gap: 8px;
+    }
+    
+    .btn-back-to-top:hover, .fab-copy-url:hover { 
+        transform: translateY(-5px); /* 稍微降低浮起高度，配合變小的光影 */
+        /* 📍 Hover 光影同步縮小 */
+        box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4); 
+        background: #0056b3; 
+    }
+    .btn-back-to-top:active, .fab-copy-url:active { 
+        transform: translateY(2px); 
+        box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3); 
+    }
+	/* ===================================================
+       🌟 終極進化版：3D 立體量子同步旋轉光環 (速度異步) 🌟
+    =================================================== */
+    .legendary-bolt-container {
+        position: relative;
+        display: flex; justify-content: center; align-items: center;
+        width: 180px; height: 180px;
+        margin-bottom: 25px;
+        perspective: 1000px; /* 📍 保留 3D 深度感 */
+        /* 📍 給容器一個初始傾斜角，讓圓圈在轉動時維持立體形狀，不變成扁平線段 */
+        transform: rotateX(20deg);
+        transform-style: preserve-3d;
+    }
+    
+    /* 📍 中央閃電保留 Y 軸旋轉動畫 */
+    @keyframes spin3D { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+    .legendary-bolt-container i {
+        position: relative; z-index: 5; margin-bottom: 0 !important;
+        display: inline-block;
+        animation: spin3D 3s linear infinite; transform-style: preserve-3d;
+    }
+
+    /* 光圈通用樣式 */
+    .bolt-circle {
+        position: absolute; border-radius: 50%; top: 50%; left: 50%; 
+        transform-style: preserve-3d; /* 📍 支援 3D */
+        mix-blend-mode: screen; /* 發光混合模式 */
+    }
+
+    /* ===================================================
+       📍 新增：光圈專用純 Y 軸旋轉動畫 (保持置中) 
+    =================================================== */
+    @keyframes spinCirclesY {
+        0% { transform: translate(-50%, -50%) rotateY(0deg); }
+        100% { transform: translate(-50%, -50%) rotateY(360deg); }
+    }
+
+    /* ===================================================
+       📍 修正 & 應用：線條樣式與不同的旋轉速度 
+    =================================================== */
+    
+    /* 最內層：黃色，最粗 (8px) */
+    .circle-blue {
+        width: 100px; height: 100px; 
+        border: 8px solid #ffeb3b;
+        opacity: 0.9;
+        filter: blur(1px) drop-shadow(0 0 12px #ffeb3b);
+        /* 📍 應用動畫：速度最快 (6s) */
+        animation: spinCirclesY 6s linear infinite;
+    }
+    
+    /* 中間層：綠色，中等粗 (6px) */
+    .circle-green {
+        width: 135px; height: 135px; 
+        border: 6px solid #20c997;
+        opacity: 0.8;
+        filter: blur(1px) drop-shadow(0 0 10px #20c997);
+        /* 📍 應用動畫：速度最慢 (11s，使用質數避免規律同步) */
+        animation: spinCirclesY 11s linear infinite;
+    }
+    
+    /* 最外層：藍色，最細 (4px) */
+    .circle-yellow {
+        width: 170px; height: 170px; 
+        border: 4px solid #007bff;
+        opacity: 0.7;
+        filter: blur(1px) drop-shadow(0 0 8px #007bff);
+        /* 📍 應用動畫：中等速度 (8s) */
+        animation: spinCirclesY 8s linear infinite;
+    }
+
+    /* ===================================================
+       🌟 版面與立體 3D 卡片 (極致質感)
+    =================================================== */
+    section { padding: 120px 8%; }
+    .section-title { text-align: center; margin-bottom: 80px; }
+    .section-title h2 {
+      font-size: 3rem; font-weight: 900; letter-spacing: 3px;
+      display: inline-block; position: relative; color: var(--text-bright); line-height: 1.3;
+      /* 📍 關鍵修復：限制最大寬度，並允許長英文字母強制換行 */
+      max-width: 100%; word-break: break-word; white-space: normal;
+    }
+    .section-title h2::after {
+      content: ''; width: 80px; height: 6px; background: var(--accent-primary);
+      position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); border-radius: 5px;
+    }
+
+    .tech-card {
+      /* 微凸起的實體曲面 */
+      background: linear-gradient(145deg, #ffffff, #e6ecf2);
+      border-radius: 35px; padding: 45px 40px; box-sizing: border-box;
+      box-shadow: var(--shadow-out); border: 1px solid rgba(255,255,255,0.8);
+      transition: 0.4s var(--spring); position: relative; overflow: hidden; height: 100%;
+    }
+    .tech-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-hover); }
+    
+    .slash-header { text-align: center; margin-bottom: 60px; }
+    .slash-header h3 { font-size: 2.2rem; color: var(--accent-tertiary); margin-bottom: 15px; font-weight: 900;}
+    .slash-header p { font-size: 1.3rem; color: var(--text-muted); font-weight: 700;}
+
+    .slash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; justify-content: center; }
+    .slash-card-content { text-align: center; }
+    
+    /* 內凹的打孔圖標底座 */
+    .icon-wrapper {
+        width: 90px; height: 90px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-bottom: 25px; transition: 0.4s var(--spring);
+        background: var(--card-bg); box-shadow: var(--shadow-in);
+    }
+    .s-mis { color: #007bff; } .s-home { color: #20c997; } .s-insure { color: #fd7e14; } .s-studio { color: #6f42c1; }
+    .slash-icon { font-size: 2.8rem; line-height: 1; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1)); }
+    .slash-grid .tech-card:hover .icon-wrapper { transform: scale(1.1); box-shadow: var(--shadow-out); }
+
+    .slash-card-content h4 { font-size: 1.5rem; margin: 0 0 15px; color: var(--text-bright); font-weight: 900;}
+    .slash-card-content p { color: var(--text-muted); font-size: 1.15rem; margin: 0; line-height: 1.7; font-weight: 600;}
+
+    /* 專案區塊 */
+    /* 📍 關鍵修復：將 minmax(420px) 降為 280px，防止舊版核心計算超出螢幕 */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; justify-content: center; }
+    .project-card-content .card-icon { font-size: 4rem; margin-bottom: 25px; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.15)); transition: 0.4s var(--spring);}
+    .tech-card:hover .card-icon { transform: scale(1.1) rotate(-5deg); }
+    .project-card-content h3 { font-size: 2.2rem; margin-top: 0; margin-bottom: 20px; font-weight: 900;}
+    .project-card-content p { color: var(--text-muted); font-size: 1.3rem; text-align: justify; line-height: 1.9; font-weight: 600;}
+    
+    /* 🌟 3D 實體按鍵 TAG (已加入絕對防跑版機制) */
+    .tags { 
+        display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 35px; 
+    }
+    .tags span {
+      background: linear-gradient(145deg, #ffffff, #e6ecf2);
+      color: var(--accent-primary);
+      padding: 10px 20px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px;
+      border-radius: 50px; font-weight: 800; cursor: default;
+      box-shadow: 5px 5px 10px rgba(166,180,200,0.5), -5px -5px 10px rgba(255,255,255,1);
+      border: 1px solid rgba(255,255,255,0.8);
+      transition: 0.2s ease;
+      
+      /* 📍 關鍵升級：加入這 4 行，確保文字過長時按鈕會自動變高，絕不撐破螢幕 */
+      max-width: 100%; 
+      word-break: break-word; 
+      white-space: normal;
+      line-height: 1.4; /* 萬一變成兩行，確保文字上下不會撞在一起 */
+    }
+    /* Hover 時按鈕下凹 */
+    .tags span:hover {
+      box-shadow: inset 4px 4px 8px rgba(166,180,200,0.5), inset -4px -4px 8px rgba(255,255,255,1);
+      transform: translateY(2px);
+    }
+    
+    .project-card-content a { font-size: 1.25rem; margin-top: 35px; display: inline-flex; align-items: center; gap: 8px; font-weight: 900;}
+
+    /* 技能區塊 */
+    .skill-container { display: flex; flex-wrap: wrap; gap: 60px; }
+    .skill-col { flex: 1; min-width: 350px; } 
+    .skill-col h3 { font-size: 2rem; color: var(--accent-secondary); border-bottom: 3px solid #d1d9e6; padding-bottom: 15px; margin-bottom: 35px; font-weight: 900;}
+    .skill-col h3 i { margin-right: 15px; font-size: 2.5rem; vertical-align: middle; }
+    .skill-item { margin-bottom: 25px; background: linear-gradient(145deg, #ffffff, #e6ecf2); padding: 25px 30px; border-radius: 20px; box-shadow: var(--shadow-out); border: 1px solid rgba(255,255,255,0.8); transition: 0.4s var(--spring);}
+    .skill-item:hover { transform: translateX(10px); box-shadow: var(--shadow-hover); }
+    .skill-info { display: flex; justify-content: space-between; align-items: center; font-weight: 800; color: var(--text-bright); font-size: 1.3rem; }
+    .skill-info span:last-child { font-size: 1.1rem; color: var(--text-muted); font-weight: 700; background: var(--bg-main); padding: 6px 14px; border-radius: 10px; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);}
+
+    /* 職涯時間軸 */
+    .exp-list { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;}
+    .exp-item {
+      display: flex; background: linear-gradient(145deg, #ffffff, #e6ecf2); border-left: 8px solid var(--accent-primary);
+      padding: 50px; border-radius: 0 30px 30px 0; border: 1px solid rgba(255,255,255,0.8);
+      transition: 0.4s var(--spring); align-items: stretch; box-shadow: var(--shadow-out);
+    }
+    .exp-item:hover { transform: translateX(15px); box-shadow: var(--shadow-hover); }
+    .exp-meta {
+      min-width: 220px; margin-right: 40px; color: var(--accent-primary);
+      border-right: 3px dashed #cbd5e1; padding-right: 30px;
+    }
+    .exp-period { font-size: 1.6rem; font-weight: 900; display: block; margin-bottom: 10px; }
+    .exp-role { font-size: 1.2rem; color: var(--text-muted); display: block; font-weight: 800;}
+    .exp-content h3 { margin: 0 0 15px 0; color: var(--text-bright); font-size: 2rem; font-weight: 900;}
+    .exp-content p { color: var(--text-muted); margin: 0; font-size: 1.3rem; text-align: justify; line-height: 1.9; font-weight: 600;}
+
+    /* 證照矩陣 */
+    .cert-matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 40px; }
+    .cert-node { 
+        background: linear-gradient(145deg, #ffffff, #e6ecf2); border: 1px solid rgba(255,255,255,0.8); padding: 45px 20px; 
+        text-align: center; transition: 0.4s var(--spring); border-radius: 25px; box-shadow: var(--shadow-out); 
+        display: flex; flex-direction: column; align-items: center;
+    }
+    .cert-node:hover { box-shadow: var(--shadow-hover); transform: translateY(-12px);}
+    .cert-icon { font-size: 3.5rem; color: var(--accent-secondary); margin-bottom: 25px; transition: 0.4s var(--spring); filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));}
+    .cert-node:hover .cert-icon { transform: scale(1.1); }
+    .cert-node h4 { font-size: 1.4rem; margin: 0 0 10px; color: var(--text-bright); font-weight: 900;}
+    .cert-node p { font-size: 1.15rem; color: var(--text-muted); margin: 0; font-weight: 700;}
+
+    /* ===================================================
+       🌟 終極 SVG 動態互動甜甜圈圖
+    =================================================== */
+    .chart-row { display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; margin-bottom: 80px; }
+    .chart-container { 
+      flex: 1; min-width: 380px; max-width: 500px; 
+      background: linear-gradient(145deg, #ffffff, #e6ecf2); padding: 50px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow-out); position: relative; display: flex; flex-direction: column; align-items: center; transition: 0.4s var(--spring);
+    }
+    .chart-container:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+    .chart-container h4 { font-size: 1.8rem; margin: 0 0 40px; color: var(--text-bright); text-align: center; font-weight: 900;}
+
+    .custom-pie-container { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%;}
+    
+	/* 1. 大餅圖外圈 */
+    .pie-chart { 
+        position: relative; width: 240px; height: 240px; border-radius: 50%; 
+        background: var(--card-bg); padding: 15px; box-sizing: border-box;
+        display: flex; justify-content: center; align-items: center;
+        
+        /* ✅ 關鍵修改：用 !important 強制覆蓋全域變數，只給它深色陰影（移除白色陰影） */
+        
+    }
+    
+    .pie-chart svg { width: 100%; height: 100%; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15)); overflow: visible; }
+    .pie-slice { cursor: pointer; transition: 0.3s; transform-origin: center; }
+    
+    /* 2. 大餅圖中間的 3D 內凹打孔 */
+    .pie-hole {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 130px; height: 130px; background: var(--card-bg); border-radius: 50%; pointer-events: none;
+        
+        /* ✅ 關鍵修改：只保留內凹的深色陰影（移除白色反光） */
+        box-shadow: inset 8px 8px 16px rgba(166, 180, 200, 0.6) !important;
+    }
+    
+    .pie-legend { display: flex; flex-direction: column; gap: 15px; width: 100%;}
+    .legend-item { display: flex; align-items: center; gap: 15px; font-size: 1.2rem; color: var(--text-bright); font-weight: 800; padding: 10px 15px; border-radius: 12px; transition: 0.3s;}
+    .legend-item:hover { background: rgba(0,0,0,0.03); transform: translateX(8px); }
+    .legend-color { width: 20px; height: 20px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);}
+
+    /* 懸浮提示框 (Tooltip) */
+    #chart-tooltip {
+        position: fixed; background: rgba(15, 23, 42, 0.9); color: #fff; text-align: center; font-weight: 800;
+        border-radius: 12px; padding: 10px 18px; z-index: 9999; display: none; pointer-events: none;
+        backdrop-filter: blur(5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); font-size: 1.1rem;
+        transform: translate(-50%, -100%); margin-top: -15px;
+    }
+
+    /* Footer & Toast */
+    footer { 
+        /* 📍 1. 黑曜石玻璃本體：80% 的深色，保留 25% 的透視度 */
+        /* 這樣深色的底才能把白色文字襯托出來，不會被灰牆吃掉 */
+        background: rgba(15, 23, 42, 0.9); 
+        
+        /* 📍 2. 適度的毛玻璃，讓底下的藍色粒子飄過時產生「發光光暈」 */
+        backdrop-filter: blur(8px); 
+        -webkit-backdrop-filter: blur(8px);
+        
+        /* 📍 3. 玻璃邊緣高光與向上陰影，讓 Footer 徹底跟背景灰牆分離！ */
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        
+        position: relative; z-index: 10; /* 確保它壓在粒子畫布的最上層 */
+        color: #94a3b8; padding: 80px 0 60px; text-align: center; 
+    }
+    .footer-social a { color: #fff; font-size: 2.8rem; margin: 0 20px; transition: 0.4s var(--spring); display: inline-block;}
+    .footer-social a:hover { color: var(--accent-primary); transform: translateY(-8px) scale(1.1);}
+    footer p { font-size: 1.2rem; margin-top: 40px; font-weight: 700;}
+
+    #toast-notification {
+        visibility: hidden; min-width: 280px; background-color: #1e293b; color: #fff; text-align: center; font-weight: 900;
+        border-radius: 50px; padding: 20px 30px; position: fixed; z-index: 2000; left: 50%; bottom: 30px;
+        transform: translateX(-50%) translateY(20px); font-size: 1.2rem; opacity: 0; transition: 0.4s var(--spring);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+    }
+    #toast-notification.show { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(-20px); }
+
+    /* ===================================================
+           📱 手機版適配 (傳說級絕對相容優化)
+    =================================================== */
+    @media (max-width: 768px) {
+      /* 📍 0. 鎖定全域文字行為：防止手機瀏覽器亂調字體或間距 */
+      body {
+          -webkit-text-size-adjust: 100% !important; /* 禁止 iOS/安卓自動放大字體 */
+          text-size-adjust: 100% !important;
+          text-align: left !important; /* 📍 解決「自動變間距」：強制左對齊，不准分散對齊塞空格 */
+      }
+
+      p, span, h1, h2, h3, h4 {
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
+          text-align: left !important; /* 確保所有文字元件都不會出現詭異間距 */
+      }
+      /* 1. 首頁區塊：確保 100% 填滿且不跑版 */
+      .hero-container { min-height: 100vh; padding: 20px; }
+      .intro-section { 
+          width: 100%; padding: 40px 20px; border-radius: 25px; 
+          /* 稍微調低模糊度，增加舊手機的順暢度 */
+          backdrop-filter: blur(8px) saturate(120%); 
+      }
+      .intro-section h1 { font-size: 1.8rem; }
+      .intro-section p { font-size: 1rem; padding: 0; }
+
+      /* 2. 全域區塊調整：預防左右溢出 */
+      section { padding: 60px 15px !important; overflow: hidden; }
+
+      /* 3. 標題修復：解決 PROJECTS&ANALYSIS 爆版 */
+      .section-title { margin-bottom: 40px; }
+      .section-title h2 { 
+          font-size: 1.5rem !important; 
+          line-height: 1.4; 
+          letter-spacing: 1px;
+          word-break: break-all !important; /* 強制超長英文斷行 */
+      }
+
+      /* 4. 卡片系統降維：將 Grid 改為 Block 垂直堆疊 */
+      .slash-grid, .project-grid, .skill-container, .chart-row { 
+          display: block !important; 
+          width: 100% !important; 
+      }
+
+      /* 5. 核心卡片修正：統一寬度計算，保留 3D 陰影空間 */
+      .tech-card, .exp-item, .cert-node, .chart-container {
+          width: auto !important; /* 📍 關鍵：設為 auto 才能配合 margin */
+          max-width: none !important;
+          margin: 0 8px 30px 8px !important; /* 📍 左右留 8px 給 3D 陰影顯示 */
+          padding: 30px 20px !important; 
+          border-radius: 20px !important;
+          box-sizing: border-box !important;
+          /* 縮小手機版陰影，看起來更精緻不浮誇 */
+          box-shadow: 8px 8px 16px rgba(166, 180, 200, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8) !important;
+      }
+
+      /* 6. 內容排版微調 */
+      .project-card-content h3 { font-size: 1.4rem !important; word-break: break-word; }
+      .project-card-content p { font-size: 1.1rem !important; }
+      .project-card-content a { font-size: 1rem !important; word-break: break-all; display: block; margin-top: 15px; }
+
+      /* 7. 技能區塊文字重疊修復 */
+      .skill-info { 
+          flex-direction: column !important; 
+          align-items: flex-start !important; 
+          gap: 5px; 
+          margin-bottom: 10px;
+      }
+      .skill-item { margin-bottom: 15px; }
+
+      /* 8. 圖表容器細節 */
+      .chart-container { min-width: 0 !important; }
+      .chart-container h4 { font-size: 1.4rem !important; margin-bottom: 20px; }
+      .pie-chart { width: 220px !important; height: 220px !important; margin-bottom: 20px; }
+      .custom-pie-container { gap: 15px !important; }
+
+      /* 9. 3D TAG 手機版寬度保護 */
+      .tags { gap: 10px; margin-top: 20px; }
+      .tags span { 
+          padding: 8px 15px; font-size: 0.9rem; 
+          max-width: 100%; word-break: break-word; white-space: normal;
+      }
+
+      /* 10. 懸浮按鈕縮小 */
+      .fab-copy-url { bottom: 20px; right: 20px; padding: 0 16px; height: 42px; font-size: 0.7rem;}
+      .btn-back-to-top { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 1.2rem;}
+      
+      /* =========================================
+         📍 修正：把職涯歷程的手機版修復「搬進來」@media 裡面
+      ========================================= */
+      /* --- 職涯歷程手機版爆版終極修復 --- */
+      .exp-list {
+          width: 100% !important;
+          padding: 0 !important;
+          display: block !important;
+      }
+
+      .exp-item {
+          display: block !important;
+          width: auto !important;
+          margin: 0 10px 30px 10px !important; 
+          padding: 30px 20px !important;
+          border-radius: 25px !important;
+          border-left: none !important;
+          border-top: 8px solid var(--accent-primary) !important;
+          box-sizing: border-box !important;
+          box-shadow: 8px 8px 16px rgba(166, 180, 200, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8) !important;
+      }
+
+      .exp-meta {
+          min-width: 0 !important;
+          width: 100% !important;
+          margin: 0 0 20px 0 !important;
+          padding: 0 0 15px 0 !important;
+          border-right: none !important;
+          border-bottom: 2px dashed #cbd5e1 !important;
+          text-align: left;
+      }
+
+      .exp-period {
+          font-size: 1.5rem !important;
+          display: block;
+          margin-bottom: 5px;
+      }
+
+      .exp-role {
+          font-size: 1.3rem !important;
+          line-height: 1.4;
+      }
+
+      .exp-content { width: 100% !important; }
+
+      .exp-content h3 {
+          font-size: 2rem !important;
+          margin-bottom: 15px !important;
+          word-break: break-word !important; 
+      }
+
+      .exp-content p {
+          font-size: 1.3rem !important;
+          line-height: 1.6 !important;
+          text-align: left !important; /* 手機版統一靠左防詭異間距 */
+          word-break: break-word !important;
+      }
+    } /* 📍 這是 @media (max-width: 768px) 的真正結尾大括號！必須包住上面這些！ */
+
+    /* =========================================
+       🌟 閃電專屬 3D 翻轉動畫 (這個要在 @media 外面，讓電腦手機都有)
+    ========================================= */
+    @keyframes spin3D {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
+    .hero-bolt-3d {
+        display: inline-block;
+        animation: spin3D 3s linear infinite; 
+        transform-style: preserve-3d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="particle-canvas"></canvas>
+  <div class="bg-tech-lines"></div>
+
+  <button id="back-to-top" class="btn-back-to-top" title="回到最上面">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <header class="hero-container">
+    <video class="hero-video" autoplay loop muted playsinline poster="cover-fallback.jpg">
+    <source src="cover.mp4" type="video/mp4">
+    您的瀏覽器不支援 HTML5 影片。
+	</video>
+    <div class="hero-overlay"></div>
+
+    <div class="intro-section reveal">
+        <div class="legendary-bolt-container">
+            <i class="fas fa-bolt hero-bolt-3d" style="font-size: 4.5rem; color: var(--accent-primary); filter: drop-shadow(0 5px 15px rgba(0,123,255,0.4));"></i>
+            <span class="bolt-circle circle-blue"></span>
+            <span class="bolt-circle circle-green"></span>
+            <span class="bolt-circle circle-yellow"></span>
+        </div>
+        <h1>
+            大家好我是洪益華(SAKA)
+            <span class="en-sub">Hello, I'm Hung Yi-Hua(Saka)</span>
+        </h1>
+        <p>
+            僑光科大 資訊科技系｜7年實戰經驗：Python開發、MIS維護
+            <span class="en-desc">
+            Dept. of IT,OCU|7+Years Experience|Python Developer&MIS Operations
+            </span>
+        </p>
+        <div class="btn-group">
+            <a href="#slash-services" class="btn-tech smooth-scroll"><i class="fas fa-chevron-down"></i>瀏覽服務內容</a>
+            <a href="mailto:yihua0988@gmail.com" class="btn-tech btn-tech-filled" id="btn-contact"><i class="fas fa-envelope"></i>直接聯繫我</a>
+        </div>
+    </div>
+  </header>
+
+  <section id="slash-services">
+    <div class="section-title reveal">
+      <h2>跨域職能整合</h2>
+    </div>
+    <div class="slash-header reveal delay-100">
+      <h3>📌從硬體到軟實力</h3>
+      <p style="color:var(--text-muted); margin-top:10px;">將多領域實務經驗，轉化為IT維運與專案執行的養分</p>
+    </div>
+    
+    <div class="slash-grid">
+      <div class="tech-card reveal delay-100">
+        <div class="slash-card-content">
+          <div class="icon-wrapper">
+              <i class="fas fa-network-wired slash-icon s-mis"></i>
+          </div>
+          <h4>🖥MIS系統維運</h4>
+          <p>企業系統開發與維護、資安管理，確保資訊服務不中斷。</p>
+        </div>
+      </div>
+      <div class="tech-card reveal delay-200">
+        <div class="slash-card-content">
+          <div class="icon-wrapper">
+              <i class="fas fa-tools slash-icon s-home"></i>
+          </div>
+          <h4>🔌機房與弱電工程</h4>
+          <p>具備<strong>乙級硬體裝修</strong>與<strong>室內配線</strong>證照，能處理機房電力、網路佈線與硬體故障排除。</p>
+        </div>
+      </div>
+      <div class="tech-card reveal delay-300">
+        <div class="slash-card-content">
+          <div class="icon-wrapper">
+              <i class="fas fa-file-contract slash-icon s-insure"></i>
+          </div>
+          <h4>⚖️條款邏輯與風險定義</h4>
+          <p>運用保險嚴謹邏輯，擅長拆解複雜合約條款與定義風險邊界，這與程式開發中的邏輯除錯高度相似。</p>
+        </div>
+      </div>
+      <div class="tech-card reveal delay-100">
+        <div class="slash-card-content">
+          <div class="icon-wrapper">
+              <i class="fas fa-laptop-code slash-icon s-studio"></i>
+          </div>
+          <h4>🌐數位營運與技術支援</h4>
+          <p>豐富的遠端技術支援經驗，並熟悉虛擬資產交易與電商邏輯。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title reveal">
+      <h2>實作專案與技術分析<br>PROJECTS&ANALYSIS</h2>
+    </div>
+    <div class="project-grid">
+      
+      <div class="tech-card reveal delay-100">
+        <div class="project-card-content">
+          <i class="fas fa-user-shield card-icon" style="color: var(--accent-primary);"></i>
+          <h3 style="color: var(--accent-primary);">詐騙防制數據專案</h3>
+          <p>運用Python針對Opendata開放資料進行ETL清洗，並建置Power BI(暫時不使用)。前端使用 <strong>HTML/CSS開發響應式網頁(RWD)</strong> 介面串接儀表板，提供使用者流暢的風險分析體驗。</p>
+          <div class="tags">
+            <span>Python ETL</span>
+            <span>Power BI</span>
+            <span>HTML/CSS</span>
+          </div>
+          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary);">
+            專案網站連結(LAUNCH DEMO) <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="tech-card reveal delay-200">
+		  <div class="project-card-content">
+			<i class="fas fa-hard-hat card-icon" style="color: var(--accent-secondary);"></i>
+			<h3 style="color: var(--accent-secondary);">AIoT 主動式工安防護系統架構</h3>
+			<p>基於第21屆育秀盃銅獎作品，提出次世代工業級升級方案。探討系統從「被動通報」邁向「實體警報」的防護迴圈，涵蓋<strong>封閉邊緣運算、YOLO影像辨識、MQTT機電連動</strong>與<strong>雙重解除資安機制</strong>。</p>
+			<div class="tags">
+			  <span style="color: var(--accent-secondary);">Edge AI</span>
+			  <span style="color: var(--accent-secondary);">機電整合</span>
+			  <span style="color: var(--accent-secondary);">主動防禦</span>
+			</div>
+			<a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary);">
+			  觀看專案簡報 (LIVE DEMO) <i class="fas fa-arrow-right"></i>
+			</a>
+		  </div>
+	  </div>
+
+      <div class="tech-card reveal delay-300">
+        <div class="project-card-content">
+          <i class="fas fa-mobile-alt card-icon" style="color: var(--accent-tertiary);"></i>
+          <h3 style="color: var(--accent-tertiary);">互動式問答App</h3>
+          <p>使用MIT App Inventor2開發的互動式問答Android App。結合<strong>App內建存檔機制</strong>紀錄回訪狀態，並實作影音防作弊機制與底層硬體控制。</p>
+          <div class="tags">
+            <span style="color: var(--accent-tertiary);">App Inventor 2</span>
+            <span style="color: var(--accent-tertiary);">TinyDB</span>
+          </div>
+          <a href="https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk" target="_blank" rel="noopener noreferrer" style="color:var(--accent-tertiary);">
+            前往下載APK安裝檔(DOWNLOAD APK) <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title reveal">
+      <h2>核心能力矩陣<br>SKILLS</h2>
+    </div>
+    <div class="skill-container">
+      <div class="skill-col reveal delay-100">
+        <h3><i class="fas fa-code"></i>資訊技術與數據</h3>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fab fa-python" style="color:#3776AB; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>Python爬蟲與資料處理</span>
+            <span>擅長Web Scraping/ETL工程</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fab fa-html5" style="color:#E34F26; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>網頁前端技術</span>
+            <span>HTML/CSS/RWD設計</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-chart-bar" style="color:#F2C811; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>Power BI商業智慧</span>
+            <span>數據視覺化</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-database" style="color:#336791; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>SQL/資料庫</span>
+            <span>資料庫管理</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fab fa-git-alt" style="color:#F05032; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>Excel VBA/Git</span>
+            <span>行政流程自動化/版本控制</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skill-col reveal delay-200">
+        <h3><i class="fas fa-server"></i>MIS維運與軟實力</h3>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-microchip" style="color:#6c757d; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>硬體裝修與故障排除</span>
+            <span>電腦硬體裝修/系統維護</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-plug" style="color:#6c757d; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>機電與弱電維護</span>
+            <span>辦公室網路佈線/設施巡檢</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-shield-alt" style="color:#dc3545; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>資安與工安管理</span>
+            <span>防火管理員/資安管理</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-bug" style="color:#6f42c1; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>技術故障排查</span>
+            <span>善於分析錯誤日誌/鎖定問題核心</span>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span><i class="fas fa-language" style="color:#e83e8c; font-size:1.8rem; margin-right:12px; vertical-align:middle;"></i>日文技術資訊檢索</span>
+            <span>JLPT N2/善於查找原廠技術解法</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-title reveal">
+      <h2>職涯歷程<br>CAREER LOG</h2>
+    </div>
+    
+    <div class="chart-row reveal delay-100">
+      <div class="chart-container">
+        <h4>產業經驗分佈</h4>
+        <div id="industry-chart-wrapper" class="custom-pie-container">
+            <div class="pie-chart"></div>
+            <div class="pie-legend"></div>
+        </div>
+      </div>
+      <div class="chart-container">
+        <h4>職能性質佔比</h4>
+        <div id="job-chart-wrapper" class="custom-pie-container">
+            <div class="pie-chart"></div>
+            <div class="pie-legend"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-list">
+      <div class="exp-item reveal delay-100">
+        <div class="exp-meta">
+          <span class="exp-period">2025-至今</span>
+          <span class="exp-role">資訊科技系(日間部)<strong>&</strong><br>獨立開發者</span>
+        </div>
+        <div class="exp-content">
+          <h3>僑光科技大學<br>回歸本業</h3>
+          <p>
+            <strong>【軟硬整合的實習生】</strong><br>
+            累積近5年工務與弱電維護實務經驗後，決定回歸原本專業領域。<br>因此重返校園資訊科技系，補齊對應學位；
+            目前致力於將過去的「機房/弱電經驗」與現在學的「Python/網頁開發」結合，成為能解決實際問題的全端工程師。
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item reveal delay-200">
+        <div class="exp-meta">
+          <span class="exp-period">2017-2025</span>
+          <span class="exp-role">飯店/百貨業(工務機電)</span>
+        </div>
+        <div class="exp-content">
+          <h3>機電維護與危機處理</h3>
+          <p>負責館內水電、弱電系統與消防設備的巡檢與保養。<br>具備在高壓環境下迅速排除設備故障（如跳電、管線異常）的危機處理能力，並持有防火管理員與乙種職安衛主管證照，熟悉廠商監督。</p>
+        </div>
+      </div>
+
+      <div class="exp-item reveal delay-300">
+        <div class="exp-meta">
+          <span class="exp-period">早期基礎</span>
+          <span class="exp-role">台中高工-資訊科</span>
+        </div>
+        <div class="exp-content">
+          <h3>資訊邏輯與硬體維修</h3>
+          <p>於技職體系打下穩固工程基礎。<br>在校期間精通電腦硬體裝修及Sever架構，並取得<strong>「乙級電腦硬體裝修」</strong>與<strong>「丙級網頁設計」</strong>技術士證照，這段經歷奠定了嚴謹的邏輯思維。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="section-title reveal">
+      <h2>專業認證矩陣<br>CREDENTIALS</h2>
+    </div>
+    <div class="cert-matrix">
+      <div class="cert-node reveal delay-100">
+        <i class="fas fa-fire-extinguisher cert-icon" style="color:var(--accent-tertiary);"></i>
+        <h4>防火管理員</h4>
+        <p>消防安全認證</p>
+      </div>
+      <div class="cert-node reveal delay-200">
+        <i class="fas fa-hard-hat cert-icon" style="color:var(--accent-tertiary);"></i>
+        <h4>乙種職安衛主管</h4>
+        <p>職業安全衛生</p>
+      </div>
+      <div class="cert-node reveal delay-300">
+        <i class="fas fa-microchip cert-icon" style="color:var(--accent-primary);"></i>
+        <h4>乙級電腦硬體裝修</h4>
+        <p>國家技術士</p>
+      </div>
+      <div class="cert-node reveal delay-100">
+        <i class="fas fa-code cert-icon" style="color:var(--accent-primary);"></i>
+        <h4>丙級網頁設計</h4>
+        <p>國家技術士</p>
+      </div>
+      <div class="cert-node reveal delay-200">
+        <i class="fas fa-bolt cert-icon" style="color:var(--accent-tertiary);"></i>
+        <h4>丙級室內配線</h4>
+        <p>國家技術士</p>
+      </div>
+      <div class="cert-node reveal delay-300">
+        <i class="fab fa-python cert-icon" style="color:var(--accent-secondary);"></i>
+        <h4>ITS Python</h4>
+        <p>程式設計認證</p>
+      </div>
+      <div class="cert-node reveal delay-100">
+        <i class="fas fa-file-invoice-dollar cert-icon" style="color:#ffc107;"></i>
+        <h4>金融證照群</h4>
+        <p>產/壽/外幣/投資型</p>
+      </div>
+      <div class="cert-node reveal delay-200">
+        <i class="fas fa-language cert-icon" style="color:#6f42c1;"></i>
+        <h4>JLPT N2</h4>
+        <p>日本語能力試驗</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo" style="margin-bottom: 25px; font-size:2rem; color:#fff; font-weight: 900; letter-spacing: 2px;">洪益華個人技能分享</div>
+    <div class="footer-social">
+      <div id="btn-email-footer" style="margin-bottom: 25px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 12px;">
+        <i class="fas fa-envelope" style="color:#fff; font-size: 1.6rem;"></i>
+        <span style="color:#fff; font-size: 1.3rem; border-bottom: 2px dashed rgba(255,255,255,0.4); padding-bottom: 2px;">yihua0988@gmail.com</span>
+      </div>
+      <br>
+      <a href="https://github.com/yihua0988" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" style="font-size: 3.2rem;"></i>
+      </a>
+    </div>
+    <div style="display: flex; justify-content: center; width: 100%;">
+	  <p style="margin-top: 40px; font-size: 1.1rem;">
+		&copy;2026洪益華版權所有
+	  </p>
+	</div>
+  </footer>
+
+  <div id="toast-notification">Email已複製到剪貼簿！</div>
+
+  <button id="btn-copy-url" class="fab-copy-url" title="複製並分享網站">
+    <i class="fas fa-share-nodes"></i> 分享個人網站
+  </button>
+
+  <script>
+    // 🌌 背景粒子連線特效
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        for(let i = 0; i < 50; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2 + 1
+            });
+        }
+    }
+    function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 123, 255, 0.5)';
+        particles.forEach(p => {
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
+            p.x += p.vx; p.y += p.vy;
+            if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        });
+        requestAnimationFrame(drawParticles);
+    }
+    window.addEventListener('resize', initCanvas);
+    initCanvas(); drawParticles();
+
+    // 🌟 Scroll Reveal 滾動浮現引擎
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 80;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+
+    $(document).ready(function() {
+        reveal(); // 載入時先觸發一次
+		/* ===================================================
+           🌟 影片自動播放強化 (解決平板與低耗電模式問題)
+        =================================================== */
+        const video = document.querySelector('.hero-video');
+        
+        if (video) {
+            // 確保影片是靜音狀態 (沒靜音的話，瀏覽器 100% 會擋下自動播放)
+            video.muted = true;
+
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // 自動播放成功
+                    console.log("✔ 影片已自動開始播放");
+                }).catch(error => {
+                    // 自動播放被擋下 (通常是省電模式或瀏覽器限制)
+                    console.log("❌ 自動播放被攔截，正在嘗試點擊/觸碰後喚醒");
+                    
+                    // 📍 備案：當使用者第一次觸碰螢幕 (touchstart) 時強制喚醒播放
+                    // 這在平板與手機上是非常有效的萬用解決法
+                    window.addEventListener('touchstart', function() {
+                        video.play();
+                    }, { once: true }); // once: true 代表觸發一次後就自動移除監聽器
+                });
+            }
+		}	
+        // --- 回到最上面按鈕 ---
+        $('#back-to-top').on('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- 錨點平滑捲動 ---
+        $('a.smooth-scroll').on('click', function(e) {
+            if (this.hash !== "") {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 600);
+            }
+        });
+
+        // --- 複製功能與 Toast ---
+        function showToast(msg) {
+            const $toast = $('#toast-notification');
+            $toast.text(msg).addClass('show');
+            setTimeout(function(){ $toast.removeClass('show'); }, 3000);
+        }
+
+        $('#btn-contact, #btn-email-footer').on('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText("yihua0988@gmail.com").then(() => {
+                showToast("✉️ Email已複製！正在呼叫信箱 App...");
+                setTimeout(() => window.location.href = "mailto:yihua0988@gmail.com", 1500);
+            }).catch(err => console.error('複製失敗', err));
+        });
+
+        $('#btn-copy-url').on('click', function() {
+            // 這裡使用 window.location.href 可以確保不管在首頁哪個位置都能正確複製網址
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                // 替換為你指定的 Toast 訊息
+                showToast("✅ 已複製https://yihua0988.github.io/，歡迎分享！");
+            }).catch(err => console.error('複製失敗', err));
+        });
+
+        // ===================================================
+        // 🌟 終極升級：純 SVG 動態互動甜甜圈圖 (包含 Hover Tooltip)
+        // ===================================================
+        $('body').append('<div id="chart-tooltip"></div>');
+
+        function renderSvgDonut(wrapperId, dataObj) {
+            let total = 0;
+            $.each(dataObj.data, function(k, v) { total += v; });
+
+            let cumulativePercent = 0;
+            let svgPaths = '';
+            let legendHtml = '';
+            let i = 0;
+
+            $.each(dataObj.data, function(key, value) {
+                const percent = value / total;
+                const color = dataObj.colors[i];
+                
+                // SVG 數學計算
+                const startX = Math.cos(2 * Math.PI * cumulativePercent);
+                const startY = Math.sin(2 * Math.PI * cumulativePercent);
+                cumulativePercent += percent;
+                const endX = Math.cos(2 * Math.PI * cumulativePercent);
+                const endY = Math.sin(2 * Math.PI * cumulativePercent);
+                const largeArcFlag = percent > 0.5 ? 1 : 0;
+
+                const pathData = [
+                    `M ${startX} ${startY}`,
+                    `A 1 1 0 ${largeArcFlag} 1 ${endX} ${endY}`,
+                    `L 0 0`
+                ].join(' ');
+
+                let pctString = Math.round(percent*100) + '%';
+
+                svgPaths += `<path d="${pathData}" fill="${color}" stroke="#fff" stroke-width="0.02" class="pie-slice" data-key="${key}" data-val="${value}" data-percent="${pctString}" />`;
+
+                legendHtml += `
+                <div class="legend-item">
+                    <div class="legend-color" style="background:${color}"></div>
+                    <span style="flex:1;">${key}</span>
+                    <span style="color:${color}; font-weight:900;">${pctString}</span>
+                </div>`;
+                i++;
+            });
+
+            const svgHtml = `
+            <svg viewBox="-1.2 -1.2 2.4 2.4" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                ${svgPaths}
+            </svg>
+            <div class="pie-hole"></div>
+            `;
+
+            $(`#${wrapperId} .pie-chart`).html(svgHtml);
+            $(`#${wrapperId} .pie-chart`).css({'background': 'none'}); // 移除原本的 conic-gradient
+            $(`#${wrapperId} .pie-legend`).html(legendHtml);
+        }
+
+        renderSvgDonut('industry-chart-wrapper', {
+            data: { '百貨服務業': 49, '飯店業': 9, '視廳歌唱業': 14, '人才綜合服務': 10 },
+            colors: ['#007bff', '#20c997', '#fd7e14', '#6c757d']
+        });
+
+        renderSvgDonut('job-chart-wrapper', {
+            data: { '工務機電': 40, '設備維護': 23, '電話行銷': 10 },
+            colors: ['#007bff', '#20c997', '#fd7e14']
+        });
+
+        // 綁定 SVG Hover 事件
+        $(document).on('mousemove', '.pie-slice', function(e) {
+            let key = $(this).attr('data-key');
+            let val = $(this).attr('data-val');
+            let pct = $(this).attr('data-percent');
+            $('#chart-tooltip').html(`${key}<br><span style="color:#20c997; font-size:1.3rem;">${pct}</span>`).css({
+                left: e.clientX,
+                top: e.clientY,
+                display: 'block'
+            });
+            $(this).css({ 'transform': 'scale(1.05)', 'filter':'brightness(1.1)' });
+        }).on('mouseleave', '.pie-slice', function() {
+            $('#chart-tooltip').hide();
+            $(this).css({ 'transform': 'scale(1)', 'filter':'brightness(1)' });
+        });
+
+        // 防止 F5 卡住
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+        if (window.location.hash) { history.replaceState(null, null, window.location.pathname); }
+        setTimeout(function() { window.scrollTo(0, 0); }, 10);
+    });
+
+    // F12 彩蛋
+    (function() {
+        const styleSys = "color: #fd7e14; font-size: 12px; font-weight: bold; background: #222; padding: 2px 6px; border-radius: 3px;";
+        const stylePass = "color: #20c997; font-size: 13px; font-weight: bold;";
+        const styleTitle = "color: #007bff; font-size: 26px; font-weight: 900; text-shadow: 2px 2px 0px #b3d4fc; margin-top: 10px; margin-bottom: 10px;";
+        const styleBody = "color: #495057; font-size: 14px; line-height: 1.8; font-family: 'Courier New', monospace;";
+        const styleBtn = "background: #007bff; color: white; padding: 5px 10px; border-radius: 5px; font-size: 14px; font-weight: bold; line-height: 2.5;";
+        
+        console.log("%c[系統日誌] 偵測到進階開發者開啟 F12...", styleSys);
+        console.log("%c✔ 基礎設施與機房弱電狀態... OK", stylePass);
+        console.log("%c✔ MIS 系統維運模組... 運作正常", stylePass);
+        console.log("%c✔ Python 爬蟲與數據清洗引擎... 啟動完畢", stylePass);
+        console.log("%c✔ 網頁前端 RWD 渲染... 載入成功", stylePass);
+        console.log("--------------------------------------------------");
+
+        console.log("%c(☞ﾟヮﾟ)☞ 恭喜你觸發了隱藏關卡！", styleTitle);
+        console.log(
+            "%c看來你對我的原始碼很有興趣！\n" +
+            "我不只會寫 Code，更是那個具備 7年維修經驗、能在機房拉線也能在後台抓 Bug 的實戰派。\n" +
+            "從硬體除錯到軟體開發，我的技能樹正在持續點滿中。\n" +
+            "順帶一提，遇到日文的原廠技術文件我也能直接生啃 (JLPT N2 認證)！", 
+            styleBody
+        );
+
+        console.log("\n%c💡 如果貴團隊剛好缺一位邏輯嚴密、自帶 Debug 體質的熱血工程師，歡迎發送組隊邀請！", styleBody);
+        console.log("%c✉️ 發送組隊邀請 (Email): yihua0988@gmail.com", styleBtn);
+        console.log("%c⚔️ 偷看我的裝備庫 (GitHub): https://github.com/yihua0988", styleBtn);
+    })();
+  </script>
+</body>
+</html>
