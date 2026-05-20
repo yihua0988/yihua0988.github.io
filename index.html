@@ -156,6 +156,15 @@
 
     /* 🌟 滾動視差浮現動畫 */
     .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s var(--spring); }
+	#particle-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1; /* 放在背景之上，內容之下 */
+        pointer-events: none; /* 關鍵：讓滑鼠可以穿透它點擊按鈕 */
+    }
     .reveal.active { opacity: 1; transform: translateY(0); }
     .delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; } .delay-300 { transition-delay: 0.3s; }
     /* ===================================================
