@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#060b19">
     
-    <title>洪益華(Saka) 全端開發履歷｜僑光科大IT✕日文N2✕機電：Python與前端開發及7年實戰經驗</title>
+    <title>洪益華(Saka)全端開發｜僑光科大IT✕日文N2✕機電：全端開發及7年實戰經驗</title>
     
-    <meta name="description" content="尋找具備跨域即戰力的全端開發工程師？我是洪益華，目前就讀僑光科大資訊科技系。結合JLPT N2日文專業與7年機電硬體維運底子，專精Python自動化(ETL)、HTML/JS前端設計與軟硬整合。技術硬核、不僅實力堅強還被公認「洪益華 好帥」。點擊查看具備即戰力的完整履歷！"/>
-    
-    <meta name="keywords" content="洪益華, Saka, 全端開發, 僑光科大資訊科技系, 7年工作經驗, 日文背景, JLPT N2, Python, HTML, JS, 前端開發, ETL數據清洗, 自動化開發, 機電專業, 室內配線, 電腦硬體裝修乙級, 軟硬整合, 洪益華 好帥" />
-    
+    <meta name="description" content="我是洪益華(Saka)，目前就讀僑光科大資訊科技系。擁有7年實務歷練，結合JLPT N2日文專業與底層硬體維運邏輯，專精Python自動化、HTML/JS前端開發與系統架構整合。具備解決複雜問題的跨域實力！"/>
+    <meta name="keywords" content="洪益華, Saka, 全端開發, 僑光科大資訊科技系, 7年工作經驗, JLPT N2, Python, HTML, JavaScript, Vanilla JS, 前端開發, 網頁爬蟲, 自動化腳本, 數據分析, 系統架構, 洪益華 好帥" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <link rel="canonical" href="https://yihua0988.github.io/">
     
     <meta property="og:locale" content="zh_TW">
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="洪益華(Saka) 全端開發履歷｜IT專業✕日文N2✕機電整合"/>
-    <meta property="og:description" content="目前就讀僑光科大資訊科技系，結合日文N2能力與機電專業，具備7年設施維運經驗的跨域全端開發者。專精Python自動化、網頁前端設計與系統軟硬整合。" />
+    <meta property="og:title" content="洪益華全端開發者｜IT專業✕日文N2✕機電整合"/>
+    <meta property="og:description" content="目前就讀僑光科大資訊科技系，結合日文N2能力與機電專業，具備7年工作經驗的跨域全端開發者。專精JavaScript應用及Python自動化、網頁前端設計與系統軟硬整合。" />
     <meta property="og:image" content="https://yihua0988.github.io/cover.png" />
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://yihua0988.github.io/" />
-    <meta property="og:site_name" content="洪益華 (Saka) 個人作品集">
+    <meta property="og:site_name" content="洪益華個人作品集">
 
     <link rel="stylesheet" href="css/all.min.css">
     <script src="jquery-4.0.0.min.js"></script>
@@ -109,26 +107,24 @@
         fill: none; 
     }
 
-    /* 電流動畫 (🚀 釋放光暈，拔除導致隱形的 Bug 屬性) */
+    /* 🚀 關鍵 3：刪除 mix-blend-mode，並補回硬體加速 */
     .current-flows path {
         fill: none;     
-        
-        mix-blend-mode: screen; 
-        
         stroke-linecap: round; 
         stroke-dashoffset: 0;
         animation-name: flowCurrent; 
         animation-timing-function: linear; 
         animation-iteration-count: infinite;
+        will-change: stroke-dashoffset;
     }
 
-    /* 🔥 加粗電流光束：線條越粗，光暈渲染就越強烈、越亮！ */
-    .flow-1 { stroke-dasharray: 200 1500; animation-duration: 6s; stroke-width: 5px; }
-    .flow-2 { stroke-dasharray: 150 1200; animation-duration: 8s; animation-direction: reverse; stroke-width: 4px; }
-    .flow-3 { stroke-dasharray: 300 1800; animation-duration: 5s; stroke-width: 6px; }
-    .flow-4 { stroke-dasharray: 100 1200; animation-duration: 9s; animation-direction: reverse; stroke-width: 3px; }
-    .flow-5 { stroke-dasharray: 400 2000; animation-duration: 7s; stroke-width: 5px; }
-    .flow-6 { stroke-dasharray: 250 1400; animation-duration: 8.5s; stroke-width: 4px; }
+		/* 🔥 加粗電流光束：線條越粗，光暈渲染就越強烈、越亮！ */
+		.flow-1 { stroke-dasharray: 200 1500; animation-duration: 6s; stroke-width: 5px; }
+		.flow-2 { stroke-dasharray: 150 1200; animation-duration: 8s; animation-direction: reverse; stroke-width: 4px; }
+		.flow-3 { stroke-dasharray: 300 1800; animation-duration: 5s; stroke-width: 6px; }
+		.flow-4 { stroke-dasharray: 100 1200; animation-duration: 9s; animation-direction: reverse; stroke-width: 3px; }
+		.flow-5 { stroke-dasharray: 400 2000; animation-duration: 7s; stroke-width: 5px; }
+		.flow-6 { stroke-dasharray: 250 1400; animation-duration: 8.5s; stroke-width: 4px; }
 
     /* 核心動畫 */
     @keyframes flowCurrent {
@@ -141,6 +137,8 @@
         position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
         z-index: 1; pointer-events: none; 
         opacity: 0.85; 
+        transform: translateZ(0);
+        will-change: transform;
     }
     /* ===================================================
        🌟 3. 全域動畫與共用組件
@@ -163,10 +161,11 @@
     }
 
     .cyber-card {
-        background: var(--card-bg); border-radius: 22px; padding: 40px 30px; box-sizing: border-box;
+        background: rgba(17, 24, 43, 0.95); /* 顏色加深至 0.95 */
+        border-radius: 22px; padding: 40px 30px; box-sizing: border-box;
         border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
         transition: all 0.4s var(--spring); position: relative; overflow: hidden;
+        transform: translateZ(0); 
     }
 
     .btn-back-to-top, .fab-copy-url {
@@ -185,20 +184,30 @@
         position: relative; z-index: 1; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; 
         overflow: hidden; background: #000; padding: 20px; box-sizing: border-box;
     }
-    .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.85; }
+	/* 🚀 關鍵 2：把影片透明度改為 1 (不透明)，阻斷 GPU 去計算影片背後的東西 */
+    .hero-video { 
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        object-fit: cover; z-index: 0; 
+        opacity: 1; 
+        transform: translateZ(0); 
+        will-change: transform;
+    }
     .hero-overlay {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to bottom, rgba(6,11,25,0.2), #060b19); z-index: 1; 
+        background: linear-gradient(to bottom, rgba(6,11,25,0.7), #060b19); 
+        z-index: 1; 
     }
 
+    /* 🚀 記憶體瘦身：拔除毛玻璃 (backdrop-filter)，改用純粹的深色半透明背景 */
     .intro-section {
         position: relative; z-index: 2; width: 100%; max-width: 800px;
-        background: rgba(10, 15, 30, 0.6); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%);
+        background: rgba(10, 15, 30, 0.85); /* 顏色加深至 0.85 */
         border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 0 40px rgba(0, 123, 255, 0.2), inset 0 0 20px rgba(255,255,255,0.05);
         display: flex; flex-direction: column; justify-content: center; align-items: center;
         text-align: center; padding: 60px 40px; box-sizing: border-box;
-    }
+        transform: translateZ(0); 
+    }	
     .intro-section h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); margin: 0 0 10px; font-weight: 900; letter-spacing: 2px; color: #fff; line-height: 1.2; text-shadow: 0 0 15px rgba(0, 123, 255, 0.8); }
     .intro-section h1 .en-sub { display: block; font-size: 0.35em; color: var(--accent-secondary); letter-spacing: 2px; margin-top: 10px; font-weight: 800; text-shadow: 0 0 10px rgba(32,201,151,0.5);}
     .intro-section p { font-size: clamp(1.1rem, 1.3vw, 1.3rem); color: var(--text-muted); font-weight: 800; max-width: 90%; margin: 0 auto 30px; line-height: 1.8; }
@@ -210,17 +219,20 @@
     .btn-tech-filled { background: var(--accent-primary); color: #fff; border: 1px solid var(--accent-primary); box-shadow: 0 0 15px rgba(0,123,255,0.4); }
     .btn-tech-filled:hover { background: #0056b3; box-shadow: 0 0 25px rgba(0,123,255,0.8), inset 0 0 10px rgba(255,255,255,0.2); color: #fff;}
 
-    /* 閃電動畫 */
+    * 閃電動畫 (🚀 效能修復版：拔除 mix-blend-mode 與 filter，改用原生 box-shadow) */
     @keyframes spin3D { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
     .hero-bolt-3d { display: inline-block; animation: spin3D 3s linear infinite; transform-style: preserve-3d; }
     .legendary-bolt-container { position: relative; display: flex; justify-content: center; align-items: center; width: 180px; height: 180px; margin-bottom: 25px; perspective: 1000px; transform: rotateX(20deg); transform-style: preserve-3d; }
     .legendary-bolt-container i { position: relative; z-index: 5; margin-bottom: 0 !important; display: inline-block; animation: spin3D 3s linear infinite; transform-style: preserve-3d; }
-    .bolt-circle { position: absolute; border-radius: 50%; top: 50%; left: 50%; transform-style: preserve-3d; mix-blend-mode: screen; }
+    
+    .bolt-circle { position: absolute; border-radius: 50%; top: 50%; left: 50%; transform-style: preserve-3d; }
+    
     @keyframes spinCirclesY { 0% { transform: translate(-50%, -50%) rotateY(0deg); } 100% { transform: translate(-50%, -50%) rotateY(360deg); } }
-    .circle-blue { width: 100px; height: 100px; border: 8px solid #ffeb3b; opacity: 0.9; filter: blur(1px) drop-shadow(0 0 12px #ffeb3b); animation: spinCirclesY 6s linear infinite; }
-    .circle-green { width: 135px; height: 135px; border: 6px solid #20c997; opacity: 0.8; filter: blur(1px) drop-shadow(0 0 10px #20c997); animation: spinCirclesY 11s linear infinite; }
-    .circle-yellow { width: 170px; height: 170px; border: 4px solid #007bff; opacity: 0.7; filter: blur(1px) drop-shadow(0 0 8px #007bff); animation: spinCirclesY 8s linear infinite; }
-
+    
+    /* 改用 rgba 與 box-shadow，保留光暈質感的同時釋放 90% 運算壓力 */
+    .circle-blue { width: 100px; height: 100px; border: 8px solid rgba(255, 235, 59, 0.9); box-shadow: 0 0 15px rgba(255, 235, 59, 0.5); animation: spinCirclesY 6s linear infinite; }
+    .circle-green { width: 135px; height: 135px; border: 6px solid rgba(32, 201, 151, 0.9); box-shadow: 0 0 15px rgba(32, 201, 151, 0.5); animation: spinCirclesY 11s linear infinite; }
+    .circle-yellow { width: 170px; height: 170px; border: 4px solid rgba(0, 123, 255, 0.9); box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); animation: spinCirclesY 8s linear infinite; }
     /* ===================================================
        🌟 5. 跨域職能整合
     =================================================== */
@@ -448,14 +460,10 @@
             <linearGradient id="grad-green"><stop offset="0%" stop-color="#39ff14"/><stop offset="100%" stop-color="#00ff66"/></linearGradient>
             <linearGradient id="grad-purple"><stop offset="0%" stop-color="#bf00ff"/><stop offset="100%" stop-color="#8a2be2"/></linearGradient>
 
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1"/>
-                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
-                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur3"/>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
                 <feMerge>
-                    <feMergeNode in="blur3"/>
-                    <feMergeNode in="blur2"/>
-                    <feMergeNode in="blur1"/>
+                    <feMergeNode in="blur"/>
                     <feMergeNode in="SourceGraphic"/>
                 </feMerge>
             </filter>
@@ -471,12 +479,12 @@
         </g>
 
         <g class="current-flows" fill="none" stroke-linecap="round">
-            <path class="flow-1" stroke="url(#grad-yellow)" filter="url(#glow)" stroke-width="6" d="M-100,150 H300 V450 H800 V200 H1500 V600 H2000" />
-            <path class="flow-2" stroke="url(#grad-orange)" filter="url(#glow)" stroke-width="5" d="M2000,850 H1400 V500 H900 V900 H400 V700 H-100" />
-            <path class="flow-3" stroke="url(#grad-blue)" filter="url(#glow)" stroke-width="6" d="M450,-100 V300 H150 V800 H600 V1200" />
-            <path class="flow-4" stroke="url(#grad-green)" filter="url(#glow)" stroke-width="4" d="M1600,1200 V750 H1800 V350 H1200 V-100" />
-            <path class="flow-5" stroke="url(#grad-purple)" filter="url(#glow)" stroke-width="7" d="M-100,550 H200 V850 H700 V300 H1100 V800 H2000" />
-            <path class="flow-6" stroke="url(#grad-yellow)" filter="url(#glow)" stroke-width="5" d="M1000,-100 V400 H1300 V900 H1700 V1200" />
+            <path class="flow-1" stroke="url(#grad-yellow)" stroke-width="6" d="M-100,150 H300 V450 H800 V200 H1500 V600 H2000" />
+            <path class="flow-2" stroke="url(#grad-orange)" stroke-width="5" d="M2000,850 H1400 V500 H900 V900 H400 V700 H-100" />
+            <path class="flow-3" stroke="url(#grad-blue)" stroke-width="6" d="M450,-100 V300 H150 V800 H600 V1200" />
+            <path class="flow-4" stroke="url(#grad-green)" stroke-width="4" d="M1600,1200 V750 H1800 V350 H1200 V-100" />
+            <path class="flow-5" stroke="url(#grad-purple)" stroke-width="7" d="M-100,550 H200 V850 H700 V300 H1100 V800 H2000" />
+            <path class="flow-6" stroke="url(#grad-yellow)" stroke-width="5" d="M1000,-100 V400 H1300 V900 H1700 V1200" />
         </g>
 
         <g class="data-packets" fill="none" stroke-linecap="round" stroke="#ffffff" filter="url(#glow)">
@@ -524,9 +532,9 @@
             <span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span>
         </h1>
         <p>
-            僑光科大 資訊科技碩士班｜7年實戰經驗：Python全端開發、系統與機電整合
+            僑光科大 資訊科技碩士班｜7年實戰經驗：全端開發、系統與機電整合
             <span class="en-desc">
-            M.S. in IT, OCU | 7+ Years Exp | Full-Stack Python Dev & System Integration
+            M.S. in IT, OCU | 7+ Years Exp | Full-Stack Dev & System Integration
             </span>
         </p>
         <div class="btn-group">
@@ -911,22 +919,30 @@
     window.addEventListener('resize', initCanvas);
     initCanvas(); drawParticles();
 
-    // 🌟 Scroll Reveal 滾動浮現引擎
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 80;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
+    // 🌟 現代化高效能滾動浮現 (Intersection Observer 徹底解決 Scroll 卡頓)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // 元素出現 15% 畫面時觸發
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
             }
-        }
-    }
-    window.addEventListener("scroll", reveal);
+        });
+    }, observerOptions);
+
+    // 啟動觀察器
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    });
 
     $(document).ready(function() {
-        reveal(); // 載入時先觸發一次
+        
         /* ===================================================
             🌟 影片自動播放強化 (解決平板與低耗電模式問題)
         =================================================== */
@@ -1064,22 +1080,22 @@
         const styleBtn = "background: #000000; color: white; padding: 5px 10px; border-radius: 5px; font-size: 14px; font-weight: bold; line-height: 2.5;";
         
         console.log("%c[系統日誌] 偵測到進階開發者開啟 F12...", styleSys);
-        console.log("%c✔ 底層機電設施狀態... OK", stylePass);
-        console.log("%c✔ 跨領域除錯邏輯... 運作正常", stylePass);
-        console.log("%c✔ Python 數據清洗 (ETL) 模組... 啟動完畢", stylePass);
-        console.log("%c✔ HTML/CSS 前端渲染... 載入成功", stylePass);
+        console.log("%c✔ 設備狀態... OK", stylePass);
+        console.log("%c✔ 檢查JavaScript運作狀態... 運作正常", stylePass);
+        console.log("%c✔ 建置區域模組... 建置完成", stylePass);
+        console.log("%c✔ 載入圖片中... 載入成功", stylePass);
         console.log("--------------------------------------------------");
 
-        console.log("%c(☞ﾟヮﾟ)☞ 歡迎來到控制台！", styleTitle);
+        console.log("%c(☞ﾟヮﾟ)☞ 歡迎進入隱藏關卡！", styleTitle);
         console.log(
             "%c看來你對這份網頁的原始碼有興趣！\n" +
             "我是洪益華，目前就讀僑光科技大學資訊科技碩士班。\n" +
-            "在跨入軟體開發領域前，我有7年在第一線處理機電與設備異常的實務經驗。\n" +
-            "這段歷練讓我非常習慣在複雜的環境中找Bug，現在我把這套邏輯完整帶進了程式開發裡。\n" +
+            "在跨入全端開發領域前，我有7年各類的工作經驗。\n" +
+            "這段歷練讓我非常習慣在複雜的環境中，現在我把這套邏輯完整帶進了程式開發裡。\n" +
             "另外，我也具備JLPT N2的日文能力，能直接閱讀日文技術文件與開源資源！",
             styleBody
         );
-        console.log("\n%c💡 如果您的團隊正在尋找具備跨域實務經驗與開發能力的工程師，歡迎交流！", styleBody);
+        console.log("\n%c💡 如果您需要我開發或是技術交流歡迎聯絡我！", styleBody);
         console.log("%c✉️ Email: yihua0988@gmail.com", styleBtn);
         console.log("%c💻 GitHub: https://github.com/yihua0988", styleBtn);
     })();
