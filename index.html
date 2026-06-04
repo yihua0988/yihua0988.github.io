@@ -63,22 +63,20 @@
     ul { list-style: none; padding: 0; margin: 0; }
 
    /* ===================================================
-       ⚡ 2. 終極動態電流背景與粒子畫布 (超亮霓虹光暈版 + 10%白底線)
+       ⚡ 2. 終極動態電流背景 (六軌強烈脈衝呼吸版 - 效能負載歸零)
     =================================================== */
     html, body {
         margin: 0; width: 100%; min-height: 100%;
-        background: #03050a; /* 🌌 深邃的宇宙黑底色，完美襯托超亮光暈 */
+        background: #03050a; /* 🌌 深邃的宇宙黑底色 */
         overflow-x: hidden; overflow-y: auto;
     }
 
-    /* 背景容器 (🚀 新增 contain: paint 強制裁切畫面外渲染) */
+    /* 背景容器 */
     .circuit-bg {
         position: fixed; inset: 0; width: 100vw; height: 100vh;
         background: radial-gradient(circle at center, #0a142e 0%, #02040a 100%);
         z-index: 0; 
         pointer-events: none;
-        
-        /* 拒絕螢幕外渲染的終極護城河 */
         contain: strict paint layout size; 
         overflow: hidden;
         transform: translateZ(0); 
@@ -88,60 +86,65 @@
     .circuit-grid {
         position: absolute; inset: 0; width: 100%; height: 100%;
         background-image:
-            linear-gradient(rgba(0, 123, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 123, 255, 0.08) 1px, transparent 1px);
+            linear-gradient(rgba(0, 123, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 123, 255, 0.05) 1px, transparent 1px);
         background-size: 60px 60px; 
-        -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
-        mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
-        opacity: 0.8;
+        opacity: 0.5; 
     }
 
     /* SVG 總圖層 */
     .pcb-traces {
         position: absolute; inset: 0; width: 100%; height: 100%; 
-        opacity: 0.35; 
+        opacity: 0.4; /* 整體稍微調亮一點，讓呼吸更明顯 */
         transform: translateZ(0); 
     }
 
-    /* 🛑 靜態電路線 (白線 10% 版) */
+    /* 🛑 靜態電路線 */
     .base-tracks path { 
-        stroke: rgba(255, 255, 255, 0.1); /* 🔧 改為純白，不透明度 10% */
+        stroke: rgba(255, 255, 255, 0.1); 
         stroke-width: 1.5; 
         fill: none; 
     }
 
-    /* 🚀 關鍵 3：刪除 mix-blend-mode，並補回硬體加速 */
+    /* 🚀 動態電流共用設定：完全放棄 stroke-dashoffset 位移！ */
     .current-flows path {
         fill: none;     
         stroke-linecap: round; 
-        stroke-dashoffset: 0;
-        animation-name: flowCurrent; 
-        animation-timing-function: linear; 
+        
+        /* 🚀 已經將 stroke-dasharray 屬性刪除，全面恢復為完整實線 */
+        
+        /* 共用透明度呼吸動畫 (效能極佳) */
+        animation-name: neonPulse;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
         animation-iteration-count: infinite;
-        will-change: stroke-dashoffset;
+        animation-direction: alternate;
     }
 
-		/* 🔥 加粗電流光束：線條越粗，光暈渲染就越強烈、越亮！ */
-		.flow-1 { stroke-dasharray: 200 1500; animation-duration: 6s; stroke-width: 5px; }
-		.flow-2 { stroke-dasharray: 150 1200; animation-duration: 8s; animation-direction: reverse; stroke-width: 4px; }
-		.flow-3 { stroke-dasharray: 300 1800; animation-duration: 5s; stroke-width: 6px; }
-		.flow-4 { stroke-dasharray: 100 1200; animation-duration: 9s; animation-direction: reverse; stroke-width: 3px; }
-		.flow-5 { stroke-dasharray: 400 2000; animation-duration: 7s; stroke-width: 5px; }
-		.flow-6 { stroke-dasharray: 250 1400; animation-duration: 8.5s; stroke-width: 4px; }
-
-    /* 核心動畫 */
-    @keyframes flowCurrent {
-        from { stroke-dashoffset: 3000; }
-        to { stroke-dashoffset: 0; }
+    /* 💡 強烈呼吸動畫：對比度拉大，從近乎消失到高亮閃爍 */
+    @keyframes neonPulse {
+        0% { opacity: 0.02; filter: blur(2px); } /* 暗的時候帶點模糊 */
+        100% { opacity: 0.95; filter: drop-shadow(0 0 8px currentColor); } /* 亮的時候加上本色光暈 */
     }
 
-    /* 🌌 粒子背景畫布定位 */
+    /* =======================================
+       ⚡ 六條電流：交錯時序，模擬資料無序傳輸
+    ======================================= */
+    /* 透過刻意打亂的 duration 和 delay，讓它們絕對不會同時亮起或暗下 */
+    .flow-1 { stroke-width: 3.5px; animation-duration: 2.1s; animation-delay: 0s; }
+    .flow-2 { stroke-width: 2px;   animation-duration: 3.4s; animation-delay: -1.2s; }
+    .flow-3 { stroke-width: 4.5px; animation-duration: 2.7s; animation-delay: -0.7s; } /* 主脈衝 */
+    .flow-4 { stroke-width: 1.5px; animation-duration: 4.1s; animation-delay: -2.3s; }
+    .flow-5 { stroke-width: 3px;   animation-duration: 1.8s; animation-delay: -0.4s; } /* 快速閃爍 */
+    .flow-6 { stroke-width: 2.5px; animation-duration: 3.8s; animation-delay: -1.9s; }
+
+    /* =======================================
+       🌌 粒子背景畫布定位
+    ======================================= */
     #particle-canvas {
         position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
         z-index: 1; pointer-events: none; 
-        opacity: 0.85; 
+        opacity: 0.7; 
         transform: translateZ(0);
-        will-change: transform;
     }
     /* ===================================================
        🌟 3. 全域動畫與共用組件
@@ -944,7 +947,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         particles = [];
-        for(let i = 0; i < 50; i++) {
+        for(let i = 0; i < 10; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
