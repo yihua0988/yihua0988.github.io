@@ -649,76 +649,106 @@
 
   <section id="projects">
     <div class="section-title reveal">
-      <h2>實作專案與技術分析<br>PROJECTS & ANALYSIS</h2>
+        <h2>實作專案與技術分析<br>PROJECTS & ANALYSIS</h2>
     </div>
     
     <div class="project-grid">
       
-      <div class="cyber-card tech-card reveal delay-100">
-        <div class="project-card-content">
-          <i class="fas fa-user-shield card-icon" style="color: var(--accent-primary);"></i>
-          <h3 style="color: var(--accent-primary);">詐騙防制數據專案</h3>
-          <p>運用 Python 針對 Opendata 開放資料進行 ETL 清洗，並建置 Power BI (暫時不使用)。前端使用 <strong>HTML/CSS 開發響應式網頁 (RWD)</strong> 介面串接儀表板，提供使用者流暢的風險分析體驗。</p>
-          <div class="tags">
-            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Python ETL</span>
-            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Power BI</span>
-            <span style="color: var(--accent-primary); border-color: var(--accent-primary);">HTML/CSS</span>
-          </div>
-          <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">
-            專案網站連結 (LAUNCH DEMO) <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="cyber-card tech-card reveal delay-200">
-        <div class="project-card-content">
-          <i class="fas fa-hard-hat card-icon" style="color: var(--accent-secondary);"></i>
-          <h3 style="color: var(--accent-secondary);">AIoT 主動式工安防護系統架構</h3>
-          <p>基於第21屆育秀盃銅獎作品，提出次世代工業級升級方案。探討系統從「被動通報」邁向「實體警報」的防護迴圈，涵蓋<strong>封閉邊緣運算、YOLO影像辨識、MQTT機電連動</strong>與<strong>雙重解除資安機制</strong>。</p>
-          <div class="tags">
-            <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">Edge AI</span>
-            <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">機電整合</span>
-            <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">主動防禦</span>
-          </div>
-          <a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary);">
-            觀看專案簡報 (VIEW PPT) <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
+        <!-- 專案 1：詐騙防制數據專案 -->
+        <div class="cyber-card tech-card reveal delay-100">
+            <div class="project-card-content">
+                <i class="fas fa-user-shield card-icon" style="color: var(--accent-primary);"></i>
+                <h3 style="color: var(--accent-primary);">詐騙防制數據專案</h3>
+                <p>運用 Python 針對政府 Opendata 進行 ETL 數據清洗。前端全面改以 <strong>JS 動態數據視覺化</strong> 技術自主渲染互動式圖表，取代Power BI。目前正進行後端架構擴充，規劃串接<strong>第二組 Supabase SQL 資料庫</strong>，以強化專案的結構化數據管理與深度整合。</p>
+                
+                <!-- 💡 專案更新預告小提示 -->
+                <p style="font-size: 0.85rem; opacity: 0.85; margin-top: -8px; margin-bottom: 15px; color: var(--accent-primary);">
+                    <i class="fas fa-sync fa-spin" style="margin-right: 5px;"></i> 系統架構升級中，預計 115 年 11 月釋出更新
+                </p>
 
-      <div class="cyber-card tech-card reveal delay-300">
-        <div class="project-card-content">
-          <i class="fas fa-mobile-alt card-icon" style="color: var(--accent-tertiary);"></i>
-          <h3 style="color: var(--accent-tertiary);">互動式問答 App</h3>
-          <p>使用 MIT App Inventor 2 開發的互動式問答 Android App。結合<strong>App 內建存檔機制</strong>紀錄回訪狀態，並實作影音防作弊機制與底層硬體控制。</p>
-          <div class="tags">
-            <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">App Inventor 2</span>
-            <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">TinyDB 存儲</span>
-          </div>
-          <a href="https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk" target="_blank" rel="noopener noreferrer" style="color: var(--accent-tertiary);">
-            下載 APK 安裝檔 (DOWNLOAD) <i class="fas fa-download"></i>
-          </a>
+                <div class="tags">
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Python ETL</span>
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">JS 動態數據視覺化</span>
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Supabase SQL</span>
+                </div>
+                <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">
+                    觀看當前版本 (CURRENT DEMO) <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
-      </div>
       
-      <div class="cyber-card tech-card reveal delay-400">
-        <div class="project-card-content">
-          <i class="fas fa-gamepad card-icon" style="color: var(--accent-purple);"></i>
-          <h3 style="color: var(--accent-purple);">Vanilla JS遊戲與效能控制</h3>
-          <p>完全不依賴遊戲引擎，純粹使用<strong>Vanilla JS</strong> 與Canvas的網頁遊戲。除了基礎的遊戲邏輯，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：我特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的60FPS流暢度，而桌上型電腦則解除限制全速渲染。這是一次對JS畫面更新機制與底層效能控制的深度實作驗證。</p>
-          <div class="tags">
-            <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Vanilla JS</span>
-            <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Canvas渲染</span>
-            <span style="color: var(--accent-purple); border-color: var(--accent-purple);">動態效能優化</span>
-          </div>
-          <a href="https://yihua0988.github.io/1150527game/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">
-            開始遊玩(PLAY GAME)<i class="fas fa-play"></i>
-          </a>
+        <!-- 專案 2：Vanilla JS 遊戲 -->
+        <div class="cyber-card tech-card reveal delay-200">
+            <div class="project-card-content">
+                <i class="fas fa-gamepad card-icon" style="color: var(--accent-purple);"></i>
+                <h3 style="color: var(--accent-purple);">Vanilla JS 響應式遊戲與效能控制</h3>
+                <p>完全不依賴遊戲引擎，純粹使用 <strong>Vanilla JS</strong> 與 Canvas 打造的 <strong>RWD 響應式網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的 60FPS 流暢度，而桌上型電腦則解除限制全速渲染。這是一次對 JS 畫面更新、RWD 佈局與底層效能控制的深度實作驗證。</p>
+                <div class="tags">
+                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Vanilla JS</span>
+                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">RWD 響應式</span>
+                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Canvas 渲染</span>
+                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">動態效能優化</span>
+                </div>
+                <a href="https://yihua0988.github.io/1150527game/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">
+                    開始遊玩 (PLAY GAME) <i class="fas fa-play"></i>
+                </a>
+            </div>
         </div>
-      </div>
-
+          
+        <!-- 專案 3：活力購物網 -->
+        <div class="cyber-card tech-card reveal delay-300">
+            <div class="project-card-content">
+                <i class="fas fa-cart-shopping card-icon" style="color: var(--accent-primary);"></i>
+                <h3 style="color: var(--accent-primary);">活力購物網 - 響應式電商前端</h3>
+                <p>具備質感的響應式電子商務平台。採用 Bootstrap 5 進行格線佈局，並透過原生 JavaScript 深度串接 <strong>Supabase SQL 資料庫</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單狀態即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。</p>
+                <div class="tags">
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">JavaScript</span>
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Supabase (BaaS)</span>
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">SQL</span>
+                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Bootstrap 5</span>
+                </div>
+                <a href="https://yihua0988.github.io/1150311JSSQL" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">
+                    觀看專案實作 (VIEW SITE) <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+      
+        <!-- 專案 4：互動式問答 App -->
+        <div class="cyber-card tech-card reveal delay-400">
+            <div class="project-card-content">
+                <i class="fas fa-mobile-alt card-icon" style="color: var(--accent-tertiary);"></i>
+                <h3 style="color: var(--accent-tertiary);">互動式問答 Android 應用程式</h3>
+                <p>使用 MIT App Inventor 2 開發，為一套<strong>可供實體手機直接安裝執行 (APK)</strong> 的 Android 應用程式。系統核心運用 <strong>TinyDB 進行本地資料持久化</strong>以追蹤使用者答題進度與狀態；同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。</p>
+                <div class="tags">
+                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">App Inventor 2</span>
+                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">TinyDB 存儲</span>
+                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">Android APK</span>
+                </div>
+                <a href="https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk" target="_blank" rel="noopener noreferrer" style="color: var(--accent-tertiary);">
+                    下載 APK 安裝檔 (DOWNLOAD) <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+      
+        <!-- 專案 5：AIoT 工安防護系統 -->
+        <div class="cyber-card tech-card reveal delay-500">
+            <div class="project-card-content">
+                <i class="fas fa-hard-hat card-icon" style="color: var(--accent-secondary);"></i>
+                <h3 style="color: var(--accent-secondary);">AIoT 主動式工安防護系統 (概念架構)</h3>
+                <p>以第21屆育秀盃銅獎作品為基礎，針對「工地公安防護」提出的 AIoT 概念性架構。專案核心探討如何整合 <strong>YOLO 影像辨識</strong>與 <strong>MQTT 機電連動</strong>，將傳統被動通報轉化為「主動式實體警報」。目前系統的邊緣運算與防護迴圈仍在<strong>持續優化與概念驗證 (PoC) 階段</strong>，期望未來能完善更嚴密的資安機制。</p>
+                <div class="tags">
+                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">AIoT 架構</span>
+                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">機電整合</span>
+                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">概念驗證 (PoC)</span>
+                </div>
+                <a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary);">
+                    觀看專案簡報 (VIEW PPT) <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
     </div>
-  </section>
+</section>
 
   <section id="skills">
     <div class="section-title reveal">
