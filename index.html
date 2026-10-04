@@ -286,7 +286,7 @@
     .slash-grid .cyber-card:nth-of-type(4) .slash-icon { color: var(--accent-primary); }
     .slash-grid .cyber-card:nth-of-type(4):hover { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0, 123, 255, 0.6), inset 0 0 15px rgba(0, 123, 255, 0.2); }
 
-    /* ===================================================
+   /* ===================================================
        🌟 6. 專案區塊 (Projects - 2x2 強制矩陣)
     =================================================== */
     .project-grid { 
@@ -298,7 +298,9 @@
         margin: 0 auto; 
     }
     .project-card-content .card-icon { font-size: 4rem; margin-bottom: 25px; filter: drop-shadow(0 0 10px currentColor); transition: 0.4s var(--spring);}
-    .project-grid .cyber-card:hover { border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.5), inset 0 0 15px rgba(0, 123, 255, 0.1); transform: translateY(-10px); }
+    
+    /* 預設卡片 Hover 動態 */
+    .project-grid .cyber-card:hover { transform: translateY(-10px); }
     .project-grid .cyber-card:hover .card-icon { transform: scale(1.1) rotate(-5deg); }
     
     .project-card-content h3 { font-size: 2.2rem; margin-top: 0; margin-bottom: 20px; font-weight: 900; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
@@ -307,21 +309,80 @@
     .tags { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px; }
     .tags span { background: rgba(0, 0, 0, 0.5); padding: 8px 18px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 5px; font-weight: 800; border: 1px solid; transition: 0.2s ease; max-width: 100%; word-break: break-word; white-space: normal; line-height: 1.4; }
     .tags span:hover { color: #fff !important; transform: translateY(-2px); }
-    .project-card-content a { font-size: 1.15rem; margin-top: 35px; display: inline-flex; align-items: center; gap: 8px; font-weight: 900; color: #fff !important; text-shadow: 0 0 8px currentColor;}
-    .project-card-content a:hover { filter: brightness(1.3); }
+    
+    /* ===================================================
+       🔗 連結與點擊(onclick)特效整合
+    =================================================== */
+    .project-card-content a { 
+        font-size: 1.15rem; margin-top: 35px; display: inline-flex; align-items: center; gap: 8px; font-weight: 900; 
+        /* 🚨 已經拔掉 color: #fff !important，讓你在 HTML 寫的各別顏色生效！ */
+        text-shadow: 0 0 8px currentColor;
+        transition: all 0.15s ease-out;
+        -webkit-tap-highlight-color: transparent; /* 移除手機預設點擊灰框 */
+    }
+    .project-card-content a:hover { 
+        filter: brightness(1.3); 
+        transform: translateX(5px);
+        text-shadow: 0 0 15px currentColor;
+    }
+    .project-card-content a:active {
+        /* 👆 點擊瞬間的內縮與強烈發光 (完美繼承 currentColor) */
+        transform: scale(0.95);
+        filter: brightness(1.5);
+        text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+        opacity: 0.8;
+    }
 
-    /* 四色卡片獨立 Hover 邊框特效 */
-    .project-grid .cyber-card:nth-of-type(1):hover { border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.5), inset 0 0 15px rgba(0, 123, 255, 0.1); }
-    .project-grid .cyber-card:nth-of-type(1) .tags span:hover { background: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); }
+    /* ===================================================
+       🌈 無限循環：五色卡片全自動上色與 Hover 特效
+       (完全接管靜態顏色與動態發光，HTML 不需再寫 style)
+    =================================================== */
+    
+    /* 1. 藍色 (Primary) */
+    .project-grid .cyber-card:nth-of-type(5n+1) .card-icon,
+    .project-grid .cyber-card:nth-of-type(5n+1) h3,
+    .project-grid .cyber-card:nth-of-type(5n+1) .update-hint,
+    .project-grid .cyber-card:nth-of-type(5n+1) a,
+    .project-grid .cyber-card:nth-of-type(5n+1) .tags span { color: var(--accent-primary); }
+    .project-grid .cyber-card:nth-of-type(5n+1) .tags span { border-color: var(--accent-primary); }
+    .project-grid .cyber-card:nth-of-type(5n+1):hover { border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.5), inset 0 0 15px rgba(0, 123, 255, 0.1); }
+    .project-grid .cyber-card:nth-of-type(5n+1) .tags span:hover { background: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); }
 
-    .project-grid .cyber-card:nth-of-type(2):hover { border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(32, 201, 151, 0.5), inset 0 0 15px rgba(32, 201, 151, 0.1); }
-    .project-grid .cyber-card:nth-of-type(2) .tags span:hover { background: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
+    /* 2. 紫色 (Purple) */
+    .project-grid .cyber-card:nth-of-type(5n+2) .card-icon,
+    .project-grid .cyber-card:nth-of-type(5n+2) h3,
+    .project-grid .cyber-card:nth-of-type(5n+2) a,
+    .project-grid .cyber-card:nth-of-type(5n+2) .tags span { color: var(--accent-purple); }
+    .project-grid .cyber-card:nth-of-type(5n+2) .tags span { border-color: var(--accent-purple); }
+    .project-grid .cyber-card:nth-of-type(5n+2):hover { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(181, 95, 230, 0.5), inset 0 0 15px rgba(181, 95, 230, 0.1); }
+    .project-grid .cyber-card:nth-of-type(5n+2) .tags span:hover { background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); }
 
-    .project-grid .cyber-card:nth-of-type(3):hover { border-color: var(--accent-tertiary); box-shadow: 0 0 30px rgba(253, 126, 20, 0.5), inset 0 0 15px rgba(253, 126, 20, 0.1); }
-    .project-grid .cyber-card:nth-of-type(3) .tags span:hover { background: var(--accent-tertiary); box-shadow: 0 0 15px var(--accent-tertiary); }
+    /* 3. 桃紅 (Pink) */
+    .project-grid .cyber-card:nth-of-type(5n+3) .card-icon,
+    .project-grid .cyber-card:nth-of-type(5n+3) h3,
+    .project-grid .cyber-card:nth-of-type(5n+3) a,
+    .project-grid .cyber-card:nth-of-type(5n+3) .tags span { color: var(--accent-pink, #ff007f); }
+    .project-grid .cyber-card:nth-of-type(5n+3) .tags span { border-color: var(--accent-pink, #ff007f); }
+    .project-grid .cyber-card:nth-of-type(5n+3):hover { border-color: var(--accent-pink, #ff007f); box-shadow: 0 0 30px rgba(255, 0, 127, 0.5), inset 0 0 15px rgba(255, 0, 127, 0.1); }
+    .project-grid .cyber-card:nth-of-type(5n+3) .tags span:hover { background: var(--accent-pink, #ff007f); box-shadow: 0 0 15px var(--accent-pink, #ff007f); }
 
-    .project-grid .cyber-card:nth-of-type(4):hover { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(181, 95, 230, 0.5), inset 0 0 15px rgba(181, 95, 230, 0.1); }
-    .project-grid .cyber-card:nth-of-type(4) .tags span:hover { background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); }
+    /* 4. 橘色 (Tertiary) */
+    .project-grid .cyber-card:nth-of-type(5n+4) .card-icon,
+    .project-grid .cyber-card:nth-of-type(5n+4) h3,
+    .project-grid .cyber-card:nth-of-type(5n+4) a,
+    .project-grid .cyber-card:nth-of-type(5n+4) .tags span { color: var(--accent-tertiary); }
+    .project-grid .cyber-card:nth-of-type(5n+4) .tags span { border-color: var(--accent-tertiary); }
+    .project-grid .cyber-card:nth-of-type(5n+4):hover { border-color: var(--accent-tertiary); box-shadow: 0 0 30px rgba(253, 126, 20, 0.5), inset 0 0 15px rgba(253, 126, 20, 0.1); }
+    .project-grid .cyber-card:nth-of-type(5n+4) .tags span:hover { background: var(--accent-tertiary); box-shadow: 0 0 15px var(--accent-tertiary); }
+
+    /* 5. 綠色 (Secondary) */
+    .project-grid .cyber-card:nth-of-type(5n+5) .card-icon,
+    .project-grid .cyber-card:nth-of-type(5n+5) h3,
+    .project-grid .cyber-card:nth-of-type(5n+5) a,
+    .project-grid .cyber-card:nth-of-type(5n+5) .tags span { color: var(--accent-secondary); }
+    .project-grid .cyber-card:nth-of-type(5n+5) .tags span { border-color: var(--accent-secondary); }
+    .project-grid .cyber-card:nth-of-type(5n+5):hover { border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(32, 201, 151, 0.5), inset 0 0 15px rgba(32, 201, 151, 0.1); }
+    .project-grid .cyber-card:nth-of-type(5n+5) .tags span:hover { background: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
 
 
     /* ===================================================
@@ -654,94 +715,94 @@
     
     <div class="project-grid">
       
-        <!-- 專案 1：詐騙防制數據專案 -->
+        <!-- 專案 1：詐騙防制數據專案 (會自動變藍色) -->
         <div class="cyber-card tech-card reveal delay-100">
             <div class="project-card-content">
-                <i class="fas fa-user-shield card-icon" style="color: var(--accent-primary);"></i>
-                <h3 style="color: var(--accent-primary);">詐騙防制數據專案</h3>
-                <p>運用 Python 針對政府 Opendata 進行 ETL 數據清洗。前端全面改以 <strong>JS 動態數據視覺化</strong> 技術自主渲染互動式圖表，取代Power BI。目前正進行後端架構擴充，規劃串接<strong>第二組 Supabase SQL 資料庫</strong>，以強化專案的結構化數據管理與深度整合。</p>
+                <i class="fas fa-user-shield card-icon"></i>
+                <h3>詐騙防制數據專案</h3>
+                <p>運用 Python 針對政府 Opendata 進行 ETL 數據清洗。前端全面改以 <strong>JS 動態數據視覺化</strong> 技術自主渲染互動式圖表，取代傳統套裝軟體。目前正進行後端架構擴充，規劃串接<strong>第二組 Supabase SQL 資料庫</strong>，以強化專案的結構化數據管理與深度整合。</p>
                 
-                <!-- 💡 專案更新預告小提示 -->
-                <p style="font-size: 0.85rem; opacity: 0.85; margin-top: -8px; margin-bottom: 15px; color: var(--accent-primary);">
+                <!-- 💡 專案更新預告小提示 (加上 class 讓 CSS 控制顏色) -->
+                <p class="update-hint" style="font-size: 0.85rem; opacity: 0.85; margin-top: -8px; margin-bottom: 15px;">
                     <i class="fas fa-sync fa-spin" style="margin-right: 5px;"></i> 系統架構升級中，預計 115 年 11 月釋出更新
                 </p>
 
                 <div class="tags">
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Python ETL</span>
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">JS 動態數據視覺化</span>
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Supabase SQL</span>
+                    <span>Python ETL</span>
+                    <span>JS 動態數據視覺化</span>
+                    <span>Supabase SQL</span>
                 </div>
-                <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">
+                <a href="https://yihua0988.github.io/-2025-7-29-/" target="_blank" rel="noopener noreferrer">
                     觀看當前版本 (CURRENT DEMO) <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
       
-        <!-- 專案 2：Vanilla JS 遊戲 -->
+        <!-- 專案 2：Vanilla JS 遊戲 (會自動變紫色) -->
         <div class="cyber-card tech-card reveal delay-200">
             <div class="project-card-content">
-                <i class="fas fa-gamepad card-icon" style="color: var(--accent-purple);"></i>
-                <h3 style="color: var(--accent-purple);">Vanilla JS 響應式遊戲與效能控制</h3>
+                <i class="fas fa-gamepad card-icon"></i>
+                <h3>Vanilla JS 響應式遊戲與效能控制</h3>
                 <p>完全不依賴遊戲引擎，純粹使用 <strong>Vanilla JS</strong> 與 Canvas 打造的 <strong>RWD 響應式網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的 60FPS 流暢度，而桌上型電腦則解除限制全速渲染。這是一次對 JS 畫面更新、RWD 佈局與底層效能控制的深度實作驗證。</p>
                 <div class="tags">
-                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Vanilla JS</span>
-                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">RWD 響應式</span>
-                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">Canvas 渲染</span>
-                    <span style="color: var(--accent-purple); border-color: var(--accent-purple);">動態效能優化</span>
+                    <span>Vanilla JS</span>
+                    <span>RWD 響應式</span>
+                    <span>Canvas 渲染</span>
+                    <span>動態效能優化</span>
                 </div>
-                <a href="https://yihua0988.github.io/1150527game/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">
+                <a href="https://yihua0988.github.io/1150527game/" target="_blank" rel="noopener noreferrer">
                     開始遊玩 (PLAY GAME) <i class="fas fa-play"></i>
                 </a>
             </div>
         </div>
           
-        <!-- 專案 3：活力購物網 -->
+        <!-- 專案 3：活力購物網 (會自動變桃紅色) -->
         <div class="cyber-card tech-card reveal delay-300">
             <div class="project-card-content">
-                <i class="fas fa-cart-shopping card-icon" style="color: var(--accent-primary);"></i>
-                <h3 style="color: var(--accent-primary);">活力購物網 - 響應式電商前端</h3>
+                <i class="fas fa-cart-shopping card-icon"></i>
+                <h3>活力購物網 - 響應式電商前端</h3>
                 <p>具備質感的響應式電子商務平台。採用 Bootstrap 5 進行格線佈局，並透過原生 JavaScript 深度串接 <strong>Supabase SQL 資料庫</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單狀態即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。</p>
                 <div class="tags">
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">JavaScript</span>
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Supabase (BaaS)</span>
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">SQL</span>
-                    <span style="color: var(--accent-primary); border-color: var(--accent-primary);">Bootstrap 5</span>
+                    <span>JavaScript</span>
+                    <span>Supabase (BaaS)</span>
+                    <span>SQL</span>
+                    <span>Bootstrap 5</span>
                 </div>
-                <a href="https://yihua0988.github.io/1150311JSSQL" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">
+                <a href="https://yihua0988.github.io/1150311JSSQL" target="_blank" rel="noopener noreferrer">
                     觀看專案實作 (VIEW SITE) <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
       
-        <!-- 專案 4：互動式問答 App -->
+        <!-- 專案 4：互動式問答 App (會自動變橘色) -->
         <div class="cyber-card tech-card reveal delay-400">
             <div class="project-card-content">
-                <i class="fas fa-mobile-alt card-icon" style="color: var(--accent-tertiary);"></i>
-                <h3 style="color: var(--accent-tertiary);">互動式問答 Android 應用程式</h3>
+                <i class="fas fa-mobile-alt card-icon"></i>
+                <h3>互動式問答 Android 應用程式</h3>
                 <p>使用 MIT App Inventor 2 開發，為一套<strong>可供實體手機直接安裝執行 (APK)</strong> 的 Android 應用程式。系統核心運用 <strong>TinyDB 進行本地資料持久化</strong>以追蹤使用者答題進度與狀態；同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。</p>
                 <div class="tags">
-                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">App Inventor 2</span>
-                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">TinyDB 存儲</span>
-                    <span style="color: var(--accent-tertiary); border-color: var(--accent-tertiary);">Android APK</span>
+                    <span>App Inventor 2</span>
+                    <span>TinyDB 存儲</span>
+                    <span>Android APK</span>
                 </div>
-                <a href="https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk" target="_blank" rel="noopener noreferrer" style="color: var(--accent-tertiary);">
+                <a href="https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk" target="_blank" rel="noopener noreferrer">
                     下載 APK 安裝檔 (DOWNLOAD) <i class="fas fa-download"></i>
                 </a>
             </div>
         </div>
       
-        <!-- 專案 5：AIoT 工安防護系統 -->
+        <!-- 專案 5：AIoT 工安防護系統 (會自動變綠色) -->
         <div class="cyber-card tech-card reveal delay-500">
             <div class="project-card-content">
-                <i class="fas fa-hard-hat card-icon" style="color: var(--accent-secondary);"></i>
-                <h3 style="color: var(--accent-secondary);">AIoT 主動式工安防護系統 (概念架構)</h3>
+                <i class="fas fa-hard-hat card-icon"></i>
+                <h3>AIoT 主動式工安防護系統 (概念架構)</h3>
                 <p>以第21屆育秀盃銅獎作品為基礎，針對「工地公安防護」提出的 AIoT 概念性架構。專案核心探討如何整合 <strong>YOLO 影像辨識</strong>與 <strong>MQTT 機電連動</strong>，將傳統被動通報轉化為「主動式實體警報」。目前系統的邊緣運算與防護迴圈仍在<strong>持續優化與概念驗證 (PoC) 階段</strong>，期望未來能完善更嚴密的資安機制。</p>
                 <div class="tags">
-                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">AIoT 架構</span>
-                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">機電整合</span>
-                    <span style="color: var(--accent-secondary); border-color: var(--accent-secondary);">概念驗證 (PoC)</span>
+                    <span>AIoT 架構</span>
+                    <span>機電整合</span>
+                    <span>概念驗證 (PoC)</span>
                 </div>
-                <a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary);">
+                <a href="https://yihua0988.github.io/1150402point/" target="_blank" rel="noopener noreferrer">
                     觀看專案簡報 (VIEW PPT) <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
