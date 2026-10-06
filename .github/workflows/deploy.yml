@@ -1,0 +1,29 @@
+name: Deploy Vue Site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # 如果你的預設分支是 master，請把 main 改成 master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # 自動把雲端打包好的 dist 上傳至 Pages
