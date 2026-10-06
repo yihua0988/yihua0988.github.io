@@ -48,19 +48,19 @@ const projectList = ref([
   {
     icon: 'fas fa-user-shield',
     title: '詐騙防制數據專案',
-    description: '運用 Python 針對政府 Opendata 進行 ETL 數據清洗。前端全面改以 <strong>JS 動態數據視覺化</strong> 技術自主渲染互動式圖表，取代傳統套裝軟體。目前正進行後端架構擴充，規劃串接<strong>第二組 Supabase SQL 資料庫</strong>，以強化專案的結構化數據管理與深度整合。',
+    description: '運用 Python 針對政府Opendata進行ETL數據清洗。前端全面改以<strong>JavaScript動態數據視覺化</strong>技術自主渲染互動式圖表，取代傳統套裝軟體。目前正進行後端架構擴充，規劃串接<strong>第二組Supabase SQL資料庫</strong>，以強化專案的結構化數據管理與深度整合。',
     updateHint: '系統架構升級中，預計 115 年 11 月釋出更新',
-    tags: ['Python ETL', 'JS 動態數據視覺化', 'Supabase SQL'],
+    tags: ['Python ETL', 'JavaScript 動態數據視覺化', 'Supabase SQL'],
     link: 'https://yihua0988.github.io/-2025-7-29-/',
     btnText: '觀看當前版本 (CURRENT DEMO)',
     btnIcon: 'fa-arrow-right'
   },
   {
     icon: 'fas fa-gamepad',
-    title: 'Vanilla JS 響應式遊戲與效能控制',
-    description: '完全不依賴遊戲引擎，純粹使用 <strong>Vanilla JS</strong> 與 Canvas 打造的 <strong>RWD 響應式網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的 60FPS 流暢度，而桌上型電腦則解除限制全速渲染。這是一次對 JS 畫面更新、RWD 佈局與底層效能控制的深度實作驗證。',
+    title: 'Vanilla JavaScript 響應式遊戲與效能控制',
+    description: '完全不依賴遊戲引擎，純粹使用<strong>Vanilla JavaScript</strong>與Canvas打造的<strong>RWD響應式網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的24FPS流暢度，而桌上型電腦則解除限制全速渲染。這是一次對JavaScript畫面更新、RWD佈局與底層效能控制的深度實作驗證。',
     updateHint: null, // 沒有預告就不會顯示
-    tags: ['Vanilla JS', 'RWD 響應式', 'Canvas 渲染', '動態效能優化'],
+    tags: ['Vanilla JavaScript', 'RWD 響應式', 'Canvas 渲染', '動態效能優化'],
     link: 'https://yihua0988.github.io/1150527game/',
     btnText: '開始遊玩 (PLAY GAME)',
     btnIcon: 'fa-play'
@@ -68,17 +68,17 @@ const projectList = ref([
   {
     icon: 'fas fa-cart-shopping',
     title: '活力購物網 - 響應式電商前端',
-    description: '具備質感的響應式電子商務平台。採用 Bootstrap 5 進行格線佈局，並透過原生 JavaScript 深度串接 <strong>Supabase SQL 資料庫</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單狀態即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。',
+    description: '具備質感的動態響應式電子商務平台。採用Bootstrap5進行網頁佈局，並在jQuery環境下靈活操作DOM與非同步請求，深度串接<strong>SupabaseSQL資料庫</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。',
     updateHint: null,
     tags: ['JavaScript', 'Supabase (BaaS)', 'SQL', 'Bootstrap 5'],
-    link: 'https://yihua0988.github.io/1150311JSSQL',
+    link: 'https://yihua0988.github.io/1150311JavaScriptSQL',
     btnText: '觀看專案實作 (VIEW SITE)',
     btnIcon: 'fa-arrow-right'
   },
   {
     icon: 'fas fa-mobile-alt',
     title: '互動式問答 Android 應用程式',
-    description: '使用 MIT App Inventor 2 開發，為一套<strong>可供實體手機直接安裝執行 (APK)</strong> 的 Android 應用程式。系統核心運用 <strong>TinyDB 進行本地資料持久化</strong>以追蹤使用者答題進度與狀態；同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。',
+    description: '使用MIT App Inventor2開發，為一套<strong>可供實體手機直接安裝執行(APK)</strong>的Android應用程式。系統核心運用<strong>TinyDB進行本地資料持久化</strong>以追蹤使用者答題進度與狀態；同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。',
     updateHint: null,
     tags: ['App Inventor 2', 'TinyDB 存儲', 'Android APK'],
     link: 'https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk',
@@ -88,7 +88,7 @@ const projectList = ref([
   {
     icon: 'fas fa-hard-hat',
     title: 'AIoT 主動式工安防護系統 (概念架構)',
-    description: '以第21屆育秀盃銅獎作品為基礎，針對「工地公安防護」提出的 AIoT 概念性架構。專案核心探討如何整合 <strong>YOLO 影像辨識</strong>與 <strong>MQTT 機電連動</strong>，將傳統被動通報轉化為「主動式實體警報」。目前系統的邊緣運算與防護迴圈仍在<strong>持續優化與概念驗證 (PoC) 階段</strong>，期望未來能完善更嚴密的資安機制。',
+    description: '以第21屆育秀盃銅獎作品為基礎，針對「工地公安防護」提出的AIoT概念性架構。專案核心探討如何整合<strong>YOLO影像辨識</strong>與<strong>MQTT機電連動</strong>，將傳統被動通報轉化為「主動式實體警報」。目前系統的邊緣運算與防護迴圈仍在<strong>持續優化與概念驗證(PoC)階段</strong>，期望未來能完善更嚴密的資安機制。',
     updateHint: null,
     tags: ['AIoT 架構', '機電整合', '概念驗證 (PoC)'],
     link: 'https://yihua0988.github.io/1150402point/',

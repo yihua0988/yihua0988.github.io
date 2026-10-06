@@ -70,8 +70,14 @@
       </div>
     </div>
 
-    <!-- 懸浮提示框 (Tooltip) -->
-    <div id="chart-tooltip" v-show="tooltip.show" :style="{ left: tooltip.x + 'px', top: tooltip.y + 'px' }">
+    <!-- 🚨 修正：懸浮提示框 (Tooltip) 綁定動態顏色 -->
+    <div id="chart-tooltip" v-show="tooltip.show" 
+         :style="{ 
+           left: tooltip.x + 'px', 
+           top: tooltip.y + 'px', 
+           borderColor: tooltip.color,
+           boxShadow: `0 0 20px ${tooltip.color}80` 
+         }">
       <span v-html="tooltip.content"></span>
     </div>
   </section>
@@ -84,7 +90,8 @@ const tooltip = ref({
   show: false,
   x: 0,
   y: 0,
-  content: ''
+  content: '',
+  color: '#007bff' // 預設光暈顏色
 })
 
 onMounted(() => {
@@ -152,18 +159,21 @@ onMounted(() => {
       colors: ['#007bff', '#20c997', '#fd7e14']
   })
 
-  // 綁定圖表區塊的滑鼠互動事件 (Tooltip)
+  // 🚨 修正：綁定圖表區塊的滑鼠互動事件，自動抓取對應扇形的顏色
   const experienceSection = document.getElementById('experience')
   experienceSection.addEventListener('mousemove', (e) => {
     const slice = e.target.closest('.pie-slice')
     if (slice) {
       let key = slice.getAttribute('data-key')
       let pct = slice.getAttribute('data-percent')
+      let sliceColor = slice.getAttribute('fill') // 取得扇形顏色
+
       tooltip.value = {
         show: true,
         x: e.clientX,
         y: e.clientY,
-        content: `${key}<br><span style="color:#20c997; font-size:1.3rem;">${pct}</span>`
+        color: sliceColor, // 將邊框與光暈設定為該扇形的顏色
+        content: `${key}<br><span style="color:${sliceColor}; font-size:1.3rem; text-shadow: 0 0 8px ${sliceColor};">${pct}</span>` // 將文字也變成同顏色
       }
       slice.style.transform = 'scale(1.05)'
       slice.style.filter = 'brightness(1.2)'
@@ -208,11 +218,15 @@ onMounted(() => {
 .legend-item:hover { background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3); transform: translateX(8px); }
 .legend-color { width: 18px; height: 18px; border-radius: 4px; box-shadow: 0 0 8px currentColor;}
 
-#chart-tooltip { position: fixed; background: rgba(10, 15, 30, 0.95); color: #fff; text-align: center; font-weight: 800; border-radius: 8px; padding: 10px 18px; z-index: 9999; pointer-events: none; backdrop-filter: blur(5px); box-shadow: 0 0 20px rgba(0,123,255,0.5); border: 1px solid rgba(0,123,255,0.3); font-size: 1.1rem; transform: translate(-50%, -100%); margin-top: -15px; }
+/* 🚨 修正：移除原本寫死的陰影與邊框，交給上方的 Vue 自動計算填入 */
+#chart-tooltip { position: fixed; background: rgba(10, 15, 30, 0.95); color: #fff; text-align: center; font-weight: 800; border-radius: 8px; padding: 10px 18px; z-index: 9999; pointer-events: none; backdrop-filter: blur(5px); font-size: 1.1rem; transform: translate(-50%, -100%); margin-top: -15px; border: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
 
 .exp-list { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;}
 .exp-item { display: flex; padding: 50px; border-radius: 0 25px 25px 0; border-left: 6px solid var(--accent-primary); align-items: stretch; }
-.exp-item:hover { transform: translateX(15px); border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(32,201,151,0.3); }
+
+/* 🚨 修正：把突兀的綠光拔掉，改成與左側粗線條一致的「藍光」，質感大提升 */
+.exp-item:hover { transform: translateX(15px); border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.4), inset 0 0 10px rgba(0, 123, 255, 0.1); }
+
 .exp-meta { min-width: 220px; margin-right: 40px; color: var(--accent-primary); border-right: 2px dashed rgba(255,255,255,0.2); padding-right: 30px; }
 .exp-period { font-size: 1.6rem; font-weight: 900; display: block; margin-bottom: 10px; text-shadow: 0 0 8px currentColor;}
 .exp-role { font-size: 1.1rem; color: var(--text-muted); display: block; font-weight: 800;}
