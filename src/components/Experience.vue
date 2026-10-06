@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <!-- 🚨 修正：懸浮提示框 (Tooltip) 綁定動態顏色 -->
+    <!-- 懸浮提示框 -->
     <div id="chart-tooltip" v-show="tooltip.show" 
          :style="{ 
            left: tooltip.x + 'px', 
@@ -91,11 +91,10 @@ const tooltip = ref({
   x: 0,
   y: 0,
   content: '',
-  color: '#007bff' // 預設光暈顏色
+  color: '#007bff'
 })
 
 onMounted(() => {
-  // 渲染 SVG 圓餅圖的繪圖引擎
   function renderSvgDonut(wrapperId, dataObj) {
     const wrapper = document.getElementById(wrapperId)
     if (!wrapper) return
@@ -148,7 +147,6 @@ onMounted(() => {
     wrapper.querySelector('.pie-legend').innerHTML = legendHtml
   }
 
-  // 繪製兩張統計圖表
   renderSvgDonut('industry-chart-wrapper', {
       data: { '百貨服務業': 49, '飯店業': 9, '視廳歌唱業': 14, '人才綜合服務': 10 },
       colors: ['#007bff', '#20c997', '#fd7e14', '#b55fe6']
@@ -159,21 +157,20 @@ onMounted(() => {
       colors: ['#007bff', '#20c997', '#fd7e14']
   })
 
-  // 🚨 修正：綁定圖表區塊的滑鼠互動事件，自動抓取對應扇形的顏色
   const experienceSection = document.getElementById('experience')
   experienceSection.addEventListener('mousemove', (e) => {
     const slice = e.target.closest('.pie-slice')
     if (slice) {
       let key = slice.getAttribute('data-key')
       let pct = slice.getAttribute('data-percent')
-      let sliceColor = slice.getAttribute('fill') // 取得扇形顏色
+      let sliceColor = slice.getAttribute('fill')
 
       tooltip.value = {
         show: true,
         x: e.clientX,
         y: e.clientY,
-        color: sliceColor, // 將邊框與光暈設定為該扇形的顏色
-        content: `${key}<br><span style="color:${sliceColor}; font-size:1.3rem; text-shadow: 0 0 8px ${sliceColor};">${pct}</span>` // 將文字也變成同顏色
+        color: sliceColor,
+        content: `${key}<br><span style="color:${sliceColor}; font-size:1.3rem; text-shadow: 0 0 8px ${sliceColor};">${pct}</span>`
       }
       slice.style.transform = 'scale(1.05)'
       slice.style.filter = 'brightness(1.2)'
@@ -192,18 +189,19 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.section-title { text-align: center; margin-bottom: 80px; }
+#experience { padding: 120px 5%; position: relative; z-index: 10; overflow-x: hidden; width: 100%; box-sizing: border-box; }
+
+.section-title { text-align: center; margin-bottom: 80px; width: 100%; }
 .section-title h2 {
-  font-size: 3rem; font-weight: 900; letter-spacing: 3px; display: inline-block; position: relative; 
+  font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 900; letter-spacing: 3px; display: inline-block; position: relative; 
   color: #fff; line-height: 1.3; text-shadow: 0 0 15px rgba(0, 123, 255, 0.7); 
+  white-space: nowrap; 
 }
 .section-title h2::after {
   content: ''; width: 80px; height: 4px; background: var(--accent-primary);
   position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); border-radius: 5px;
   box-shadow: 0 0 10px var(--accent-primary);
 }
-
-#experience { padding: 120px 8%; position: relative; z-index: 10; }
 
 .chart-row { display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; margin-bottom: 80px; max-width: 1200px; margin-left: auto; margin-right: auto; }
 .chart-container { flex: 1; min-width: 380px; max-width: 500px; padding: 40px; display: flex; flex-direction: column; align-items: center; }
@@ -218,15 +216,11 @@ onMounted(() => {
 .legend-item:hover { background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3); transform: translateX(8px); }
 .legend-color { width: 18px; height: 18px; border-radius: 4px; box-shadow: 0 0 8px currentColor;}
 
-/* 🚨 修正：移除原本寫死的陰影與邊框，交給上方的 Vue 自動計算填入 */
 #chart-tooltip { position: fixed; background: rgba(10, 15, 30, 0.95); color: #fff; text-align: center; font-weight: 800; border-radius: 8px; padding: 10px 18px; z-index: 9999; pointer-events: none; backdrop-filter: blur(5px); font-size: 1.1rem; transform: translate(-50%, -100%); margin-top: -15px; border: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
 
 .exp-list { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;}
 .exp-item { display: flex; padding: 50px; border-radius: 0 25px 25px 0; border-left: 6px solid var(--accent-primary); align-items: stretch; }
-
-/* 🚨 修正：把突兀的綠光拔掉，改成與左側粗線條一致的「藍光」，質感大提升 */
 .exp-item:hover { transform: translateX(15px); border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.4), inset 0 0 10px rgba(0, 123, 255, 0.1); }
-
 .exp-meta { min-width: 220px; margin-right: 40px; color: var(--accent-primary); border-right: 2px dashed rgba(255,255,255,0.2); padding-right: 30px; }
 .exp-period { font-size: 1.6rem; font-weight: 900; display: block; margin-bottom: 10px; text-shadow: 0 0 8px currentColor;}
 .exp-role { font-size: 1.1rem; color: var(--text-muted); display: block; font-weight: 800;}
@@ -239,15 +233,27 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   transition: all 0.4s var(--spring); position: relative; overflow: hidden;
 }
-
 .reveal { opacity: 1; transform: translateY(0); }
 
+/* 📱 手機版：大幅縮小圖表與卡片字體 */
 @media (max-width: 767px) {
-  .chart-row { display: block !important; }
-  .chart-container { min-width: 0 !important; margin-bottom: 30px; }
-  .pie-chart { width: 200px !important; height: 200px !important; margin-bottom: 20px; }
-  .exp-list { width: 100% !important; padding: 0 !important; display: block !important; }
-  .exp-item { display: block !important; width: auto !important; margin: 0 8px 30px 8px !important; padding: 25px 20px !important; border-radius: 18px !important; border-left: none !important; border-top: 4px solid var(--accent-primary) !important; }
+  #experience { padding: 60px 12px; }
+  .section-title h2 { font-size: 1.8rem; letter-spacing: 1px; }
+  .chart-row { display: flex !important; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+  .chart-container { min-width: 100% !important; padding: 25px 15px !important; margin: 0 !important; }
+  .chart-container h4 { font-size: 1.3rem; margin-bottom: 25px; }
+  
+  .custom-pie-container { gap: 20px; }
+  .pie-chart { width: 160px !important; height: 160px !important; padding: 10px; }
+  .legend-item { font-size: 0.9rem; padding: 8px 12px; gap: 10px; }
+  .legend-color { width: 14px; height: 14px; }
+  
+  .exp-list { gap: 25px; }
+  .exp-item { display: block !important; width: auto !important; margin: 0 !important; padding: 20px 15px !important; border-radius: 16px !important; border-left: none !important; border-top: 4px solid var(--accent-primary) !important; }
   .exp-meta { min-width: 0 !important; width: 100% !important; margin: 0 0 15px 0 !important; padding: 0 0 15px 0 !important; border-right: none !important; border-bottom: 2px dashed rgba(255,255,255,0.2) !important; }
+  .exp-period { font-size: 1.3rem; margin-bottom: 5px; }
+  .exp-role { font-size: 0.95rem; line-height: 1.4; }
+  .exp-content h3 { font-size: 1.35rem; margin-bottom: 10px; }
+  .exp-content p { font-size: 1rem; line-height: 1.7; }
 }
 </style>
