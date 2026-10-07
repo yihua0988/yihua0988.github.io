@@ -1,49 +1,63 @@
-# 洪益華 (Saka) | Information Technology Undergraduate Student
+# 洪益華(Saka)|Master's Student&Full-Stack Developer
 
-**Full-Stack Developer | System & MIS Integration Expert**
-*Bridging physical infrastructure with digital intelligence.*
+**System Architecture|Full-Stack Development|Risk&Patent Design**
+*Bridging physical infrastructure,risk architecture,and digital intelligence.*
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Web](https://img.shields.io/badge/FullStack-Web_Dev-00f2c3?style=for-the-badge&logo=html5&logoColor=black)
-![Japanese](https://img.shields.io/badge/Japanese-JLPT_N2-red?style=for-the-badge&logo=google-translate&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-Data_Analysis-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Japanese](https://img.shields.io/badge/JLPT_N2-Technical_Reading-red?style=for-the-badge&logo=google-translate&logoColor=white)
 
 ---
 
-## 📖 關於我 / About Me
-我是Saka，一名具備 **7年工務機電實務** 的IT開發者。目前就讀 **僑光科技大學資訊科技系(Department of Information Technology, Overseas Chinese University)**，擅長將現場除錯的「硬派邏輯」應用於軟體開發。
+## 關於我
+I am Saka,a Full-Stack Developer with **7years of cross-disciplinary hands-on experience** in electromechanical engineering,facility maintenance,and technical support.I am currently pursuing a **Master's degree in Information Technology at Overseas Chinese University(OCU)**.
 
-* 💻 **擅長**: Python自動化、Web全端開發(HTML/CSS/JS)、系統架構設計。
-* 🛠️ **優勢**: 從底層機房電力到上層資料演算的跨域除錯力。
-* 🌐 **語言**: 中文(Native)、日文(JLPT N2)。
+I excel at seamlessly transforming frontline"troubleshooting logic"and actuarial"risk boundary concepts" into system designs.Beyond pure software development,I accurately evaluate performance bottlenecks in hardware-software integration, dedicating myself to researching and developing integrated systems and patents that solve real-world industrial pain points.
+
+*💻**Full-Stack Tech**:Proficient in building modern front-end interfaces using Vue 3 and Vite,equipped with Python automation(ETL/Web Scraping)skills, and highly experienced in Supabase database integration.
+*🛠️**Cross-Domain Edge**:Possess a comprehensive perspective ranging from low-level server room power supply and hardware wiring to high-level data algorithms and patent architecture planning.
+*🌐**Japanese Retrieval**:JLPT N2 certified. This language proficiency is my hidden weapon in IT.When facing Japanese equipment,niche open-source projects, or lacking Chinese resources,I seamlessly read official Japanese manuals and developer forums. This cross-lingual ability broadens my technical vision and drastically improves efficiency in resolving rare bugs.
+---
+
+## 核心技能
+
+### 軟體工程與數據
+* **Frontend**:Vue3,JavaScript(ES6+/jQuery),HTML5/CSS3(RWD Reworking)
+* **Backend&Data**:Python(Data Cleaning,Web Scraping),Supabase,SQL,Power BI
+* **Version Control**:Git,GitHub Actions(CI/CD Automated Deployment)
+
+### 硬體架構與研發
+* **System Design**:System invention and patent specification drafting(e.g.,Automatic Fire Alarm Notification System with Independent Backup and Isolation Protection).
+* **Infrastructure**:Computer hardware assembly,electromechanical and weak current system maintenance,physical network wiring.
+* **Future Research**:Rule-based Anti-fraud Search Engine architecture development.
 
 ---
 
-## 🚀 核心技能 / Skills
-* **程式開發**: Python (ETL/Scraping), JavaScript, HTML/CSS (RWD)
-* **資料與架構**: SQL, Power BI, MIS維護, 系統架構設計
-* **硬體整合**: AIoT(YOLO, MQTT),電腦硬體裝修,機電弱電系統
+## 精選專案
+
+* **[Modern Full-Stack Personal Portfolio](https://yihua0988.github.io/)**
+  * A Single Page Application (SPA) refactored using **Vue 3**.Features a highly customized Cyberpunk RWD visual design and implements CI/CD automated deployment via **GitHub Actions**.
+* **Dynamic Responsive E-Commerce Platform**
+  * Utilized Bootstrap 5 for grid layout and flexibly handled DOM manipulation and asynchronous requests within a jQuery environment, deeply integrated with the **Supabase SQL database**.Implemented full front-to-back data synchronization,covering product selection, state management,and checkout order submission.
+* **[AIoT Occupational Safety Protection System Analysis](https://yihua0988.github.io/1150402point/)**
+  * Developed an industrial-grade protection analysis platform with proactive alarm mechanisms using edge computing (YOLO) and MQTT protocols.
+* **[Anti-Fraud Data Dashboard](https://yihua0988.github.io/-2025-7-29-/)**
+  * Processed Open Data using Python ETL and presented high-risk data visualizations through an optimized RWD webpage.
 
 ---
 
-## 📊 精選專案 / Featured Projects
-* **[AIoT 工安防護系統分析](https://yihua0988.github.io/1150402point/)**
-  * 使用邊緣運算 (YOLO) 與 MQTT 協定，開發具備主動警報機制的工業級防護分析。
-* **[詐騙防制數據儀表板](https://yihua0988.github.io/-2025-7-29-/)**
-  * 利用 Python ETL 處理 Open Data，並透過 RWD 網頁呈現高風險數據視覺化。
+## 專業認證矩陣
+* **Information Technology**: Level B Technician for Computer Hardware Assembly | Level C Technician for Web Page Design | ITS Python
+* **Engineering & Safety**: Fire Prevention Manager | Class B Occupational Safety and Health Affairs Supervisor | Level C Technician for Interior Wiring
+* **Risk & Finance**: Property & Casualty Insurance License | Life Insurance License | Foreign Currency & Investment-Linked Insurance Certificates
+* **Foreign Language**: JLPT N2 (Japanese-Language Proficiency Test)
 
 ---
 
-## 🏆 專業證照 / Certifications
-* **資訊技術**: 乙級電腦硬體裝修、丙級網頁設計、ITS Python
-* **工程與工安**: 防火管理員、乙種職業安全衛生主管、丙級室內配線
-* **語言**: JLPT N2(日語)
+## 聯繫方式
+* **Email**:[yihua0988@gmail.com](mailto:yihua0988@gmail.com)
+* **Portfolio**:[https://yihua0988.github.io/](https://yihua0988.github.io/)
 
 ---
-
-## 📬 聯繫方式 / Contact
-* **Email**: [yihua0988@gmail.com](mailto:yihua0988@gmail.com)
-* **Portfolio**: [https://yihua0988.github.io/](https://yihua0988.github.io/)
-
----
-*© 2026 Yihua Hung. Built with logic and hands-on experience.*
+*© 2026 Yihua Hung. Built with logic,cross-domain expertise,and hands-on experience.*
