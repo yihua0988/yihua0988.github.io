@@ -15,9 +15,9 @@ I am Saka,a Full-Stack Developer with **7years of cross-disciplinary hands-on ex
 
 I excel at seamlessly transforming frontline"troubleshooting logic"and actuarial"risk boundary concepts" into system designs.Beyond pure software development,I accurately evaluate performance bottlenecks in hardware-software integration, dedicating myself to researching and developing integrated systems and patents that solve real-world industrial pain points.
 
-*💻**Full-Stack Tech**:Proficient in building modern front-end interfaces using Vue 3 and Vite,equipped with Python automation(ETL/Web Scraping)skills, and highly experienced in Supabase database integration.
-*🛠️**Cross-Domain Edge**:Possess a comprehensive perspective ranging from low-level server room power supply and hardware wiring to high-level data algorithms and patent architecture planning.
-*🌐**Japanese Retrieval**:JLPT N2 certified. This language proficiency is my hidden weapon in IT.When facing Japanese equipment,niche open-source projects, or lacking Chinese resources,I seamlessly read official Japanese manuals and developer forums. This cross-lingual ability broadens my technical vision and drastically improves efficiency in resolving rare bugs.
+* 💻  **Full-Stack Tech**:Proficient in building modern front-end interfaces using Vue 3 and Vite,equipped with Python automation(ETL/Web Scraping)skills, and highly experienced in Supabase database integration.
+* 🛠️ **Cross-Domain Edge**:Possess a comprehensive perspective ranging from low-level server room power supply and hardware wiring to high-level data algorithms and patent architecture planning.
+* 🌐 **Japanese Retrieval**:JLPT N2 certified. This language proficiency is my hidden weapon in IT.When facing Japanese equipment,niche open-source projects, or lacking Chinese resources,I seamlessly read official Japanese manuals and developer forums. This cross-lingual ability broadens my technical vision and drastically improves efficiency in resolving rare bugs.
 ---
 
 ## 核心技能
