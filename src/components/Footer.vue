@@ -50,14 +50,14 @@ const showToast = (msg) => {
 
 const copyEmail = () => {
   navigator.clipboard.writeText("yihua0988@gmail.com").then(() => {
-    showToast("✉️ Email已複製！正在呼叫信箱 App...")
+    showToast("✉️Email已複製！正在呼叫信箱App...")
     setTimeout(() => window.location.href = "mailto:yihua0988@gmail.com", 1500)
   }).catch(err => console.error('複製失敗', err))
 }
 
 const copyUrl = () => {
   navigator.clipboard.writeText(window.location.href).then(() => {
-    showToast("✅ 已複製網址，歡迎分享！")
+    showToast("✅已複製網址，歡迎分享！")
   }).catch(err => console.error('複製失敗', err))
 }
 

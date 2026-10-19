@@ -4,7 +4,7 @@
     <div class="hero-bg-wrapper" :style="{ opacity: heroOpacity, pointerEvents: heroOpacity === 0 ? 'none' : 'auto' }">
       <video ref="heroVideo" class="hero-video" autoplay loop muted playsinline>
         <source src="/cover.mp4" type="video/mp4">
-        您的瀏覽器不支援 HTML5 影片。
+        您的瀏覽器不支援HTML5影片。
       </video>
       <div class="hero-overlay"></div>
     </div>
@@ -19,12 +19,12 @@
       </div>
       <h1>
         大家好我是洪益華(SAKA)
-        <span class="en-sub">Hello, I'm Hung Yi-Hua (Saka)</span>
+        <span class="en-sub">Hello,I'm Hung Yi-Hua(Saka)</span>
       </h1>
       <p>
         僑光科大 資訊科技碩士班｜7年實戰經驗：全端開發、系統與機電整合
         <span class="en-desc">
-          M.S. in IT, OCU | 7+ Years Exp | Full-Stack Dev & System Integration
+          M.S.in IT,OCU|7+Years Exp|Full-Stack Dev&System Integration
         </span>
       </p>
       <div class="btn-group">
@@ -37,7 +37,32 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { createClient } from '@supabase/supabase-js'
 
+// ==========================================
+// 1. Supabase 跨專案連線初始化
+// ==========================================
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+// ==========================================
+// 2. 專案卡片動態狀態 (與您的 Template 綁定)
+// ==========================================
+const projectInfo = ref({
+  icon: 'fas fa-user-shield',
+  title: '詐騙防制數據專案',
+  description: '📡 正在透過 Supabase API 即時連線抓取專案動態...',
+  updateHint: '系統連線中...',
+  tags: ['Python ETL', 'JS 視覺化', 'PostgreSQL'],
+  link: 'https://yihua0988.github.io/-2025-7-29-/',
+  btnText: '觀看當前版本',
+  btnIcon: 'fa-arrow-right'
+})
+
+// ==========================================
+// 3. 首頁影片與捲動特效邏輯
+// ==========================================
 const heroVideo = ref(null)
 const heroOpacity = ref(1)
 
@@ -45,7 +70,7 @@ const handleScroll = () => {
   const scrollY = window.scrollY
   const heroHeight = window.innerHeight
   
-  // 計算透明度：當捲動超過一個螢幕高度時，背景完全淡出 (opacity 降為 0)
+  // 計算透明度：當捲動超過一個螢幕高度時，背景完全淡出
   let opacity = 1 - (scrollY / heroHeight)
   if (opacity < 0) opacity = 0
   if (opacity > 1) opacity = 1
@@ -53,7 +78,18 @@ const handleScroll = () => {
   heroOpacity.value = opacity
 }
 
-onMounted(() => {
+const copyEmail = () => {
+  navigator.clipboard.writeText("yihua0988@gmail.com").then(() => {
+    alert("✉️ Email已複製！正在呼叫信箱 App...")
+    setTimeout(() => window.location.href = "mailto:yihua0988@gmail.com", 500)
+  }).catch(err => console.error('複製失敗', err))
+}
+
+// ==========================================
+// 4. 生命週期鉤子 (網頁載入時執行)
+// ==========================================
+onMounted(async () => {
+  // --- A. 影片自動播放機制 ---
   if (heroVideo.value) {
     heroVideo.value.muted = true
     const playPromise = heroVideo.value.play()
@@ -67,19 +103,32 @@ onMounted(() => {
     }
   }
 
+  // --- B. 註冊捲動監聽 ---
   window.addEventListener('scroll', handleScroll)
+
+  // --- C. Supabase API 動態抓取防詐專案最新資料 ---
+  try {
+    // 跨專案連線，抓取防詐資料庫的總筆數 (這裡假設表名為 anti_fraud_performance)
+    const { count, error } = await supabase
+      .from('anti_fraud_performance')
+      .select('*', { count: 'exact', head: true })
+
+    if (error) throw error
+
+    // 成功抓到資料，動態替換卡片文字！
+    projectInfo.value.description = '運用Python針對政府Opendata進行ETL數據清洗。前端全面改以<strong>JavaScript動態數據視覺化</strong>技術自主渲染並串接PostgreSQL雲端資料庫。（API連線逾時，請直接點擊進入專案查看）'
+    projectInfo.value.updateHint = `🟢API即時連線成功`
+
+  } catch (err) {
+    console.error('抓取失敗:', err)
+    projectInfo.value.description = '運用Python針對政府Opendata進行ETL數據清洗。前端全面改以<strong>JavaScript動態數據視覺化</strong>技術自主渲染並串接PostgreSQL雲端資料庫。（API連線逾時，請直接點擊進入專案查看）'
+    projectInfo.value.updateHint = '🔴 API 暫時無法連線'
+  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
-const copyEmail = () => {
-  navigator.clipboard.writeText("yihua0988@gmail.com").then(() => {
-    alert("✉️ Email已複製！正在呼叫信箱 App...")
-    setTimeout(() => window.location.href = "mailto:yihua0988@gmail.com", 500)
-  }).catch(err => console.error('複製失敗', err))
-}
 </script>
 
 <style scoped>

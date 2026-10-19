@@ -25,7 +25,7 @@
         
         <div class="cyber-card skill-item skill-powerbi">
           <div class="skill-info">
-            <span><i class="fas fa-chart-bar"></i>Power BI商業智慧</span>
+            <span><i class="fas fa-chart-bar"></i>PowerBI商業智慧</span>
             <span>數據視覺化</span>
           </div>
         </div>
@@ -80,7 +80,7 @@
         <div class="cyber-card skill-item skill-pink">
           <div class="skill-info">
             <span><i class="fas fa-language"></i>日文技術資訊檢索</span>
-            <span>JLPT N2/原廠解法</span>
+            <span>JLPT N2/原廠解讀</span>
           </div>
         </div>
       </div>
