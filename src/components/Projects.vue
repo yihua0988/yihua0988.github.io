@@ -68,7 +68,7 @@ const projectList = ref([
     icon:'fas fa-gamepad',
     title:'Vanilla JavaScript 網頁遊戲與效能控制',
     description:'完全不依賴遊戲引擎，純粹使用<strong>Vanilla JavaScript</strong>與Canvas打造的<strong>跨裝置網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的24FPS流暢度，而桌上型電腦則解除限制全速渲染。這是一次對JavaScript畫面更新、跨螢幕佈局與底層效能控制的深度實作驗證。',
-    tags:['Vanilla JS', 'Canvas', '效能分流'],
+    tags:['Vanilla', 'Canvas'],
     link:'https://yihua0988.github.io/1150527game/',
     btnText:'開始遊玩(PLAY GAME)',
     btnIcon:'fa-play'
@@ -77,7 +77,7 @@ const projectList = ref([
     icon:'fas fa-cart-shopping',
     title:'活力購物網 - 動態電商前端',
     description:'具備質感的動態電子商務平台。採用Bootstrap5進行網頁佈局，並在jQuery環境下靈活操作DOM與非同步請求，深度串接<strong>PostgreSQL雲端資料庫(BaaS)</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。',
-    tags:['jQuery', 'BaaS 雲端', 'Bootstrap5'],
+    tags:['jQuery', 'BaaS', 'Bootstrap5'],
     link:'https://yihua0988.github.io/1150311JavaScriptSQL',
     btnText:'觀看專案實作(VIEW SITE)',
     btnIcon:'fa-arrow-right'
@@ -86,7 +86,7 @@ const projectList = ref([
     icon:'fas fa-mobile-alt',
     title:'互動式問答 Android 應用程式',
     description:'使用MIT App Inventor2開發，為一套<strong>可供實體手機直接安裝執行(APK)</strong>的Android應用程式。系統核心運用本地資料持久化技術以追蹤使用者答題進度與狀態;同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。',
-    tags:['Android APK','本地資料持久化','底層硬體控制'],
+    tags:['Android APK','底層硬體控制'],
     link:'https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk',
     btnText:'下載APK安裝檔(DOWNLOAD)',
     btnIcon:'fa-download'
