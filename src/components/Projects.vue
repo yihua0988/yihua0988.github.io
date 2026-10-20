@@ -78,7 +78,7 @@ const projectList = ref([
     title:'活力購物網 - 動態電商前端',
     description:'具備質感的動態電子商務平台。採用Bootstrap5進行網頁佈局，並在jQuery環境下靈活操作DOM與非同步請求，深度串接<strong>PostgreSQL雲端資料庫(BaaS)</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。',
     tags:['jQuery', 'BaaS', 'Bootstrap5'],
-    link:'https://yihua0988.github.io/1150311JavaScriptSQL',
+    link:'https://yihua0988.github.io/1150311JSSQL/',
     btnText:'觀看專案實作(VIEW SITE)',
     btnIcon:'fa-arrow-right'
   },
