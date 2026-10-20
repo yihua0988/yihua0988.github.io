@@ -17,29 +17,30 @@ export default defineConfig({
         // -----------------------------------------
         // 1. 來自你的 Vue Router (index.js) 的分頁路由
         // -----------------------------------------
-        '/',
-        '/fraud-patterns',
-        '/prevention',
-        '/anti-deepfake-video',
-        '/anti-phishing-video',
-        '/summary',
-        '/fraud-growth-stats',
-        '/ai-fraud-news',
-        '/top-10-frauds',
-        '/victim-profile',
-        '/fraud-vulnerabilities',
-        '/action-plan',
-        '/anti-investment-video',
-        '/fraud-interception',
-        '/anti-fraud-results',
-        '/one-page-scam',
-        '/fraud-trends',
+        '/PFvue',
+        '/PFvue/fraud-patterns',
+        '/PFvue/prevention',
+        '/PFvue/anti-deepfake-video',
+        '/PFvue/anti-phishing-video',
+        '/PFvue/summary',
+        '/PFvue/fraud-growth-stats',
+        '/PFvue/ai-fraud-news',
+        '/PFvue/top-10-frauds',
+        '/PFvue/victim-profile',
+        '/PFvue/fraud-vulnerabilities',
+        '/PFvue/action-plan',
+        '/PFvue/anti-investment-video',
+        '/PFvue/fraud-interception',
+        '/PFvue/anti-fraud-results',
+        '/PFvue/one-page-scam',
+        '/PFvue/fraud-trends',
 
         // -----------------------------------------
         // 2. 你額外指定的獨立靜態路徑
         // -----------------------------------------
         '/1150527game/',
         '/1150311JSSQL/',
+		'/1150311JSSQL/HTML/products_all.html',
         '/1150402point/'
       ]
     })
