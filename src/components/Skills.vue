@@ -90,16 +90,20 @@
 </template>
 
 <script setup>
+// 目前此元件僅有靜態展示，無須額外腳本
 </script>
 
 <style scoped>
+/* ===================================================
+   🌟 核心佈局與大標題
+=================================================== */
 #skills { padding: 120px 5%; position: relative; z-index: 10; width: 100%; box-sizing: border-box; overflow-x: hidden; }
 
 .section-title { text-align: center; margin-bottom: 60px; width: 100%; }
 .section-title h2 {
   font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; display: inline-block; position: relative; 
   color: #fff; line-height: 1.3; text-shadow: 0 0 15px rgba(0, 123, 255, 0.7); 
-  white-space: nowrap; /* 🚀 絕對防止中文字垂直斷行 */
+  white-space: nowrap; 
 }
 .section-title h2::after {
   content: ''; width: 80px; height: 4px; background: var(--accent-primary);
@@ -112,6 +116,9 @@
 .skill-col h3 { font-size: 1.8rem; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 12px; margin-bottom: 25px; font-weight: 900; white-space: nowrap; }
 .skill-col h3 i { margin-right: 12px; font-size: 2.2rem; vertical-align: middle; color: var(--accent-secondary); filter: drop-shadow(0 0 8px var(--accent-secondary));}
 
+/* ===================================================
+   🌟 基礎卡片樣式與特效
+=================================================== */
 .cyber-card {
   background: rgba(17, 24, 43, 0.95); 
   border-radius: 22px; box-sizing: border-box;
@@ -131,7 +138,7 @@
   white-space: nowrap;
 }
 
-/* 發光特效 */
+/* 發光特效群組 */
 .skill-python:hover { border-color: #3776AB; box-shadow: 0 0 20px rgba(55,118,171,0.4); }
 .skill-python:hover .skill-info span:last-child { color: #3776AB; border-color: rgba(55,118,171,0.5); }
 .skill-python i { color: #3776AB; }
@@ -170,12 +177,24 @@
 
 .reveal { opacity: 1; transform: translateY(0); }
 
-/* 📱 手機版完美適配 */
+/* ===================================================
+   📱 平板與手機版適配 (🚀 拉滿最寬)
+=================================================== */
+@media (max-width: 1024px) {
+  #skills { padding: 80px 4%; } 
+  .skill-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+    width: 100%; 
+  }
+  .skill-col { width: 100%; min-width: 100%; }
+}
+
 @media (max-width: 767px) {
   #skills { padding: 60px 15px; }
   .section-title h2 { font-size: 1.6rem; letter-spacing: 1px; }
-  .skill-container { display: flex; flex-direction: column; gap: 30px; }
-  .skill-col { min-width: 100%; }
+  .skill-container { gap: 30px; }
   .skill-col h3 { font-size: 1.3rem; margin-bottom: 15px; }
   .skill-col h3 i { font-size: 1.6rem; }
   .skill-item { padding: 15px; margin-bottom: 12px; }

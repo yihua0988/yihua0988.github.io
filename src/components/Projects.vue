@@ -1,54 +1,52 @@
 <template>
- <section id="projects">
-   <div class="section-title reveal">
-     <h2>實作專案與技術分析<br>PROJECTS & ANALYSIS</h2>
-   </div>
+  <section id="projects">
+    <div class="section-title reveal">
+      <h2>實作專案與技術分析<br>PROJECTS & ANALYSIS</h2>
+    </div>
     
-   <div class="project-grid">
-     <!-- 🚀 v-for 迴圈生成卡片 -->
-     <div 
+    <div class="project-grid">
+      <div 
         v-for="(project, index) in projectList" 
         :key="index" 
         class="cyber-card tech-card reveal" 
         :class="`delay-${(index + 1) * 100}`"
       >
-       <div class="project-card-content">
-         <i :class="[project.icon, 'card-icon']"></i>
+        <div class="project-card-content">
+          <i :class="[project.icon, 'card-icon']"></i>
           
-         <h3>{{ project.title }}</h3>
+          <h3>{{ project.title }}</h3>
           
-         <p v-html="project.description"></p>
+          <p v-html="project.description"></p>
           
-         <!-- 🌟 動態數據與洞察區塊 -->
-         <div v-if="project.dynamicStats" class="dynamic-stats-container">
-           <div v-for="(stat, sIdx) in project.dynamicStats" :key="sIdx" class="stat-item">
-             <span class="stat-icon">{{ stat.icon }}</span>
-             <span class="stat-label">{{ stat.label }}：</span>
-             <span class="stat-value" v-html="stat.value"></span>
-           </div>
-         </div>
+          <div v-if="project.dynamicStats" class="dynamic-stats-container">
+            <div v-for="(stat, sIdx) in project.dynamicStats" :key="sIdx" class="stat-item">
+              <span class="stat-icon">{{ stat.icon }}</span>
+              <span class="stat-label">{{ stat.label }}：</span>
+              <span class="stat-value" v-html="stat.value"></span>
+            </div>
+          </div>
 
-         <div class="tags">
-           <span v-for="(tag, tagIndex) in project.tags" :key="tagIndex">
-              {{ tag }}
-           </span>
-         </div>
+          <div class="tags">
+            <span v-for="(tag, tagIndex) in project.tags" :key="tagIndex">
+               {{ tag }}
+            </span>
+          </div>
           
-         <a :href="project.link" target="_blank" rel="noopener noreferrer">
-            {{ project.btnText }}<i class="fas" :class="project.btnIcon"></i>
-         </a>
-       </div>
-     </div>
-   </div>
- </section>
+          <a :href="project.link" target="_blank" rel="noopener noreferrer">
+             {{ project.btnText }}<i class="fas" :class="project.btnIcon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_KEY
 
-// 🌟 初始化你的 5 個實作專案卡片版面
 const projectList = ref([
   {
     icon:'fas fa-user-shield',
@@ -70,7 +68,7 @@ const projectList = ref([
     icon:'fas fa-gamepad',
     title:'Vanilla JavaScript 網頁遊戲與效能控制',
     description:'完全不依賴遊戲引擎，純粹使用<strong>Vanilla JavaScript</strong>與Canvas打造的<strong>跨裝置網頁遊戲</strong>。除了完美適應各式螢幕尺寸，這個專案最大的技術亮點在於<strong>「動態效能分流」</strong>：特別撰寫了底層偵測機制，讓低資源的行動裝置載入輕量模式以確保穩定的24FPS流暢度，而桌上型電腦則解除限制全速渲染。這是一次對JavaScript畫面更新、跨螢幕佈局與底層效能控制的深度實作驗證。',
-    tags:['Vanilla', 'Canvas', '效能分流'],
+    tags:['Vanilla JS', 'Canvas', '效能分流'],
     link:'https://yihua0988.github.io/1150527game/',
     btnText:'開始遊玩(PLAY GAME)',
     btnIcon:'fa-play'
@@ -79,7 +77,7 @@ const projectList = ref([
     icon:'fas fa-cart-shopping',
     title:'活力購物網 - 動態電商前端',
     description:'具備質感的動態電子商務平台。採用Bootstrap5進行網頁佈局，並在jQuery環境下靈活操作DOM與非同步請求，深度串接<strong>PostgreSQL雲端資料庫(BaaS)</strong>。專案核心聚焦於建構<strong>完整的電商購物車邏輯</strong>，從商品選購、狀態管理到結帳拋單，完美實現前後端資料同步，支援訂單即時渲染與<strong>前端直接寫入資料庫</strong>的實務應用。',
-    tags:['jQuery', 'BaaS', 'Bootstrap5'],
+    tags:['jQuery', 'BaaS 雲端', 'Bootstrap5'],
     link:'https://yihua0988.github.io/1150311JavaScriptSQL',
     btnText:'觀看專案實作(VIEW SITE)',
     btnIcon:'fa-arrow-right'
@@ -88,7 +86,7 @@ const projectList = ref([
     icon:'fas fa-mobile-alt',
     title:'互動式問答 Android 應用程式',
     description:'使用MIT App Inventor2開發，為一套<strong>可供實體手機直接安裝執行(APK)</strong>的Android應用程式。系統核心運用本地資料持久化技術以追蹤使用者答題進度與狀態;同時針對測驗情境，深度整合了多媒體邏輯、<strong>影音防作弊機制</strong>，以及震動等<strong>底層硬體控制</strong>，完整展現行動裝置的軟硬體整合開發能力。',
-    tags:['Android APK','底層硬體控制'],
+    tags:['Android APK','本地資料持久化','底層硬體控制'],
     link:'https://github.com/yihua0988/yihua0988.github.io/tree/main/%E4%BD%9C%E5%93%81%E9%9B%86/apk',
     btnText:'下載APK安裝檔(DOWNLOAD)',
     btnIcon:'fa-download'
@@ -104,7 +102,6 @@ const projectList = ref([
   }
 ])
 
-// 📅 日期解析工具函數
 function parseDateAndQuarter(row) {
   let yr = Number(row.年度 || row.年份 || row.年 || 0)
   let mo = Number(row.月份 || row.月 || 1)
@@ -185,7 +182,6 @@ async function fetchAllRows(tableName, headers) {
   return allData
 }
 
-// 🚀 100% 動態計算金額、區間與皮爾森相關係數 r
 onMounted(async () =>{
   const stats = projectList.value[0].dynamicStats
 
@@ -203,15 +199,14 @@ onMounted(async () =>{
     const records = normalizeTableRows(perfRaw)
 
     if (records.length >0) {
-      const startMIdx = 2025 * 12 + 8  // 2025年9月 (114/09)
-      const endMIdx = 2026 * 12 + 7    // 2026年8月 (115/08)
+      const startMIdx = 2025 * 12 + 8  
+      const endMIdx = 2026 * 12 + 7    
 
       const filtered = records.filter(r =>{
         const mIdx = r.yr * 12 + (r.mo - 1)
         return mIdx >= startMIdx && mIdx<= endMIdx
       })
 
-      // 依月份分組對齊被騙金額與查扣金額，用來動態計算相關係數 r
       const monthlyMap = {}
       filtered.forEach(r =>{
         const key = `${r.yr}-${r.mo}`
@@ -228,7 +223,6 @@ onMounted(async () =>{
         totalSeized += m.seized
       })
 
-      // 計算皮爾森相關係數 r
       const n = monthsArr.length
       let rVal = 0
       if (n >1) {
@@ -249,9 +243,8 @@ onMounted(async () =>{
       const vAvg = (totalVictim / 100000000 / 12).toFixed(2)
       const sYi = (totalSeized / 100000000).toFixed(2)
       const sAvg = (totalSeized / 100000000 / 12).toFixed(2)
-      const ratio = totalVictim >0 ? ((totalSeized / totalVictim) * 100).toFixed(2) :'計算中...'
+      const ratio = totalVictim >0 ? ((totalSeized / totalVictim) * 100).toFixed(2) : '--'
 
-      // 動態抓出過濾後資料的最早與最新年月
       let minYr = 9999, minMo = 12, maxYr = 0, maxMo = 0
       filtered.forEach(r =>{
         if (r.yr< minYr || (r.yr === minYr && r.mo< minMo)) { minYr = r.yr; minMo = r.mo }
@@ -267,19 +260,13 @@ onMounted(async () =>{
       stats[3].value = `<strong style="color:#38bdf8;">${startStr} ~ ${endStr}</strong>`
     }
 
-    // 抓取與資料庫同步的最後更新時間
     const locRes = await fetch(`${SUPABASE_URL}/rest/v1/police_location?select=updated_at&order=updated_at.desc&limit=1`, { headers })
     if (locRes.ok) {
       const locData = await locRes.json()
       if (locData && locData.length >0 && locData[0].updated_at) {
         const rawDate = new Date(locData[0].updated_at)
         const formattedTime = rawDate.toLocaleString('zh-TW', {
-          year:'numeric',
-          month:'2-digit',
-          day:'2-digit',
-          hour:'2-digit',
-          minute:'2-digit',
-          hour12:false
+          year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hour12:false
         })
         stats[4].value = `<strong style="color:var(--accent-primary);">${formattedTime}</strong>`
       } else {
@@ -292,145 +279,81 @@ onMounted(async () =>{
   }
 })
 </script>
+
 <style scoped>
-	/* ===================================================
-	   🌟 專案區塊外觀與排版
-	=================================================== */
-	#projects { padding:120px 8%; position:relative; z-index:10; }
-	.section-title { text-align:center; margin-bottom:80px; }
-	.section-title h2 {
-	  font-size:3rem; font-weight:900; letter-spacing:3px; display:inline-block; position:relative; 
-	  color:#fff; line-height:1.3; text-shadow:0 0 15px rgba(0, 123, 255, 0.7); 
-	}
-	.section-title h2::after {
-	  content:''; width:80px; height:4px; background:var(--accent-primary);
-	  position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); border-radius:5px;
-	  box-shadow:0 0 10px var(--accent-primary);
-	}
+#projects { padding: 120px 8%; position: relative; z-index: 10; width: 100%; box-sizing: border-box; overflow-x: hidden; }
+.section-title { text-align: center; margin-bottom: 80px; width: 100%; }
+.section-title h2 { font-size: 3rem; font-weight: 900; letter-spacing: 3px; display: inline-block; position: relative; color: #fff; line-height: 1.3; text-shadow: 0 0 15px rgba(0, 123, 255, 0.7); }
+.section-title h2::after { content: ''; width: 80px; height: 4px; background: var(--accent-primary); position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); border-radius: 5px; box-shadow: 0 0 10px var(--accent-primary); }
 
-	.project-grid { 
-	  display:grid; 
-	  grid-template-columns:repeat(2, 1fr); 
-	  gap:50px; 
-	  justify-content:center; 
-	  max-width:1200px; 
-	  margin:0 auto; 
-	}
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; justify-content: center; max-width: 1200px; margin: 0 auto; width: 100%; }
+.reveal { opacity: 1; transform: translateY(0); transition: 0.8s var(--spring); }
 
-	.reveal { opacity:1; transform:translateY(0); transition:0.8s var(--spring); }
+.cyber-card { background: rgba(17, 24, 43, 0.95); border-radius: 22px; padding: 40px 30px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); transition: all 0.4s var(--spring); position: relative; overflow: hidden; width: 100%; }
+.project-card-content .card-icon { font-size: 4rem; margin-bottom: 25px; filter: drop-shadow(0 0 10px currentColor); transition: 0.4s var(--spring);}
+.project-grid .cyber-card:hover { transform: translateY(-10px); }
+.project-grid .cyber-card:hover .card-icon { transform: scale(1.1) rotate(-5deg); }
 
-	/* ===================================================
-	   🌟 基礎卡片樣式
-	=================================================== */
-	.cyber-card {
-	  background:rgba(17, 24, 43, 0.95); 
-	  border-radius:22px; padding:40px 30px; box-sizing:border-box;
-	  border:1px solid rgba(255, 255, 255, 0.08); box-shadow:0 10px 40px rgba(0, 0, 0, 0.5);
-	  transition:all 0.4s var(--spring); position:relative; overflow:hidden;
-	}
-	.project-card-content .card-icon { font-size:4rem; margin-bottom:25px; filter:drop-shadow(0 0 10px currentColor); transition:0.4s var(--spring);}
-	.project-grid .cyber-card:hover { transform:translateY(-10px); }
-	.project-grid .cyber-card:hover .card-icon { transform:scale(1.1) rotate(-5deg); }
+.project-card-content h3 { font-size: 2.2rem; margin-top: 0; margin-bottom: 20px; font-weight: 900; text-shadow: 0 2px 5px rgba(0,0,0,0.8); word-break: keep-all;}
+.project-card-content p { color: var(--text-muted); font-size: 1.15rem; text-align: justify; line-height: 1.9; font-weight: 600; margin-bottom: 15px;}
 
-	.project-card-content h3 { font-size:2.2rem; margin-top:0; margin-bottom:20px; font-weight:900; text-shadow:0 2px 5px rgba(0,0,0,0.8);}
-	.project-card-content p { color:var(--text-muted); font-size:1.15rem; text-align:justify; line-height:1.9; font-weight:600; margin-bottom:15px;}
+.dynamic-stats-container { background: rgba(0, 0, 0, 0.45); border-radius: 12px; padding: 16px 20px; margin-top: 15px; border-left: 4px solid var(--accent-primary); box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); }
+.stat-item { font-size: 1rem; margin-bottom: 10px; color: #e2e8f0; display: flex; align-items: baseline; flex-wrap: wrap; line-height: 1.5; }
+.stat-item:last-child { margin-bottom: 0; padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.1); }
+.stat-icon { margin-right: 10px; font-size: 1.1rem; }
+.stat-label { font-weight: 800; color: #adb5bd; margin-right: 6px; white-space: nowrap; }
+.stat-value { font-family: 'Courier New', Courier, monospace; font-weight: 700; font-size: 1rem; word-break: break-word; }
 
-  /* 🌟 動態戰情區塊的專屬樣式 */
-  .dynamic-stats-container {
-    background:rgba(0, 0, 0, 0.45);
-    border-radius:12px;
-    padding:16px 20px;
-    margin-top:15px;
-    border-left:4px solid var(--accent-primary);
-    box-shadow:inset 0 0 20px rgba(0, 0, 0, 0.5);
-  }
-  .stat-item {
-    font-size:1rem;
-    margin-bottom:10px;
-    color:#e2e8f0;
-    display:flex;
-    align-items:baseline;
-    flex-wrap:wrap;
-    line-height:1.5;
-  }
-  .stat-item:last-child { margin-bottom:0; padding-top:8px; border-top:1px dashed rgba(255, 255, 255, 0.1); }
-  .stat-icon { margin-right:10px; font-size:1.1rem; }
-  .stat-label { font-weight:800; color:#adb5bd; margin-right:6px; white-space:nowrap; }
-  .stat-value { font-family:'Courier New', Courier, monospace; font-weight:700; font-size:1rem; }
+.tags { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px; }
+.tags span { background: rgba(0, 0, 0, 0.5); padding: 8px 18px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 5px; font-weight: 800; border: 1px solid; transition: 0.2s ease; max-width: 100%; word-break: break-word; white-space: normal; line-height: 1.4; }
+.tags span:hover { color: #fff !important; transform: translateY(-2px); }
 
-	.tags { display:flex; flex-wrap:wrap; justify-content:flex-start; gap:15px; margin-top:30px; }
-	.tags span { background:rgba(0, 0, 0, 0.5); padding:8px 18px; font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; border-radius:5px; font-weight:800; border:1px solid; transition:0.2s ease; max-width:100%; word-break:break-word; white-space:normal; line-height:1.4; }
-	.tags span:hover { color:#fff !important; transform:translateY(-2px); }
+.project-card-content a { font-size: 1.15rem; margin-top: 35px; display: inline-flex; align-items: center; gap: 8px; font-weight: 900; text-shadow: 0 0 8px currentColor; transition: all 0.15s ease-out; cursor: pointer; }
+.project-card-content a:hover { filter: brightness(1.3); transform: translateX(5px); text-shadow: 0 0 15px currentColor;}
+.project-card-content a:active { transform: scale(0.95); filter: brightness(1.5); text-shadow: 0 0 15px currentColor, 0 0 30px currentColor; opacity: 0.8; }
 
-	/* 🔗 連結按鈕與點擊特效 */
-	.project-card-content a { 
-	  font-size:1.15rem; margin-top:35px; display:inline-flex; align-items:center; gap:8px; font-weight:900; 
-	  text-shadow:0 0 8px currentColor; transition:all 0.15s ease-out; cursor:pointer;
-	}
-	.project-card-content a:hover { filter:brightness(1.3); transform:translateX(5px); text-shadow:0 0 15px currentColor;}
-	.project-card-content a:active { transform:scale(0.95); filter:brightness(1.5); text-shadow:0 0 15px currentColor, 0 0 30px currentColor; opacity:0.8; }
+.project-grid .cyber-card:nth-of-type(5n+1) .card-icon, .project-grid .cyber-card:nth-of-type(5n+1) h3, .project-grid .cyber-card:nth-of-type(5n+1) a, .project-grid .cyber-card:nth-of-type(5n+1) .tags span { color: var(--accent-primary); }
+.project-grid .cyber-card:nth-of-type(5n+1) .tags span { border-color: var(--accent-primary); }
+.project-grid .cyber-card:nth-of-type(5n+1):hover { border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.5), inset 0 0 15px rgba(0, 123, 255, 0.1); }
+.project-grid .cyber-card:nth-of-type(5n+1) .tags span:hover { background: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); color: #fff;}
 
-	/* ===================================================
-	   🌈 無限循環：五色卡片全自動上色與 Hover 特效
-	=================================================== */
-	.project-grid .cyber-card:nth-of-type(5n+1) .card-icon,
-	.project-grid .cyber-card:nth-of-type(5n+1) h3,
-	.project-grid .cyber-card:nth-of-type(5n+1) a,
-	.project-grid .cyber-card:nth-of-type(5n+1) .tags span { color:var(--accent-primary); }
-	.project-grid .cyber-card:nth-of-type(5n+1) .tags span { border-color:var(--accent-primary); }
-	.project-grid .cyber-card:nth-of-type(5n+1):hover { border-color:var(--accent-primary); box-shadow:0 0 30px rgba(0, 123, 255, 0.5), inset 0 0 15px rgba(0, 123, 255, 0.1); }
-	.project-grid .cyber-card:nth-of-type(5n+1) .tags span:hover { background:var(--accent-primary); box-shadow:0 0 15px var(--accent-primary); color:#fff;}
+.project-grid .cyber-card:nth-of-type(5n+2) .card-icon, .project-grid .cyber-card:nth-of-type(5n+2) h3, .project-grid .cyber-card:nth-of-type(5n+2) a, .project-grid .cyber-card:nth-of-type(5n+2) .tags span { color: var(--accent-purple); }
+.project-grid .cyber-card:nth-of-type(5n+2) .tags span { border-color: var(--accent-purple); }
+.project-grid .cyber-card:nth-of-type(5n+2):hover { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(181, 95, 230, 0.5), inset 0 0 15px rgba(181, 95, 230, 0.1); }
+.project-grid .cyber-card:nth-of-type(5n+2) .tags span:hover { background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); color: #fff;}
 
-	.project-grid .cyber-card:nth-of-type(5n+2) .card-icon,
-	.project-grid .cyber-card:nth-of-type(5n+2) h3,
-	.project-grid .cyber-card:nth-of-type(5n+2) a,
-	.project-grid .cyber-card:nth-of-type(5n+2) .tags span { color:var(--accent-purple); }
-	.project-grid .cyber-card:nth-of-type(5n+2) .tags span { border-color:var(--accent-purple); }
-	.project-grid .cyber-card:nth-of-type(5n+2):hover { border-color:var(--accent-purple); box-shadow:0 0 30px rgba(181, 95, 230, 0.5), inset 0 0 15px rgba(181, 95, 230, 0.1); }
-	.project-grid .cyber-card:nth-of-type(5n+2) .tags span:hover { background:var(--accent-purple); box-shadow:0 0 15px var(--accent-purple); color:#fff;}
+.project-grid .cyber-card:nth-of-type(5n+3) .card-icon, .project-grid .cyber-card:nth-of-type(5n+3) h3, .project-grid .cyber-card:nth-of-type(5n+3) a, .project-grid .cyber-card:nth-of-type(5n+3) .tags span { color: var(--accent-pink, #ff007f); }
+.project-grid .cyber-card:nth-of-type(5n+3) .tags span { border-color: var(--accent-pink, #ff007f); }
+.project-grid .cyber-card:nth-of-type(5n+3):hover { border-color: var(--accent-pink, #ff007f); box-shadow: 0 0 30px rgba(255, 0, 127, 0.5), inset 0 0 15px rgba(255, 0, 127, 0.1); }
+.project-grid .cyber-card:nth-of-type(5n+3) .tags span:hover { background: var(--accent-pink, #ff007f); box-shadow: 0 0 15px var(--accent-pink, #ff007f); color: #fff;}
 
-	.project-grid .cyber-card:nth-of-type(5n+3) .card-icon,
-	.project-grid .cyber-card:nth-of-type(5n+3) h3,
-	.project-grid .cyber-card:nth-of-type(5n+3) a,
-	.project-grid .cyber-card:nth-of-type(5n+3) .tags span { color:var(--accent-pink, #ff007f); }
-	.project-grid .cyber-card:nth-of-type(5n+3) .tags span { border-color:var(--accent-pink, #ff007f); }
-	.project-grid .cyber-card:nth-of-type(5n+3):hover { border-color:var(--accent-pink, #ff007f); box-shadow:0 0 30px rgba(255, 0, 127, 0.5), inset 0 0 15px rgba(255, 0, 127, 0.1); }
-	.project-grid .cyber-card:nth-of-type(5n+3) .tags span:hover { background:var(--accent-pink, #ff007f); box-shadow:0 0 15px var(--accent-pink, #ff007f); color:#fff;}
+.project-grid .cyber-card:nth-of-type(5n+4) .card-icon, .project-grid .cyber-card:nth-of-type(5n+4) h3, .project-grid .cyber-card:nth-of-type(5n+4) a, .project-grid .cyber-card:nth-of-type(5n+4) .tags span { color: var(--accent-tertiary); }
+.project-grid .cyber-card:nth-of-type(5n+4) .tags span { border-color: var(--accent-tertiary); }
+.project-grid .cyber-card:nth-of-type(5n+4):hover { border-color: var(--accent-tertiary); box-shadow: 0 0 30px rgba(253, 126, 20, 0.5), inset 0 0 15px rgba(253, 126, 20, 0.1); }
+.project-grid .cyber-card:nth-of-type(5n+4) .tags span:hover { background: var(--accent-tertiary); box-shadow: 0 0 15px var(--accent-tertiary); color: #fff;}
 
-	.project-grid .cyber-card:nth-of-type(5n+4) .card-icon,
-	.project-grid .cyber-card:nth-of-type(5n+4) h3,
-	.project-grid .cyber-card:nth-of-type(5n+4) a,
-	.project-grid .cyber-card:nth-of-type(5n+4) .tags span { color:var(--accent-tertiary); }
-	.project-grid .cyber-card:nth-of-type(5n+4) .tags span { border-color:var(--accent-tertiary); }
-	.project-grid .cyber-card:nth-of-type(5n+4):hover { border-color:var(--accent-tertiary); box-shadow:0 0 30px rgba(253, 126, 20, 0.5), inset 0 0 15px rgba(253, 126, 20, 0.1); }
-	.project-grid .cyber-card:nth-of-type(5n+4) .tags span:hover { background:var(--accent-tertiary); box-shadow:0 0 15px var(--accent-tertiary); color:#fff;}
+.project-grid .cyber-card:nth-of-type(5n+5) .card-icon, .project-grid .cyber-card:nth-of-type(5n+5) h3, .project-grid .cyber-card:nth-of-type(5n+5) a, .project-grid .cyber-card:nth-of-type(5n+5) .tags span { color: var(--accent-secondary); }
+.project-grid .cyber-card:nth-of-type(5n+5) .tags span { border-color: var(--accent-secondary); }
+.project-grid .cyber-card:nth-of-type(5n+5):hover { border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(32, 201, 151, 0.5), inset 0 0 15px rgba(32, 201, 151, 0.1); }
+.project-grid .cyber-card:nth-of-type(5n+5) .tags span:hover { background: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); color: #fff;}
 
-	.project-grid .cyber-card:nth-of-type(5n+5) .card-icon,
-	.project-grid .cyber-card:nth-of-type(5n+5) h3,
-	.project-grid .cyber-card:nth-of-type(5n+5) a,
-	.project-grid .cyber-card:nth-of-type(5n+5) .tags span { color:var(--accent-secondary); }
-	.project-grid .cyber-card:nth-of-type(5n+5) .tags span { border-color:var(--accent-secondary); }
-	.project-grid .cyber-card:nth-of-type(5n+5):hover { border-color:var(--accent-secondary); box-shadow:0 0 30px rgba(32, 201, 151, 0.5), inset 0 0 15px rgba(32, 201, 151, 0.1); }
-	.project-grid .cyber-card:nth-of-type(5n+5) .tags span:hover { background:var(--accent-secondary); box-shadow:0 0 15px var(--accent-secondary); color:#fff;}
+@media (max-width: 1024px) {
+  #projects { padding: 80px 4%; } 
+  .project-grid { grid-template-columns: 1fr; gap: 30px; }
+  .cyber-card { padding: 35px 25px; margin: 0; width: 100%; }
+  .section-title h2 { font-size: 2.5rem; }
+  .project-card-content h3 { font-size: 1.8rem; }
+}
 
-	/* ===================================================
-	   📱 RWD 平板與手機版適配
-	=================================================== */
-	@media (max-width:1024px) {
-	  .project-grid { grid-template-columns:repeat(2, 1fr); gap:20px; }
-	  .cyber-card { padding:25px; margin:10px; }
-	  .section-title h2 { font-size:2.2rem; }
-	}
-
-	@media (max-width:767px) {
-	  #projects { padding:60px 15px; }
-	  .section-title h2 { font-size:1.5rem; }
-	  .project-grid { display:block; width:100%; }
-	  .cyber-card { width:auto; margin:0 8px 30px 8px; padding:30px 20px; }
-	  .project-card-content h3 { font-size:1.4rem; }
-	  .project-card-content p { font-size:1.05rem; }
-    .dynamic-stats-container { padding:14px 15px; }
-    .stat-item { font-size:0.9rem; margin-bottom:8px; }
-    .stat-value { font-size:0.9rem; }
-	}
+@media (max-width: 767px) {
+  #projects { padding: 60px 15px; }
+  .section-title h2 { font-size: 1.6rem; }
+  .project-grid { display: flex; flex-direction: column; gap: 25px; width: 100%; }
+  .cyber-card { padding: 25px 15px; border-radius: 16px; margin: 0; width: 100%; }
+  .project-card-content h3 { font-size: 1.5rem; }
+  .project-card-content p { font-size: 1.05rem; }
+  .dynamic-stats-container { padding: 14px 15px; }
+  .stat-item { font-size: 0.9rem; margin-bottom: 8px; }
+  .stat-value { font-size: 0.9rem; }
+}
 </style>

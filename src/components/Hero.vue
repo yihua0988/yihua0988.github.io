@@ -1,6 +1,6 @@
 <template>
   <header class="hero-container">
-    <!-- 🚀 改為 position: fixed，讓背景留在畫面中，並隨著捲動計算透明度淡出 -->
+    <!-- 背景定格淡出 -->
     <div class="hero-bg-wrapper" :style="{ opacity: heroOpacity, pointerEvents: heroOpacity === 0 ? 'none' : 'auto' }">
       <video ref="heroVideo" class="hero-video" autoplay loop muted playsinline>
         <source src="/cover.mp4" type="video/mp4">
@@ -9,7 +9,7 @@
       <div class="hero-overlay"></div>
     </div>
 
-    <!-- 💡 中間這塊卡片維持正常捲動，且 100% 不透明 -->
+    <!-- 自我介紹卡片 -->
     <div class="intro-section reveal">
       <div class="legendary-bolt-container">
         <i class="fas fa-bolt hero-bolt-3d" style="font-size: 4.5rem; color: var(--accent-primary); filter: drop-shadow(0 5px 15px rgba(0,123,255,0.4));"></i>
@@ -37,44 +37,16 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { createClient } from '@supabase/supabase-js'
 
-// ==========================================
-// 1. Supabase 跨專案連線初始化
-// ==========================================
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-// ==========================================
-// 2. 專案卡片動態狀態 (與您的 Template 綁定)
-// ==========================================
-const projectInfo = ref({
-  icon: 'fas fa-user-shield',
-  title: '詐騙防制數據專案',
-  description: '📡 正在透過 Supabase API 即時連線抓取專案動態...',
-  updateHint: '系統連線中...',
-  tags: ['Python ETL', 'JS 視覺化', 'PostgreSQL'],
-  link: 'https://yihua0988.github.io/-2025-7-29-/',
-  btnText: '觀看當前版本',
-  btnIcon: 'fa-arrow-right'
-})
-
-// ==========================================
-// 3. 首頁影片與捲動特效邏輯
-// ==========================================
 const heroVideo = ref(null)
 const heroOpacity = ref(1)
 
 const handleScroll = () => {
   const scrollY = window.scrollY
   const heroHeight = window.innerHeight
-  
-  // 計算透明度：當捲動超過一個螢幕高度時，背景完全淡出
   let opacity = 1 - (scrollY / heroHeight)
   if (opacity < 0) opacity = 0
   if (opacity > 1) opacity = 1
-  
   heroOpacity.value = opacity
 }
 
@@ -85,11 +57,7 @@ const copyEmail = () => {
   }).catch(err => console.error('複製失敗', err))
 }
 
-// ==========================================
-// 4. 生命週期鉤子 (網頁載入時執行)
-// ==========================================
-onMounted(async () => {
-  // --- A. 影片自動播放機制 ---
+onMounted(() => {
   if (heroVideo.value) {
     heroVideo.value.muted = true
     const playPromise = heroVideo.value.play()
@@ -102,28 +70,7 @@ onMounted(async () => {
       })
     }
   }
-
-  // --- B. 註冊捲動監聽 ---
   window.addEventListener('scroll', handleScroll)
-
-  // --- C. Supabase API 動態抓取防詐專案最新資料 ---
-  try {
-    // 跨專案連線，抓取防詐資料庫的總筆數 (這裡假設表名為 anti_fraud_performance)
-    const { count, error } = await supabase
-      .from('anti_fraud_performance')
-      .select('*', { count: 'exact', head: true })
-
-    if (error) throw error
-
-    // 成功抓到資料，動態替換卡片文字！
-    projectInfo.value.description = '運用Python針對政府Opendata進行ETL數據清洗。前端全面改以<strong>JavaScript動態數據視覺化</strong>技術自主渲染並串接PostgreSQL雲端資料庫。（API連線逾時，請直接點擊進入專案查看）'
-    projectInfo.value.updateHint = `🟢API即時連線成功`
-
-  } catch (err) {
-    console.error('抓取失敗:', err)
-    projectInfo.value.description = '運用Python針對政府Opendata進行ETL數據清洗。前端全面改以<strong>JavaScript動態數據視覺化</strong>技術自主渲染並串接PostgreSQL雲端資料庫。（API連線逾時，請直接點擊進入專案查看）'
-    projectInfo.value.updateHint = '🔴 API 暫時無法連線'
-  }
 })
 
 onUnmounted(() => {
@@ -132,19 +79,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* ===================================================
-   🌟 首頁橫幅 (Hero Section) 專屬樣式
-=================================================== */
 .hero-container {
   position: relative; z-index: 1; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; 
   overflow: hidden; padding: 20px; box-sizing: border-box;
 }
 
-/* 🚀 關鍵修改：改為 position: fixed，讓背景定格在視窗中，並支援平滑淡出 */
 .hero-bg-wrapper {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: 0;
-  transition: opacity 0.1s ease-out;
+  z-index: 0; transition: opacity 0.1s ease-out;
+  transform: translateZ(0); will-change: opacity;
 }
 
 .hero-video { 
@@ -156,15 +99,14 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, rgba(6,11,25,0.7), #060b19); 
 }
 
-/* 中間的自我介紹卡片維持正常文件流，不透明 */
 .intro-section {
   position: relative; z-index: 2; width: 100%; max-width: 800px;
   background: rgba(10, 15, 30, 0.85); 
   border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(0, 123, 255, 0.2), inset 0 0 20px rgba(255,255,255,0.05);
   display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; padding: 60px 40px; box-sizing: border-box; transform: translateZ(0); 
-  opacity: 1 !important;
+  text-align: center; padding: 60px 40px; box-sizing: border-box; 
+  transform: translateZ(0); opacity: 1 !important;
 }
 
 .intro-section h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); margin: 0 0 10px; font-weight: 900; letter-spacing: 2px; color: #fff; line-height: 1.2; text-shadow: 0 0 15px rgba(0, 123, 255, 0.8); }
@@ -178,23 +120,28 @@ onUnmounted(() => {
 .btn-tech-filled { background: var(--accent-primary); color: #fff; border: 1px solid var(--accent-primary); box-shadow: 0 0 15px rgba(0,123,255,0.4); }
 .btn-tech-filled:hover { background: #0056b3; box-shadow: 0 0 25px rgba(0,123,255,0.8), inset 0 0 10px rgba(255,255,255,0.2); color: #fff;}
 
-/* 🌟 閃電與 3D 圓環特效 */
+/* 特效優化 */
 @keyframes spin3D { 0% { transform: rotateY(0deg) translateZ(0); } 100% { transform: rotateY(360deg) translateZ(0); } }
-.hero-bolt-3d { display: inline-block; animation: spin3D 3s linear infinite; will-change: transform; -webkit-backface-visibility: visible; backface-visibility: visible; }
-.legendary-bolt-container { position: relative; display: flex; justify-content: center; align-items: center; width: 180px; height: 180px; margin-bottom: 25px; perspective: 1000px; transform: rotateX(20deg); transform-style: preserve-3d; }
+.hero-bolt-3d { display: inline-block; animation: spin3D 3s linear infinite; will-change: transform; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform-style: preserve-3d; }
+.legendary-bolt-container { position: relative; display: flex; justify-content: center; align-items: center; width: 180px; height: 180px; margin-bottom: 25px; perspective: 800px; transform: rotateX(20deg) translateZ(0); transform-style: preserve-3d; }
 .legendary-bolt-container i { position: relative; z-index: 5; margin-bottom: 0 !important; }
-.bolt-circle { position: absolute; border-radius: 50%; top: 50%; left: 50%; will-change: transform; transform-style: flat; outline: 1px solid transparent; -webkit-backface-visibility: visible; backface-visibility: visible; }
+.bolt-circle { position: absolute; border-radius: 50%; top: 50%; left: 50%; will-change: transform; transform-style: flat; outline: 1px solid transparent; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 
 @keyframes spinCirclesY { 0% { transform: rotateY(0deg) translateZ(0); } 100% { transform: rotateY(360deg) translateZ(0); } }
-.circle-blue { width: 100px; height: 100px; margin-top: -50px; margin-left: -50px; border: 8px solid rgba(255, 235, 59, 0.8); box-shadow: 0 0 15px rgba(255, 235, 59, 0.5); animation: spinCirclesY 6s linear infinite; }
-.circle-green { width: 135px; height: 135px; margin-top: -67.5px; margin-left: -67.5px; border: 6px solid rgba(32, 201, 151, 0.8); box-shadow: 0 0 15px rgba(32, 201, 151, 0.5); animation: spinCirclesY 11s linear infinite; }
-.circle-yellow { width: 170px; height: 170px; margin-top: -85px; margin-left: -85px; border: 4px solid rgba(0, 123, 255, 0.8); box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); animation: spinCirclesY 8s linear infinite; }
+.circle-blue { width: 100px; height: 100px; margin-top: -50px; margin-left: -50px; border: 8px solid rgba(255, 235, 59, 0.8); box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); animation: spinCirclesY 6s linear infinite; }
+.circle-green { width: 135px; height: 135px; margin-top: -67.5px; margin-left: -67.5px; border: 6px solid rgba(32, 201, 151, 0.8); box-shadow: 0 0 10px rgba(32, 201, 151, 0.4); animation: spinCirclesY 11s linear infinite; }
+.circle-yellow { width: 170px; height: 170px; margin-top: -85px; margin-left: -85px; border: 4px solid rgba(0, 123, 255, 0.8); box-shadow: 0 0 10px rgba(0, 123, 255, 0.4); animation: spinCirclesY 8s linear infinite; }
 
 .reveal { opacity: 1; transform: translateY(0); }
 
+@media (max-width: 1024px) {
+  .intro-section { padding: 50px 30px; }
+  .legendary-bolt-container { transform: rotateX(20deg) scale(0.85); margin-bottom: 15px; }
+}
 @media (max-width: 767px) {
   .hero-container { padding: 20px; }
   .intro-section { width: 100%; padding: 40px 20px; border-radius: 25px; backdrop-filter: blur(8px) saturate(120%); }
+  .legendary-bolt-container { transform: rotateX(20deg) scale(0.7); margin-bottom: 5px; }
   .intro-section h1 { font-size: 1.8rem; }
   .intro-section p { font-size: 1rem; margin-bottom: 15px !important; }
   .btn-group { flex-direction: column; gap: 12px; width: 100%; }

@@ -189,6 +189,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* ===================================================
+   🌟 基礎排版與標題
+=================================================== */
 #experience { padding: 120px 5%; position: relative; z-index: 10; overflow-x: hidden; width: 100%; box-sizing: border-box; }
 
 .section-title { text-align: center; margin-bottom: 80px; width: 100%; }
@@ -203,6 +206,9 @@ onMounted(() => {
   box-shadow: 0 0 10px var(--accent-primary);
 }
 
+/* ===================================================
+   🌟 圓餅圖統計列
+=================================================== */
 .chart-row { display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; margin-bottom: 80px; max-width: 1200px; margin-left: auto; margin-right: auto; }
 .chart-container { flex: 1; min-width: 380px; max-width: 500px; padding: 40px; display: flex; flex-direction: column; align-items: center; }
 .chart-container:hover { border-color: var(--accent-primary); box-shadow: 0 0 30px rgba(0,123,255,0.3); transform: translateY(-10px); }
@@ -216,7 +222,17 @@ onMounted(() => {
 .legend-item:hover { background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3); transform: translateX(8px); }
 .legend-color { width: 18px; height: 18px; border-radius: 4px; box-shadow: 0 0 8px currentColor;}
 
+/* ===================================================
+   🌟 懸浮提示與卡片
+=================================================== */
 #chart-tooltip { position: fixed; background: rgba(10, 15, 30, 0.95); color: #fff; text-align: center; font-weight: 800; border-radius: 8px; padding: 10px 18px; z-index: 9999; pointer-events: none; backdrop-filter: blur(5px); font-size: 1.1rem; transform: translate(-50%, -100%); margin-top: -15px; border: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
+
+.cyber-card {
+  background: rgba(17, 24, 43, 0.95); 
+  border-radius: 22px; box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s var(--spring); position: relative; overflow: hidden;
+}
 
 .exp-list { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;}
 .exp-item { display: flex; padding: 50px; border-radius: 0 25px 25px 0; border-left: 6px solid var(--accent-primary); align-items: stretch; }
@@ -227,30 +243,62 @@ onMounted(() => {
 .exp-content h3 { margin: 0 0 15px 0; color: #fff; font-size: 1.8rem; font-weight: 900; text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
 .exp-content p { color: var(--text-muted); margin: 0; font-size: 1.15rem; text-align: justify; line-height: 1.9; font-weight: 600;}
 
-.cyber-card {
-  background: rgba(17, 24, 43, 0.95); 
-  border-radius: 22px; box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s var(--spring); position: relative; overflow: hidden;
-}
 .reveal { opacity: 1; transform: translateY(0); }
 
-/* 📱 手機版：大幅縮小圖表與卡片字體 */
+/* ===================================================
+   📱 RWD 平板適配 (max-width: 1024px)
+=================================================== */
+@media (max-width: 1024px) {
+  #experience { padding: 80px 4%; }
+  
+  .chart-row { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 30px; 
+  }
+  .chart-container { 
+    width: 100%; 
+    max-width: 100%; 
+    padding: 30px 20px; 
+  }
+
+  .exp-item { 
+    display: block; 
+    width: 100%; 
+    padding: 30px 25px; 
+    border-radius: 16px; 
+    border-left: none; 
+    border-top: 5px solid var(--accent-primary); 
+  }
+  .exp-meta { 
+    width: 100%; 
+    margin: 0 0 20px 0; 
+    padding: 0 0 20px 0; 
+    border-right: none; 
+    border-bottom: 2px dashed rgba(255,255,255,0.2); 
+    text-align: left;
+  }
+}
+
+/* ===================================================
+   📱 RWD 手機版適配 (max-width: 767px)
+=================================================== */
 @media (max-width: 767px) {
   #experience { padding: 60px 12px; }
   .section-title h2 { font-size: 1.8rem; letter-spacing: 1px; }
-  .chart-row { display: flex !important; flex-direction: column; gap: 20px; margin-bottom: 40px; }
-  .chart-container { min-width: 100% !important; padding: 25px 15px !important; margin: 0 !important; }
+  
+  .chart-row { gap: 20px; margin-bottom: 40px; }
+  .chart-container { padding: 25px 15px; }
   .chart-container h4 { font-size: 1.3rem; margin-bottom: 25px; }
   
   .custom-pie-container { gap: 20px; }
-  .pie-chart { width: 160px !important; height: 160px !important; padding: 10px; }
+  .pie-chart { width: 160px; height: 160px; padding: 10px; }
   .legend-item { font-size: 0.9rem; padding: 8px 12px; gap: 10px; }
   .legend-color { width: 14px; height: 14px; }
   
   .exp-list { gap: 25px; }
-  .exp-item { display: block !important; width: auto !important; margin: 0 !important; padding: 20px 15px !important; border-radius: 16px !important; border-left: none !important; border-top: 4px solid var(--accent-primary) !important; }
-  .exp-meta { min-width: 0 !important; width: 100% !important; margin: 0 0 15px 0 !important; padding: 0 0 15px 0 !important; border-right: none !important; border-bottom: 2px dashed rgba(255,255,255,0.2) !important; }
+  .exp-item { padding: 20px 15px; border-radius: 16px; }
+  .exp-meta { margin: 0 0 15px 0; padding: 0 0 15px 0; }
   .exp-period { font-size: 1.3rem; margin-bottom: 5px; }
   .exp-role { font-size: 0.95rem; line-height: 1.4; }
   .exp-content h3 { font-size: 1.35rem; margin-bottom: 10px; }
